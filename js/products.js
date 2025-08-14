@@ -13,13 +13,22 @@ async function cargarProductos(){
         let precioDeProducto = document.createElement("h2");
         let descripcionDeProducto = document.createElement("p");
         let cantidadVendidos = document.createElement("h2");
+        let divComprar = document.createElement("div");
+        let botonCarrito = document.createElement("button");
 
+        divComprar.appendChild(botonCarrito);
+        divComprar.classList.add("comprarBotonP");
         imagenDeProducto.src = productoActual.image;
         imagenDeProducto.classList.add("imagenP");
         nombreDeProducto.innerHTML = productoActual.name;
+        nombreDeProducto.classList.add("nombreP");
         precioDeProducto.innerHTML = productoActual.currency + " " + productoActual.cost;
+        precioDeProducto.classList.add("precioP");
         descripcionDeProducto.innerHTML = productoActual.description;
+        descripcionDeProducto.classList.add("descripcionP")
         cantidadVendidos.innerHTML = productoActual.soldCount + " " + "Vendidos";
+        cantidadVendidos.classList.add("cantidadVendidosP");
+
 
         divDeProductoActual.appendChild(imagenDeProducto);
         divDeProductoActual.appendChild(nombreDeProducto);
@@ -27,6 +36,7 @@ async function cargarProductos(){
         divDeProductoActual.appendChild(descripcionDeProducto);
         divDeProductoActual.appendChild(cantidadVendidos);
         divDeProductoActual.classList.add("casillaProducto");
+        divDeProductoActual.appendChild(botonCarrito);
         divDeProductos.appendChild(divDeProductoActual);
         
     }
