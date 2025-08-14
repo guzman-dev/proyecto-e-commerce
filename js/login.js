@@ -22,9 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function validarCredenciales(event) {
-    if (!validarUsuario() || !validarContrasenia()) {
-        event.preventDefault(); //Previene el redireccionamiento
-        alert("datos inválidos.");
+    const usuarioValido = validarUsuario();
+    const contrasenaValida = validarContrasenia();
+
+    if (!usuarioValido || !contrasenaValida) {
+      event.preventDefault(); // Evita el envío
+      form.reportValidity(); // Muestra el popup de los elementos del form
     }
   }
   form.addEventListener('submit', validarCredenciales)
