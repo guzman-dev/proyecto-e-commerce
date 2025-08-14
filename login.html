@@ -17,10 +17,23 @@
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <main class="login">
+    <div class="contenedor-login">
+      <h1>Bienvenido a ECommerce</h1>
+      <div class="contenedor-formulario">
+      <form action="" id="formulario-login">
+        <div  class="campo-formulario">
+          <label for="usuario" class="label-formulario">Usuario</label><br>
+          <input type="text" name="usuario" id="usuario" required>
+        </div>
+        <div class="campo-formulario">
+          <label for="contrasenia" class="label-formulario">Contraseña</label><br>
+          <input type="password" name="contrasenia" id="contrasenia" required>
+        </div>
+        <div id="boton-ingresar">
+          <button type="submit">Ingresar</button>
+        </div>
+      </form>
       </div>
     </div>
   </main>
