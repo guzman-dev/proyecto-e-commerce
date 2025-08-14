@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function validarCredenciales(event) {
     if (!validarUsuario() || !validarContrasenia()) {
         event.preventDefault(); //Previene el redireccionamiento
-        alert("datos inválidos.");
+        form.reportValidity();
     }
   }
   form.addEventListener('submit', validarCredenciales)
