@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return contrasenia.value.length > 6;
   }
 
-  function validarCredenciales() {
+  function validarCredenciales(event) {
     if (!validarUsuario() || !validarContrasenia()) {
         event.preventDefault(); //Previene el redireccionamiento
         alert("datos inválidos.");
