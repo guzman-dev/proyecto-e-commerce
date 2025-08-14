@@ -8,38 +8,28 @@
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/login.css">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
+  <link href="css/login.css" rel="stylesheet">
 </head>
 
 <body>
-  <main class="login">
-    <div class="contenedor-login">
-      <h1>Bienvenido a ECommerce</h1>
-      <div class="contenedor-formulario">
-      <form action="index.html" id="formulario-login" method="get">
-        <div  class="campo-formulario">
-          <label for="usuario" class="label-formulario">Usuario</label><br>
-          <input type="text" name="usuario" id="usuario" required>
+    <header>
+    <h1 id="titulo-princial">Bienvenido a ECommerce</h1>
+    </header>
+
+    <main>
+    <div class="login-box">
+    <form id="login-form">
+         <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario">
+              
+         <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña">
+              
+        <button type="submit">Ingresar</button>
+        </form>
         </div>
-        <div class="campo-formulario">
-          <label for="contrasenia" class="label-formulario">Contraseña</label><br>
-          <input type="password" name="contrasenia" id="contrasenia" required>
-        </div>
-        <div id="mensaje-error">
-        </div>
-        <div id="boton-ingresar">
-          <button type="submit">Ingresar</button>
-        </div>
-      </form>
-      </div>
-    </div>
-  </main>
+      </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
