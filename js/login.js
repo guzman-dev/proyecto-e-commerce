@@ -30,5 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.reportValidity(); // Muestra el popup de los elementos del form
     }
   }
-  form.addEventListener('submit', validarCredenciales)
+  form.addEventListener('submit', validarCredenciales);
+  usuario.addEventListener('input', validarUsuario);
+  contrasenia.addEventListener('input', validarContrasenia);
 });
