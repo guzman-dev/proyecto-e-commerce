@@ -15,6 +15,7 @@ async function cargarProductos(){
         let cantidadVendidos = document.createElement("h2");
 
         imagenDeProducto.src = productoActual.image;
+        imagenDeProducto.classList.add("imagenP");
         nombreDeProducto.innerHTML = productoActual.name;
         precioDeProducto.innerHTML = productoActual.currency + " " + productoActual.cost;
         descripcionDeProducto.innerHTML = productoActual.description;
