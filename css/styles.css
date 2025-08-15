@@ -255,7 +255,7 @@ a.custom-card:hover {
 .comprarBotonP {
   width: fit-content;
   color: rgba(179, 75, 31, 0.5);
-  background-image: url('../img/Carrito de compra.png');
+  /* background-image: url('../img/Carrito de compra.png'); */
 }
 
 .botonCarrito {
