@@ -188,3 +188,98 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/*nuevo*/
+
+  body {
+    background-image: url(../img/pantallaproductos.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+ }
+
+.titulo {
+  font-size: 40px;
+  font-weight: 600;
+  margin-left: 8%;
+  margin-top: 10px;
+}
+
+.general {
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow, .bottomRow {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.nombreP, .precioP {
+  
+  font-size: 13px;
+  font-weight: 600;
+  background-color: rgba(205, 140, 107, 0.5);
+  padding: 9px;
+  border-radius: 5px;
+  margin: 10px;
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+.cantidadVendidosP {
+  font-size: 13px;
+  font-weight: 600;
+  background-color: rgba(205, 140, 107, 0.5);
+  padding: 9px;
+  margin: 10px;
+  border-radius: 5px;
+  width: fit-content;
+
+}
+
+.descripcionP {
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: rgba(205, 140, 107, 0.5);
+  margin-top: 10px;
+  padding: 9px;
+  border-radius: 5px;;
+} 
+
+.comprarBotonP {
+  width: fit-content;
+  color: rgba(179, 75, 31, 0.5);
+  background-image: url('..\img\Carrito de compra.png');
+}
+
+.botonCarrito {
+  width: fit-content;
+  height: fit-content;
+}
+
+.carroImg {
+  width: 20px;
+}
+
+.casillaProducto {
+  display: flex;
+  background-color: rgba(179, 75, 31, 0.5);
+  align-items: center;
+  padding: 12px;
+  border-radius: 5px;
+  margin-top: 2%;
+  flex-direction: row;
+}
+
+.imagenP {
+  width: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
