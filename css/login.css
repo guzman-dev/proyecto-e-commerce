@@ -1,0 +1,56 @@
+body {
+    background-image: url(../img/fondo1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+.login-box {
+    background-color: rgb(88, 88, 115);
+    padding: 30px;
+    border: 4px solid rgb(26, 26, 66);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin: 60px auto;
+}
+
+#login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: white; 
+}
+
+  
+#login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+  
+#login-form button {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer.text-muted {
+    font-size: 13px;
+    margin-top: 150px;
+}
