@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 const divDeProductos = document.getElementById("contenedorProductos");
 document.addEventListener("DOMContentLoaded", cargarProductos);
 
@@ -71,4 +69,3 @@ async function cargarProductos(){
         
     }
 }
->>>>>>> Stashed changes
