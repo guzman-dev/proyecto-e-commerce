@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault(); // Evita el envío
       form.reportValidity(); // Muestra el popup de los elementos del form
     }
-
+    //Indica que el usuario está logeado hasta que se cierre la ventana
+    sessionStorage.setItem("loggedIn", "true");
   }
   form.addEventListener('submit', validarCredenciales);
   usuario.addEventListener('input', validarUsuario);
