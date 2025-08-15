@@ -15,28 +15,56 @@ async function cargarProductos(){
         let cantidadVendidos = document.createElement("h2");
         let divComprar = document.createElement("div");
         let botonCarrito = document.createElement("button");
+        let divTop = document.createElement("div");
+        let divBottom = document.createElement("div");
+        let divGeneral = document.createElement("div");
+        let imagenCarrito = document.createElement("img");
+        imagenCarrito.src = '../img/Carrito de compra.png';
+
+        divTop.classList.add("topRow");
+        divBottom.classList.add("bottomRow");
+        divGeneral.classList.add("general");
+
+        botonCarrito.classList.add("botonCarrito");
 
         divComprar.appendChild(botonCarrito);
         divComprar.classList.add("comprarBotonP");
-        imagenDeProducto.src = productoActual.image;
+
+        imagenCarrito.classList.add("carroImg");
+
+        imagenDeProducto.src = productoActual.image; 
         imagenDeProducto.classList.add("imagenP");
+
         nombreDeProducto.innerHTML = productoActual.name;
         nombreDeProducto.classList.add("nombreP");
+
         precioDeProducto.innerHTML = productoActual.currency + " " + productoActual.cost;
         precioDeProducto.classList.add("precioP");
+
         descripcionDeProducto.innerHTML = productoActual.description;
         descripcionDeProducto.classList.add("descripcionP")
+        
         cantidadVendidos.innerHTML = productoActual.soldCount + " " + "Vendidos";
         cantidadVendidos.classList.add("cantidadVendidosP");
 
+        botonCarrito.appendChild(imagenCarrito);
+        divTop.appendChild(nombreDeProducto);
+        divTop.appendChild(precioDeProducto);
+        divTop.appendChild(cantidadVendidos);
+
+        divBottom.appendChild(descripcionDeProducto);
+        divBottom.appendChild(divComprar);
+
+        divComprar.appendChild(botonCarrito);
 
         divDeProductoActual.appendChild(imagenDeProducto);
-        divDeProductoActual.appendChild(nombreDeProducto);
-        divDeProductoActual.appendChild(precioDeProducto);
-        divDeProductoActual.appendChild(descripcionDeProducto);
-        divDeProductoActual.appendChild(cantidadVendidos);
         divDeProductoActual.classList.add("casillaProducto");
-        divDeProductoActual.appendChild(botonCarrito);
+        divDeProductoActual.appendChild(divGeneral);
+
+        divGeneral.appendChild(divTop);
+        divGeneral.appendChild(divBottom);
+
+
         divDeProductos.appendChild(divDeProductoActual);
         
     }
