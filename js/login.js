@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('formulario-login');
+  const form = document.getElementById('login-form');
   const contrasenia = document.getElementById("contrasenia");
   const usuario = document.getElementById("usuario");
 
   function validarUsuario() {
-    if (usuario.value.trim().length == 0) {
-      usuario.setCustomValidity('El usuario debe tener más de 3 caracteres.');
+    if (usuario.value.trim().length === 0) {
+      usuario.setCustomValidity('Este campo no puede estar vacio');
       return false;
     }
     usuario.setCustomValidity('');
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function validarContrasenia() {
-    if (contrasenia.value.length < 6) {
-      contrasenia.setCustomValidity('La contraseña debe tener al menos 6 caracteres.');
+    if (contrasenia.value.trim().length === 0) {
+      contrasenia.setCustomValidity('Este campo no puede estar vacio');
       return false;
     }
     contrasenia.setCustomValidity('');
@@ -23,12 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function validarCredenciales(event) {
     const usuarioValido = validarUsuario();
-    const contrasenaValida = validarContrasenia();
+    const contraseniaValida = validarContrasenia();
 
-    if (!usuarioValido || !contrasenaValida) {
+    if (!usuarioValido || !contraseniaValida) {
       event.preventDefault(); // Evita el envío
       form.reportValidity(); // Muestra el popup de los elementos del form
     }
+
   }
   form.addEventListener('submit', validarCredenciales);
   usuario.addEventListener('input', validarUsuario);
