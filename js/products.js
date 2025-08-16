@@ -60,8 +60,12 @@ async function cargarProductos(){
 
         //Div que contendrá los elementos descipción de producto y div del botón para añadir al carrito
         let divBottom = document.createElement("div");
+      
+        //Div que contendrá los elementos nombre de producto y precio de producto
+        let divLeftTop = document.createElement("div");
 
         //Div que contendrá el divTop y divBottom
+      
         let divGeneral = document.createElement("div");
 
         //Imagen que irá en el botón
@@ -76,6 +80,12 @@ async function cargarProductos(){
         divGeneral.classList.add("general");
         divTop.classList.add("topRow");
         divBottom.classList.add("bottomRow");
+        divLeftTop.classList.add("leftTop");
+        divGeneral.classList.add("general");
+
+        botonCarrito.classList.add("botonCarrito");
+
+        divComprar.appendChild(botonCarrito);
         divComprar.classList.add("comprarBotonP");
 
         //Elementos con info del producto
@@ -103,6 +113,7 @@ async function cargarProductos(){
 
         //Descripción
         descripcionDeProducto.innerHTML = productoActual.description;
+        descripcionDeProducto.classList.add("descripcionP");
         
         //Cantidad de vendidos
         cantidadVendidos.innerHTML = productoActual.soldCount + " " + "Vendidos";
@@ -110,6 +121,9 @@ async function cargarProductos(){
         // -----------------------------------------------------------------------------
         //PONIENDO ELEMENTOS DENTRO DE LOS DIVS PRINCIPALES
 
+        botonCarrito.appendChild(imagenCarrito);
+        divTop.appendChild(divLeftTop);
+      
         //divTop (nombre, precio, cantidad vendidos)
         divTop.appendChild(nombreDeProducto);
         divTop.appendChild(precioDeProducto);
@@ -118,6 +132,10 @@ async function cargarProductos(){
         //divBottom (descripción y div con el boton del carrito)
         divBottom.appendChild(descripcionDeProducto);
         divBottom.appendChild(divComprar);
+        
+        //divLeftTop (nombre y precio)
+        divLeftTop.appendChild(nombreDeProducto);
+        divLeftTop.appendChild(precioDeProducto);
 
         //div del boton (boton para comprar)
         divComprar.appendChild(botonCarrito);

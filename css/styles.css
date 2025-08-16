@@ -195,6 +195,7 @@ a.custom-card:hover {
     background-image: url(../img/pantallaproductos.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: right;
  }
 
@@ -208,13 +209,26 @@ a.custom-card:hover {
 .general {
   display: flex;
   flex-direction: column;
+  flex-grow: 0.95;
 }
 
-.topRow, .bottomRow {
+.topRow {
+  display: flex;
+  margin-top: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.bottomRow {
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-top: 5px;
+}
+
+.leftTop {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 1;
 }
 
 .nombreP, .precioP {
@@ -224,7 +238,7 @@ a.custom-card:hover {
   background-color: rgba(205, 140, 107, 0.5);
   padding: 9px;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: auto;
   flex-shrink: 0;
   width: fit-content;
 }
@@ -238,6 +252,7 @@ a.custom-card:hover {
   border-radius: 5px;
   width: fit-content;
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .descripcionP {
@@ -261,6 +276,8 @@ a.custom-card:hover {
 .botonCarrito {
   width: fit-content;
   height: fit-content;
+  margin-right: 10px;
+  border-radius: 20%;
 }
 
 .carroImg {
@@ -270,7 +287,7 @@ a.custom-card:hover {
 .casillaProducto {
   display: flex;
   background-color: rgba(179, 75, 31, 0.5);
-  align-items: center;
+  align-items: flex-start;
   padding-left: 15px;
   border-radius: 5px;
   margin-top: 2%;
@@ -282,4 +299,5 @@ a.custom-card:hover {
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
+  margin-top: 13px;
 }
