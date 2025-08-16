@@ -66,7 +66,7 @@ async function cargarProductos(){
 
         //Imagen que irá en el botón
         let imagenCarrito = document.createElement("img");
-        imagenCarrito.src = '../img/Carrito de compra.png';
+        imagenCarrito.src = 'img/Carrito de compra.png';
 
         // -----------------------------------------------------------------------------
         //ASIGNACIÓN DE CLASES A ELEMENTOS, ESTOS SERAN UTILIZADOS EN EL CSS PARA DARLE ESTILO A LA LISTA DE PRODUCTOS
