@@ -195,7 +195,6 @@ a.custom-card:hover {
     background-image: url(../img/pantallaproductos.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: right;
  }
 
@@ -215,6 +214,7 @@ a.custom-card:hover {
   display: flex;
   align-items: center;
   gap: 1em;
+  margin-top: 5px;
 }
 
 .nombreP, .precioP {
@@ -237,7 +237,7 @@ a.custom-card:hover {
   margin: 10px;
   border-radius: 5px;
   width: fit-content;
-
+  margin-left: auto;
 }
 
 .descripcionP {
@@ -249,7 +249,7 @@ a.custom-card:hover {
   background-color: rgba(205, 140, 107, 0.5);
   margin-top: 10px;
   padding: 9px;
-  border-radius: 5px;;
+  border-radius: 5px;
 } 
 
 .comprarBotonP {
@@ -271,7 +271,7 @@ a.custom-card:hover {
   display: flex;
   background-color: rgba(179, 75, 31, 0.5);
   align-items: center;
-  padding: 12px;
+  padding-left: 15px;
   border-radius: 5px;
   margin-top: 2%;
   flex-direction: row;
