@@ -17,12 +17,14 @@ async function cargarProductos(){
         let botonCarrito = document.createElement("button");
         let divTop = document.createElement("div");
         let divBottom = document.createElement("div");
+        let divLeftTop = document.createElement("div");
         let divGeneral = document.createElement("div");
         let imagenCarrito = document.createElement("img");
         imagenCarrito.src = '../img/Carrito de compra.png';
 
         divTop.classList.add("topRow");
         divBottom.classList.add("bottomRow");
+        divLeftTop.classList.add("leftTop");
         divGeneral.classList.add("general");
 
         botonCarrito.classList.add("botonCarrito");
@@ -42,18 +44,20 @@ async function cargarProductos(){
         precioDeProducto.classList.add("precioP");
 
         descripcionDeProducto.innerHTML = productoActual.description;
-        descripcionDeProducto.classList.add("descripcionP")
+        descripcionDeProducto.classList.add("descripcionP");
         
         cantidadVendidos.innerHTML = productoActual.soldCount + " " + "Vendidos";
         cantidadVendidos.classList.add("cantidadVendidosP");
 
         botonCarrito.appendChild(imagenCarrito);
-        divTop.appendChild(nombreDeProducto);
-        divTop.appendChild(precioDeProducto);
+        divTop.appendChild(divLeftTop);
         divTop.appendChild(cantidadVendidos);
 
         divBottom.appendChild(descripcionDeProducto);
         divBottom.appendChild(divComprar);
+
+        divLeftTop.appendChild(nombreDeProducto);
+        divLeftTop.appendChild(precioDeProducto);
 
         divComprar.appendChild(botonCarrito);
 
