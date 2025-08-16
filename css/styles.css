@@ -195,6 +195,7 @@ a.custom-card:hover {
     background-image: url(../img/pantallaproductos.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: right;
  }
 
