@@ -109,7 +109,9 @@ async function cargarProductos(){
         nombreDeProducto.innerHTML = productoActual.name;
 
         //Precio, se concatena la moneda en la que se vende con el precio del producto
-        precioDeProducto.innerHTML = productoActual.currency + " " + productoActual.cost;
+        //Primero le agrego separadores al precio para que muestre por ejemplo: 1.000.000 en vez de 1000000
+        let precioConSeparador = new Intl.NumberFormat('de-DE').format(productoActual.cost);
+        precioDeProducto.innerHTML = productoActual.currency + " " + precioConSeparador;
 
         //Descripción
         descripcionDeProducto.innerHTML = productoActual.description;
