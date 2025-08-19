@@ -19,11 +19,18 @@ body {
   flex-grow: 0.95;
 }
 
+.imagenP {
+  width: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+  margin-top: 13px;
+}
+
 .topRow {
   display: flex;
   margin-top: auto;
   flex-direction: row;
-  flex-wrap: nowrap;
 }
 
 .bottomRow {
@@ -35,7 +42,16 @@ body {
 .leftTop {
   display: flex;
   gap: 10px;
-  flex-shrink: 1;
+}
+
+.casillaProducto {
+  display: flex;
+  background-color: rgba(179, 75, 31, 0.5);
+  align-items: flex-start;
+  padding-left: 15px;
+  border-radius: 5px;
+  margin-top: 2%;
+  flex-direction: row;
 }
 
 .nombreP, .precioP {
@@ -63,7 +79,6 @@ body {
 }
 
 .descripcionP {
-  flex-direction: column;
   display: flex;
   flex: 1;
   font-size: 13px;
@@ -74,12 +89,6 @@ body {
   border-radius: 5px;
 } 
 
-.comprarBotonP {
-  width: fit-content;
-  color: rgba(179, 75, 31, 0.5);
-  /* background-image: url('../img/Carrito de compra.png'); */
-}
-
 .botonCarrito {
   width: fit-content;
   height: fit-content;
@@ -89,22 +98,4 @@ body {
 
 .carroImg {
   width: 20px;
-}
-
-.casillaProducto {
-  display: flex;
-  background-color: rgba(179, 75, 31, 0.5);
-  align-items: flex-start;
-  padding-left: 15px;
-  border-radius: 5px;
-  margin-top: 2%;
-  flex-direction: row;
-}
-
-.imagenP {
-  width: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 20px;
-  margin-top: 13px;
 }
