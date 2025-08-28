@@ -1,4 +1,5 @@
 body {
+
     background-image: url(../img/fondo1.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -34,13 +35,13 @@ body {
 }
 
 #login-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.7rem 0;
+  border: none;
+  border-radius: 0.3rem;
 }
-  
+
 #login-form button {
     background-color: white;
     color: rgb(0, 0, 0);
@@ -54,6 +55,6 @@ body {
 }
 
 footer.text-muted {
-    font-size: 13px;
-    margin-top: 150px;
+  font-size: 0.8rem;
+  margin-top: 12vh;
 }

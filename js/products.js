@@ -165,6 +165,6 @@ async function cargarProductos(){
         //Finalmente, se agrega la casilla al contenedor principal de la página para que sea visualizado
         contenedorDeListaConProductos.appendChild(divDeProductoActual);
         
-        //FIN DE LA ITERACIÓN ACTUAL, ESTÓ SE REPETIRÁ CON CADA PREDUCTO EN EL ARREGLO HASTA QUE SE LLEGUÉ AL FINAL
+        //FIN DE LA ITERACIÓN ACTUAL, ESTÓ SE REPETIRÁ CON CADA PREDUCTO EN EL ARREGLO HASTA QUE SE LLEGUE AL FINAL
     }
 }

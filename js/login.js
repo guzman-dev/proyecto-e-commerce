@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //Indica que el usuario está logeado hasta que se cierre la ventana
     sessionStorage.setItem("loggedIn", "true");
+    sessionStorage.setItem("username", usuario.value);
   }
   form.addEventListener('submit', validarCredenciales);
   usuario.addEventListener('input', validarUsuario);
