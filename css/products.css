@@ -7,7 +7,7 @@ body {
  }
 
 .titulo {
-  font-size: 40px;
+  font-size: 2.5em;
   font-weight: 600;
   margin-left: 8%;
   margin-top: 10px;
@@ -56,23 +56,23 @@ body {
 
 .nombreP, .precioP {
   
-  font-size: 13px;
+  font-size: 0.8em;
   font-weight: 600;
   background-color: rgba(205, 140, 107, 0.5);
-  padding: 9px;
-  border-radius: 5px;
+  padding: 0.8em;
+  border-radius: 0.5em;
   margin-top: auto;
   flex-shrink: 0;
   width: fit-content;
 }
 
 .cantidadVendidosP {
-  font-size: 13px;
+  font-size: 0.8em;
   font-weight: 600;
   background-color: rgba(205, 140, 107, 0.5);
-  padding: 9px;
-  margin: 10px;
-  border-radius: 5px;
+  padding: 0.8em;
+  margin: 0.8em;
+  border-radius: 0.5em;
   width: fit-content;
   margin-left: auto;
   white-space: nowrap;
@@ -81,21 +81,89 @@ body {
 .descripcionP {
   display: flex;
   flex: 1;
-  font-size: 13px;
+  font-size: 0.8em;
   font-weight: 600;
   background-color: rgba(205, 140, 107, 0.5);
-  margin-top: 10px;
-  padding: 9px;
-  border-radius: 5px;
+  margin-top: 0.75em;
+  padding: 0.8em;
+  border-radius: 0.5em;
 } 
 
 .botonCarrito {
   width: fit-content;
   height: fit-content;
-  margin-right: 10px;
+  margin-right: 0.7em;
   border-radius: 20%;
 }
 
 .carroImg {
-  width: 20px;
+  width: 1.3em;
+}
+
+.casillaProducto {
+  display: flex;
+  background-color: rgba(179, 75, 31, 0.5);
+  align-items: flex-start;
+  padding-left: 1em;
+  border-radius: 0.3em;
+  margin-top: 2%;
+  flex-direction: row;
+}
+
+.imagenP {
+  width: 10em;
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin-right: 1em;
+  margin-top: 0.7em;
+}
+
+@media (max-width: 600px) {
+
+  .casillaProducto {
+    display: flex;
+    padding: 0.5em;
+    gap: 0.1em;
+    flex-wrap: wrap;
+    height: fit-content;
+    flex-direction: column;
+  }
+
+  .cantidadVendidosP{
+    height: fit-content;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .descripcionP{
+    font-size: 0.7em;
+  }
+
+  .leftTop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    width: fit-content;
+    align-items: center;
+    margin: 2px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: center ;
+    margin: 2px;
+  }
+
+  .imagenP {
+    width: 7.5em;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto  ;
+  }
+
+  .titulo {
+    font-size: 1.5em;
+    margin-left: 7%
+  }
 }
