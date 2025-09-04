@@ -39,9 +39,38 @@
     </div>
   </nav>
   <header class="titulo">Productos</header>
-  <main class="pb-5 container">
-    <div class="container" id="contenedorProductos">
+  <main class="pb-5 container" id="main">
+    <div id="contenedorBuscador">
+      <input type="search" id="buscador" placeholder="Escriba aquí para buscar">
     </div>
+    <div id="contenedorFiltroYProductos">
+        <div class="container" id="filtros">
+          <div>
+            <h2 class="tituloFiltros" id="tituloFiltro"><strong>Filtrar</strong></h2>
+          </div>
+          <div id="contenedorCampoPrecioMin"">
+            <label for="precioMinimo">Precio mínimo</label>
+            <input type="number" id="precioMinimo">
+          </div>
+          <div id="contenedorCampoPrecioMax">
+            <label for="precioMaximo">Precio máximo</label>
+            <input type="number" id="precioMaximo">
+          </div>
+          <div id="botonesFiltro">
+            <button class="botonesFiltro" type="button" id="botonFiltrarPrecio">Filtrar por precio</button>
+            <button class="botonesFiltro" type="button" id="botonLimpiarFiltro">Limpiar filtro</button>
+          </div>
+          <div>
+            <h2 class="tituloFiltros" id="tituloOrdenar"><strong>Ordenar</strong></h2>
+          </div>
+          <div>
+            <button class="botonesFiltro" type="button" id="botonOrdenarPrecioDesc">Precio descendente</button>
+            <button class="botonesFiltro" type="button" id="botonOrdenarPrecioAsc">Precio ascendente</button>
+            <button class="botonesFiltro" type="button" id="botonOrdenarRelevancia">Relevancia</button>
+          </div>
+        </div>
+        <div class="container" id="contenedorProductos"></div>
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">

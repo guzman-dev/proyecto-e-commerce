@@ -11,30 +11,65 @@ function checkLogin(){
     }}
 
 //Se añade un eventlistener para que se ejecute la funcion que carga la lista de productos al finalizar la carga de la página
-document.addEventListener("DOMContentLoaded", cargarProductos);
+document.addEventListener("DOMContentLoaded", cargarDatos);
 
 checkLogin();
+
+let response;
+let data;
+let productos;
+let listaBase;
+let listaParaMostrar;
+
+
+const buscador = document.getElementById("buscador");
+const precioMinimo = document.getElementById("precioMinimo");
+const precioMaximo = document.getElementById("precioMaximo");
+const botonFiltrarPrecio = document.getElementById("botonFiltrarPrecio");
+const botonLimpiar = document.getElementById("botonLimpiarFiltro");
+const botonPrecioDescendiente = document.getElementById("botonOrdenarPrecioDesc");
+const botonPrecioAscendiente = document.getElementById("botonOrdenarPrecioAsc");
+const botonOrdernarRelevancia = document.getElementById("botonOrdenarRelevancia");
+
+botonFiltrarPrecio.addEventListener("click", filtrarPorPrecio);
+botonLimpiar.addEventListener("click", limpiarFiltro);
+botonPrecioDescendiente.addEventListener("click", ordenarDescendiente);
+botonPrecioAscendiente.addEventListener("click", ordenarAscendiente);
+botonOrdernarRelevancia.addEventListener("click", ordenarRelevancia);
+buscador.addEventListener("input", buscarProducto);
+
+
+async function cargarDatos(){
+    // -----------------------------------------------------------------------------
+    //PREPARACION DE DATOS
+
+    // Se realiza el fetch para conseguir los datos de los productos de la categoria que se seleccionó
+    response = await fetch("https://japceibal.github.io/emercado-api/cats_products/" + localStorage.getItem("catID") + ".json");
+    if(response.ok){
+        // Se convierte la respuesto en un objeto json
+        data = await response.json();
+        // Se guarda el arreglo de productos en una variable
+        listaBase = data.products;
+        listaParaMostrar = listaBase;
+        cargarProductos();
+    }
+}
+
 
 //Función que se utilizará para cargar y agregar los productos a la página.
 async function cargarProductos(){
 
-    // -----------------------------------------------------------------------------
-    //PREPARACION DE DATOS
-    
-    // Se realiza el fetch para conseguir los datos de los productos de la categoria autos
-    let response = await fetch("https://japceibal.github.io/emercado-api/cats_products/101.json");
-    // Se convierte la respuesto en un objeto json
-    let data = await response.json();
-    // Se guarda el arreglo de productos en una variable
-    let productos = data.products;
+    //Se limpia el contenedor antes de cargar para no haya duplicados.
+    contenedorDeListaConProductos.innerHTML = "";
+
 
     // -----------------------------------------------------------------------------
     //PROCESO DE AGREGAR LOS PRODUCTOS A LA PÁGINA
 
     // Se crea un for loop para realizar la creación de la casilla para cada elemento del arreglo
-    for (let i = 0; i < productos.length; i++) {
+    for (let i = 0; i < listaParaMostrar.length; i++) {
         // Se toma del arreglo el producto actual en el loop y se guarda en una variable
-        let productoActual = productos[i];
+        let productoActual = listaParaMostrar[i];
 
         // -----------------------------------------------------------------------------
         // SE CREAN LOS ELEMENTOS QUE FORMARAN PARTE DE LA CASILLA DEL ELEMENTO ACTUAL
@@ -85,7 +120,9 @@ async function cargarProductos(){
 
         //Divs
         divDeProductoActual.classList.add("casillaProducto");
+        
         divGeneral.classList.add("general");
+        divDeProductoActual.dataset.id = productoActual.id;
         divTop.classList.add("topRow");
         divBottom.classList.add("bottomRow");
         divLeftTop.classList.add("leftTop");
@@ -165,6 +202,60 @@ async function cargarProductos(){
         //Finalmente, se agrega la casilla al contenedor principal de la página para que sea visualizado
         contenedorDeListaConProductos.appendChild(divDeProductoActual);
         
+        divDeProductoActual.addEventListener('click', (event) => {
+            let casillaSeleccionada = event.currentTarget;
+            let id = casillaSeleccionada.dataset.id;
+            localStorage.setItem("productoSeleccionado", id);
+            window.location.href = 'product-info.html';
+        })
         //FIN DE LA ITERACIÓN ACTUAL, ESTÓ SE REPETIRÁ CON CADA PREDUCTO EN EL ARREGLO HASTA QUE SE LLEGUE AL FINAL
     }
+}
+
+function filtrarPorPrecio(){ 
+    listaParaMostrar = listaBase.filter(producto => {
+        let cumpleMin = true;
+        let cumpleMax = true;
+
+        if(precioMinimo.value){
+            cumpleMin = producto.cost >= precioMinimo.value;
+        }
+        if(precioMaximo.value){
+            cumpleMax = producto.cost <= precioMaximo.value;
+        } 
+        return cumpleMin && cumpleMax;
+    })
+
+    console.log(listaParaMostrar);
+    cargarProductos();
+}
+
+function limpiarFiltro(){
+    listaParaMostrar = listaBase;
+    precioMaximo.value = "";
+    precioMinimo.value = "";
+    cargarProductos();
+}
+
+function ordenarDescendiente(){
+    listaParaMostrar.sort((a, b) => b.cost - a.cost);
+    cargarProductos();
+}
+
+function ordenarAscendiente(){
+    listaParaMostrar.sort((a, b) => a.cost - b.cost);
+    cargarProductos();
+}
+
+function ordenarRelevancia(){
+    listaParaMostrar.sort((a, b) => b.soldCount - a.soldCount);
+    cargarProductos();
+}
+
+function buscarProducto(){
+    let filtro = buscador.value;
+    listaParaMostrar = listaBase.filter(producto =>{
+        return producto.name.toLowerCase().includes(filtro) || producto.description.toLowerCase().includes(filtro);
+    })
+    cargarProductos();
 }
