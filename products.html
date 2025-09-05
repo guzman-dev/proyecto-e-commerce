@@ -2,16 +2,15 @@
 <html lang="es">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/products.css">
-  <script defer src="js/products.js" type="text/javascript"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/products.css" />
 </head>
 
 <body>
@@ -32,8 +31,7 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <li class="nav-item"></li>
         </ul>
       </div>
     </div>
@@ -41,43 +39,60 @@
   <header class="titulo">Productos</header>
   <main class="pb-5 container" id="main">
     <div id="contenedorBuscador">
-      <input type="search" id="buscador" placeholder="Escriba aquí para buscar">
+      <input type="search" id="buscador" class="form-control w-100" placeholder="Escriba aquí para buscar" />
     </div>
     <div id="contenedorFiltroYProductos">
-        <div class="container" id="filtros">
-          <div>
-            <h2 class="tituloFiltros" id="tituloFiltro"><strong>Filtrar</strong></h2>
-          </div>
-          <div id="contenedorCampoPrecioMin"">
-            <label for="precioMinimo">Precio mínimo</label>
-            <input type="number" id="precioMinimo">
-          </div>
-          <div id="contenedorCampoPrecioMax">
-            <label for="precioMaximo">Precio máximo</label>
-            <input type="number" id="precioMaximo">
-          </div>
-          <div id="botonesFiltro">
-            <button class="botonesFiltro" type="button" id="botonFiltrarPrecio">Filtrar por precio</button>
-            <button class="botonesFiltro" type="button" id="botonLimpiarFiltro">Limpiar filtro</button>
-          </div>
-          <div>
-            <h2 class="tituloFiltros" id="tituloOrdenar"><strong>Ordenar</strong></h2>
-          </div>
-          <div>
-            <button class="botonesFiltro" type="button" id="botonOrdenarPrecioDesc">Precio descendente</button>
-            <button class="botonesFiltro" type="button" id="botonOrdenarPrecioAsc">Precio ascendente</button>
-            <button class="botonesFiltro" type="button" id="botonOrdenarRelevancia">Relevancia</button>
-          </div>
+      <div id="filtros">
+        <div>
+          <h2 class="tituloFiltros" id="tituloFiltro">
+            <strong>Filtrar</strong>
+          </h2>
         </div>
-        <div class="container" id="contenedorProductos"></div>
+        <div id="contenedorCampoPrecioMin">
+          <label for="precioMinimo">Precio mínimo</label>
+          <input type="number" id="precioMinimo" />
+        </div>
+        <div id="contenedorCampoPrecioMax">
+          <label for="precioMaximo">Precio máximo</label>
+          <input type="number" id="precioMaximo" />
+        </div>
+        <div id="botonesFiltro">
+          <button class="botonesFiltro w-100" type="button" id="botonFiltrarPrecio">
+            Filtrar por precio
+          </button>
+          <button class="botonesFiltro w-100" type="button" id="botonLimpiarFiltro">
+            Limpiar filtro
+          </button>
+        </div>
+        <div>
+          <h2 class="tituloFiltros" id="tituloOrdenar">
+            <strong>Ordenar</strong>
+          </h2>
+        </div>
+        <div>
+          <button class="botonesFiltro w-100" type="button" id="botonOrdenarPrecioDesc">
+            Precio descendente
+          </button>
+          <button class="botonesFiltro w-100" type="button" id="botonOrdenarPrecioAsc">
+            Precio ascendente
+          </button>
+          <button class="botonesFiltro w-100" type="button" id="botonOrdenarRelevancia">
+            Relevancia
+          </button>
+        </div>
       </div>
+      <div class="container" id="contenedorProductos"></div>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>
+        Este sitio forma parte de
+        <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
