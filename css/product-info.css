@@ -12,6 +12,7 @@ body{
     margin: 0;
 }
 
+
 #producto {
     margin-top: 4em;
     margin-left: 7em;
@@ -49,6 +50,8 @@ body{
     align-items: center;
     flex: 1;
 }
+
+
 
 #descripcionInfo {
     background-color: rgb(255, 176, 119, 0.9);
