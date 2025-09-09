@@ -255,7 +255,7 @@ function ordenarRelevancia(){
 function buscarProducto(){
     let filtro = buscador.value;
     listaParaMostrar = listaBase.filter(producto =>{
-        return producto.name.toLowerCase().includes(filtro) || producto.description.toLowerCase().includes(filtro);
+        return producto.name.toLowerCase().includes(filtro.toLowerCase()) || producto.description.toLowerCase().includes(filtro.toLowerCase());
     })
     cargarProductos();
 }
