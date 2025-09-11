@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body{
     background-image: url(../img/productinfo1.jpg);
     background-size: cover;
@@ -118,10 +122,6 @@ body{
 }
 
 @media screen and (max-width: 1024px){
-
-    body {
-        margin-top: auto;
-    }
     
     #producto {
     margin-top: 3em;
