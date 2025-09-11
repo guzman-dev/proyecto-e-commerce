@@ -277,6 +277,11 @@ label {
     box-sizing: border-box;
     width: auto;
     margin: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
   }
 
   #ordenadores .botonesFiltro + .botonesFiltro { margin-left: 0.5rem; }
@@ -298,27 +303,5 @@ label {
   #contenedorProductos {
     width: 100%;
     padding-right: 0;
-  }
-}
-
-@media (max-width: 568px) {
-  #filtros {
-    display: none !important;
-  }
-
-  #contenedorBuscador {
-    margin-bottom: 0.5rem;
-    padding: 0 0.5rem;
-  }
-
-  #buscador {
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-
-  #contenedorProductos {
-    width: 100%;
-    margin: 0;
-    padding: 0 0.5rem;
   }
 }
