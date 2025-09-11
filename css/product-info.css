@@ -100,16 +100,21 @@ body{
     border-radius: 1em;
 }
 
-#comprarInfo button {
-    background-color: #E66B2E;
-    font-size: larger;
-    font-weight: 500;
-    width: 100%;
-    height: 100%;
-    border-radius: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.custom-hover-btn {
+  background-color: #E66B2E;
+  transition: background-color 0.3s ease;
+  font-size: larger;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-hover-btn:hover {
+  background-color: #ff6417;
 }
 
 @media screen and (max-width: 1024px){
