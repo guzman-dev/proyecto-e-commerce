@@ -1,37 +1,36 @@
 body {
-
-    background-image: url(../img/fondo1.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  background-image: url(../img/fondo1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
-  
+
 .login-box {
-    background-color: rgb(88, 88, 115);
-    border: 4px solid rgb(26, 26, 66);
-    border-radius: 15px;
-    padding: 30px;
-    max-width: 350px;
-    text-align: center;
-    margin: 60px auto;
+  background-color: rgb(88, 88, 115);
+  border: 0.25rem solid rgb(26, 26, 66);
+  border-radius: 0.9rem;
+  padding: 1.9rem;
+  max-width: 21.9rem;
+  text-align: center;
+  margin: 3.8rem auto;
 }
 
 #login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #login-form label {
-    text-align: left;
-    margin-top: 5px;
-    font-weight: bold;
-    color: white;
+  text-align: left;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  color: white;
 }
 
 #login-form input {
@@ -43,15 +42,15 @@ body {
 }
 
 #login-form button {
-    background-color: white;
-    color: rgb(0, 0, 0);
-    border: none;
-    margin-top: 15px;
-    padding: 10px;
-    width: 50%;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border: none;
+  margin-top: 0.9rem;
+  padding: 0.6rem;
+  width: 50%;
+  border-radius: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 footer.text-muted {
