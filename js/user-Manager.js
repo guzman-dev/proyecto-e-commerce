@@ -1,4 +1,11 @@
-document.addEventListener("DOMContentLoaded", cargarUsuario);
+document.addEventListener("DOMContentLoaded", checkLogin);
+
+function checkLogin(){
+    if(sessionStorage.getItem("loggedIn") == null || sessionStorage.getItem("loggedIn") === "false"){
+        window.location.href = "login.html";
+    }}
+    cargarUsuario();
+
 function cargarUsuario(){
     if(sessionStorage.getItem("username") == null){
         return;
