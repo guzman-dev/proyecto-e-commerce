@@ -175,6 +175,29 @@ body{
   padding-top: 0.5em;
 }
 
+/* Esto siguiente es solo para animar el error al calificar sin comentar, no es necesario cambiarlo con los cambios de resolucion */
+@keyframes flash-area {
+  0%   { background-color: rgb(252, 177, 177); }
+  100%  { background-color: white; }
+}
+
+@keyframes flash-estrellas {
+  0%   { color: rgb(255, 0, 0); }
+  100%  { color: rgb(0, 0, 0); }
+}
+
+
+.flash-error {
+  animation: flash-area 1s ease-in-out 1;
+}
+
+.flash-estrellas-error{
+  animation: flash-estrellas 1s ease-in-out 1;
+}
+
+
+
+
 @media screen and (max-width: 1024px){
     
     #producto {
