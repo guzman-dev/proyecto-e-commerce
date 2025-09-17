@@ -226,7 +226,6 @@ function filtrarPorPrecio(){
         return cumpleMin && cumpleMax;
     })
 
-    console.log(listaParaMostrar);
     cargarProductos();
 }
 
