@@ -42,7 +42,7 @@
   </nav>
   <div id="producto" class="card shadow">
 
-    <div id="nombreYCategoriaInfo" class="card-header border-bottom">
+    <div id="nombreYCategoriaInfo" class="card-header">
       <p id="productCategory"></p>
       <h2 id="productName"></h2>
     </div>
@@ -105,30 +105,32 @@
       <div id="divTituloCalificar">
         <h2>Calificar</h2>
       </div>
-      <div id="estrellasParaCalificar"  class="star-rating animated-stars">
-            <input type="radio" id="star5" name="rating" value="5">
-            <label for="star5" class="bi bi-star-fill"></label>
-            <input type="radio" id="star4" name="rating" value="4">
-            <label for="star4" class="bi bi-star-fill"></label>
-            <input type="radio" id="star3" name="rating" value="3">
-            <label for="star3" class="bi bi-star-fill"></label>
-            <input type="radio" id="star2" name="rating" value="2">
-            <label for="star2" class="bi bi-star-fill"></label>
-            <input type="radio" id="star1" name="rating" value="1">
-            <label for="star1" class="bi bi-star-fill"></label>
-        </div>
+      <div id="estrellasParaCalificar" class="star-rating animated-stars">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" class="bi bi-star-fill"></label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" class="bi bi-star-fill"></label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" class="bi bi-star-fill"></label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" class="bi bi-star-fill"></label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" class="bi bi-star-fill"></label>
+      </div>
     </div>
     <div>
-      <textarea class="form-control" id="areaParaComentar" placeholder="Escribe un comentario aquí..." rows="3"></textarea>
+      <textarea class="form-control" id="areaParaComentar" placeholder="Escribe un comentario aquí..."
+        rows="3"></textarea>
       <button type="button" class="btn custom-hover-btn" id="botonEnviarCalificacion">Enviar</button>
     </div>
   </div>
 
 
   <div id="divCalificaciones">
-    <h2>Reseñas</h2>
+    <div id="divTituloResenias">
+      <h2>Reseñas</h2>
+    </div>
     <div id="calificaciones">
-
     </div>
   </div>
 
