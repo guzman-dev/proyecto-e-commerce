@@ -28,10 +28,7 @@ label {
 }
 
 #contenedorBuscador input {
-  padding: 0.5em;
-  margin-bottom: 1em;
   border-radius: 0.3em;
-  border: 2px solid orange;
 }
 
 #filtros {
@@ -41,6 +38,10 @@ label {
   border-radius: 0.5em;
   height: fit-content;
   margin-top: 2vh;
+}
+
+.snes-button{
+  background-color: rgb(248, 154, 38) !important;
 }
 
 .titulo {
@@ -56,6 +57,7 @@ label {
   border-radius: 8px;
   background-color: rgb(217, 109, 51);
   border: 0;
+  font-size: 90% !important;
 }
 
 .casillaProducto {
@@ -142,7 +144,7 @@ label {
 }
 
 .carroImg {
-  width: 1.3em;
+  width: 1.7em;
 }
 
 @media (max-width: 600px) {
@@ -179,6 +181,40 @@ label {
     font-size: 1.5em;
     margin-left: 7%;
   }
+
+  .botonesFiltro{
+    font-size: 10px;
+    height: 8vh;
+  }
+
+  .botonesOrdenadores{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .btn-text{
+    display: none;
+  }
+
+  #botonFiltrarPrecio, #botonLimpiarFiltro{
+    line-height: 1.5;
+  }
+
+
+  #botonOrdenarPrecioDesc{
+    background-image: url(../img/price_down.png);
+    
+  }
+
+  #botonOrdenarPrecioAsc{
+    background-image: url(../img/price_up.png)
+  }
+
+  #botonOrdenarRelevancia{
+    background-image: url(../img/relevancia.png);
+  }
+
 }
 
 @media (max-width: 1024px) {
@@ -244,16 +280,19 @@ label {
     width: 100%;
     box-sizing: border-box;
     margin-top: 0;
+    padding: 1px;
   }
 
-  #botonesFiltro .botonesFiltro {
-    padding: 0.85rem 1rem;
+   .botonesFiltro {
+    padding: 1.5rem 1.5rem;
     font-size: 1rem;
     border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
     min-width: 0;
     margin: 0;
+    font-size: 0.8em !important;
+    padding: 0 !important; 
   }
 
   #ordenadores {
