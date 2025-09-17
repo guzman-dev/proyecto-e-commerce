@@ -49,25 +49,30 @@ body{
 }
 
 #productCategory {
-    font-weight: 500;
-    margin-top: 0.2em;
+  font-weight: 500;
+  margin-top: 0.2em;
+}
+
+#divTituloResenias {
+  text-align: left;
+  padding-left: 1em;
 }
 
 #productInfo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 3em;
-    gap: 1em;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3em;
+  gap: 1em;
+  flex: 1;
 }
 
 #carouselExampleControls {
-    margin-top: 1em;
-    margin-left: 2em;
-    display: flex;
-    align-items: center;
-    flex: 1;
+  margin-top: 1em;
+  margin-left: 2em;
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
 #descripcionInfo {
@@ -97,11 +102,11 @@ body{
 }
 
 #bottomRightInfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4em;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4em;
+  width: 100%;
 }
 
 #precioInfo,
@@ -253,29 +258,39 @@ body{
 
 /* Esto siguiente es solo para animar el error al calificar sin comentar, no es necesario cambiarlo con los cambios de resolucion */
 @keyframes flash-area {
-  0%   { background-color: rgb(252, 177, 177); }
-  100%  { background-color: white; }
+  0% {
+    background-color: rgb(252, 177, 177);
+  }
+
+  100% {
+    background-color: white;
+  }
 }
 
 @keyframes flash-estrellas {
-  0%   { color: rgb(255, 0, 0); }
-  100%  { color: rgb(0, 0, 0); }
+  0% {
+    color: rgb(255, 0, 0);
+  }
+
+  100% {
+    color: rgb(0, 0, 0);
+  }
 }
 
 .flash-error {
   animation: flash-area 1s ease-in-out 1;
 }
 
-.flash-estrellas-error{
+.flash-estrellas-error {
   animation: flash-estrellas 1s ease-in-out 1;
 }
 
 
 /*responsives*/
 
-@media screen and (max-width: 1024px){
-    
-    #producto {
+@media screen and (max-width: 1024px) {
+
+  #producto {
     margin-top: 3em;
     margin-left: 3em;
     margin-right: 3em;
@@ -283,7 +298,7 @@ body{
   }
 
   .card-body {
-   flex-direction: row;
+    flex-direction: row;
   }
 
   #carouselExampleControls {
@@ -316,7 +331,7 @@ body{
   }
 }
 
-@media (max-width: 808px){
+@media (max-width: 808px) {
 
     #producto {
     margin-top: 2em;
@@ -326,7 +341,7 @@ body{
   }
 
   .card-body {
-   flex-direction: column;
+    flex-direction: column;
   }
 
   #carouselExampleControls {
@@ -336,7 +351,7 @@ body{
 
   #productInfo {
     padding: 1em;
-    }
+  }
 
   #descripcionInfo {
     min-height: 100px;
@@ -347,9 +362,9 @@ body{
     margin-top: 1em;
   }
 
-   #precioInfo {
-    padding: 0.7em 1em 0em; 
-   }
+  #precioInfo {
+    padding: 0.7em 1em 0em;
+  }
 
   #bottomRightInfo {
     gap: 1em;
