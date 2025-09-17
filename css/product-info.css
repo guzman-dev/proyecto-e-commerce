@@ -1,18 +1,16 @@
-html, body {
+body{
+    background-image: url(../img/pixil-frame-0.png);
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-size: smaller !important;
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 
-body{
-    background-image: url(../img/productinfo1.jpg);
-    background-size: cover;
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
-
-.checked{
-    color: rgb(218, 218, 1);
-}
+/*Card de información*/
 
 .card-body {
     display: flex;
@@ -23,24 +21,31 @@ body{
     height: 100%;
 }
 
-#producto, #divCalificaciones, #calificarProducto {
-    margin-top: 4em;
-    margin-left: 7em;
-    margin-right: 7em;
-    margin-bottom: 5em;
-    background-color: rgb(226, 139, 53, 0.7);
+#producto {
+    margin-top: 5em;
+    margin-left: 4em;
+    margin-right: 4em;
+    background-color: #cd5409;
     align-items: center;
     text-align: center;
     border-radius: 1em;
 }
 
-#calificaciones{
-  padding: 1em;
+#productoBlock {
+  background-color: rgb(246, 130, 36) !important;
+}
+
+.snes-blockquote {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 #nombreYCategoriaInfo {
-    background-color: rgb(255, 133, 58, 0.6);
+    background-color: #e96828 !important;
     width: 100%;
+    color: black;
 }
 
 #productCategory {
@@ -67,21 +72,23 @@ body{
 
 #descripcionInfo {
     background-color: rgb(255, 176, 119, 0.9);
-    padding: 1em;
+    color: black;
+    padding-top: 1em !important;
     width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 180px;
     border-radius: 1em;
 }
 
 #descripcionInfo p {
-    margin-top: 2.2em;
+    margin-top: 1em;
+    margin-bottom: 0;
 }
 
 #cantidadVendidosInfo {
    background-color: rgb(255, 176, 119, 0.9);
-   padding: 0.5em;
+   color: black;
+   padding: 0.1em;
    width: 100%;
    height: 50px;
    border-radius: 1em;
@@ -106,13 +113,12 @@ body{
 
 #precioInfo {
     background-color: rgb(255, 176, 119, 0.9);
-    padding: 0.5em;
+    color: black;
+    padding: 0;
     border-radius: 1em;
 }
 
-.custom-hover-btn {
-  background-color: #E66B2E;
-  transition: background-color 0.3s ease;
+#comprarInfo {
   font-size: larger;
   font-weight: 500;
   width: 100%;
@@ -123,8 +129,93 @@ body{
   justify-content: center;
 }
 
-.custom-hover-btn:hover {
-  background-color: #ff6417;
+#comprarInfo button {
+  background-color: rgb(255, 141, 3);
+  color: black;
+  width: 100%;
+}
+
+/*Zona de calificar*/
+
+#calificarProducto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e96828;
+    color: black;
+    margin: 4em auto 2em auto;
+    max-width: 90vw;
+}
+
+#tituloYEstrellas{
+    display: flex;
+    gap: 3vw;
+    margin: 1.5em;
+    margin-top: 2em;
+    padding: 0.5em;
+}
+
+#estrellasParaCalificar {
+    display: flex;
+    gap: 2vw;
+    position: relative;
+    top: -8px;
+}
+
+#areaParaComentar {
+  display: block;
+  margin: auto;
+  width: 92%;
+  align-items: center;
+}
+
+#calificarProducto button {
+      color: black;
+      width: fit-content;
+      display: block;
+      background-color: white;
+      font-size: larger;
+      margin: 1.8em auto;
+}
+
+#enviarComentario {
+  width: 100%;
+}
+
+/*Reseñas*/
+
+#divCalificaciones {
+  background-color:  rgb(255, 176, 119, 0.9);
+  color: black;
+  margin: 3em auto 4em auto;
+  text-align: center;
+  border-radius: 1em;
+  max-width: 90vw;
+  box-sizing: border-box;
+}
+
+#divCalificaciones h2 {
+  padding-top: 0.7em;
+}
+
+#calificaciones{
+  margin-top: 1em;
+  padding: 1em;
+}
+
+#divTopComentario {
+  background-color: #cd5409;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#divBottomComentario {
+  background-color: #E66B2E !important;
+}
+
+.checked{
+    color: rgb(218, 218, 1);
 }
 
 .star-rating {
@@ -138,9 +229,8 @@ body{
     }
 
     .star-rating label {
-        color: #000000;
-        font-size: 24px;
-        padding: 0 2px;
+        color: #ffffff;
+        font-size: 30px;
         cursor: pointer;
         transition: all 0.2s ease;
     }
@@ -151,28 +241,14 @@ body{
         color: rgb(218, 218, 1);
     }
 
-    #tituloYEstrellas{
-      display: flex;
-      gap: 2vw;
-      margin-left: 1%;
-    }
 
-    #divTituloCalificar, #estrellasParaCalificar{
-      margin: 0;
-    }
+/*footer*/
 
-    #tituloYEstrellas  {
-      padding: 5px;
-      padding-top: 8px;
-    }
-
-    #calificarProducto button {
-      width: fit-content;
-      background-color: white;
-    }
-
-#divCalificaciones h2 {
-  padding-top: 0.5em;
+.text-muted {
+  background-color: #cd5409 !important;
+  color: black !important;
+  padding-top: 1em;
+  margin-top: auto !important;
 }
 
 /* Esto siguiente es solo para animar el error al calificar sin comentar, no es necesario cambiarlo con los cambios de resolucion */
@@ -186,7 +262,6 @@ body{
   100%  { color: rgb(0, 0, 0); }
 }
 
-
 .flash-error {
   animation: flash-area 1s ease-in-out 1;
 }
@@ -196,7 +271,7 @@ body{
 }
 
 
-
+/*responsives*/
 
 @media screen and (max-width: 1024px){
     
@@ -244,7 +319,7 @@ body{
 @media (max-width: 808px){
 
     #producto {
-    margin-top: 1em;
+    margin-top: 2em;
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 4em;
@@ -279,5 +354,28 @@ body{
   #bottomRightInfo {
     gap: 1em;
     flex-direction: column;
+  }
+
+  #calificarProducto {
+    margin-top: 0;
+  }
+
+  #tituloYEstrellas {
+    flex-direction: column;
+  }
+
+  #estrellasParaCalificar {
+    align-self: center;
+   }
+
+  #divTopComentario {
+  display: flex;
+  flex-direction: column !important;
+  padding: 2em;
+  width: 100%;
+  }
+
+  #divBottomComentario {
+    padding: 2em;
   }
 }

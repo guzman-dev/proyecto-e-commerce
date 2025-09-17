@@ -65,11 +65,15 @@ function cargarComentarios(){
         const divComentario = document.createElement("div");
         divComentario.classList.add("d-flex", "flex-column", "card", "mb-3");
         divComentario.classList.add("card");
-        divComentario.style.backgroundColor="rgb(255, 176, 119, 0.9)";
 
         const divTopComentario = document.createElement("div");
-        divTopComentario.classList.add("d-flex","flex-row", "gap-4", "align-items-center");
+        divTopComentario.id="divTopComentario";
+        divTopComentario.classList.add("d-flex","flex-row", "gap-4", "align-items-center", "justify-content-between");
         divTopComentario.classList.add("card-header");
+        
+        const divTopLeft = document.createElement("div");
+        divTopLeft.id="divTopLeft";
+        divTopLeft.classList.add("d-flex","flex-row", "gap-4", "align-items-center");
 
         const divBottomComentario = document.createElement("div");
         divBottomComentario.id="divBottomComentario";
@@ -78,11 +82,14 @@ function cargarComentarios(){
 
         const nombreUsuario = document.createElement("h5");
         nombreUsuario.textContent = comentario.user;
+        nombreUsuario.classList.add("m-0", "p-0");
 
         const fechaComentario = document.createElement("p");
         fechaComentario.textContent = comentario.dateTime;
+        fechaComentario.classList.add("m-0", "p-0");
 
         const calificacionProducto = document.createElement("p");
+        calificacionProducto.classList.add("m-0", "p-0");
 
         const comentarioProducto = document.createElement("p");
         comentarioProducto.textContent = comentario.description;
@@ -95,8 +102,9 @@ function cargarComentarios(){
             }
         }
 
-        divTopComentario.appendChild(nombreUsuario);
-        divTopComentario.appendChild(fechaComentario);
+        divTopLeft.appendChild(nombreUsuario);
+        divTopLeft.appendChild(fechaComentario);
+        divTopComentario.appendChild(divTopLeft);
         divTopComentario.appendChild(calificacionProducto);
 
         divBottomComentario.appendChild(comentarioProducto);
