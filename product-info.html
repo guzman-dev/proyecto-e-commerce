@@ -11,6 +11,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link href="css/product-info.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css">
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -41,8 +42,9 @@
     </div>
   </nav>
   <div id="producto" class="card shadow">
+    <blockquote class="snes-blockquote" id="productoBlock">
 
-    <div id="nombreYCategoriaInfo" class="card-header">
+    <div id="nombreYCategoriaInfo" blockquote class="snes-blockquote">
       <p id="productCategory"></p>
       <h2 id="productName"></h2>
     </div>
@@ -76,22 +78,23 @@
         </button>
       </div>
 
-      <div class="col-md-6" id="productInfo">
-        <div id="descripcionInfo">
+      <div id="productInfo">
+        <div blockquote class="snes-blockquote" id="descripcionInfo">
           <h4>Descripción</h4>
           <p id="productDescription"></p>
         </div>
-        <div id="cantidadVendidosInfo">
+        <div blockquote class="snes-blockquote" id="cantidadVendidosInfo">
           <p id="productSold"></p>
         </div>
         <div id="bottomRightInfo">
-          <div id="precioInfo">
+          <div blockquote class="snes-blockquote" id="precioInfo">
             <h5>Precio</h5>
             <p id="productPrice"></p>
           </div>
           <div id="comprarInfo">
-            <button type="button" class="btn custom-hover-btn">Comprar</button>
+            <button class="snes-button">Comprar</button>
           </div>
+         </blockquote>
         </div>
 
       </div>
@@ -100,10 +103,10 @@
   <div id="productosRelacionados">
 
   </div>
-  <div id="calificarProducto">
+  <div blockquote class="snes-blockquote" id="calificarProducto">
     <div id="tituloYEstrellas">
-      <div id="divTituloCalificar">
-        <h2>Calificar</h2>
+      <div id="tituloCalificar">
+        <h2>¡Califica el producto!</h2>
       </div>
       <div id="estrellasParaCalificar" class="star-rating animated-stars">
         <input type="radio" id="star5" name="rating" value="5">
@@ -114,22 +117,19 @@
         <label for="star3" class="bi bi-star-fill"></label>
         <input type="radio" id="star2" name="rating" value="2">
         <label for="star2" class="bi bi-star-fill"></label>
-        <input type="radio" id="star1" name="rating" value="1">
+https://github.com/guzman-dev/proyecto-e-commerce/pull/47/conflict?name=product-info.html&ancestor_oid=6b14dd16c7455b558eada5d1b4abb35974cb6adf&base_oid=42cab896d02412929398b2e2606e5f0b7f4fc06c&head_oid=52dc8dbb1258035875502402386825de0bcd3308        <input type="radio" id="star1" name="rating" value="1">
         <label for="star1" class="bi bi-star-fill"></label>
       </div>
     </div>
-    <div>
-      <textarea class="form-control" id="areaParaComentar" placeholder="Escribe un comentario aquí..."
-        rows="3"></textarea>
-      <button type="button" class="btn custom-hover-btn" id="botonEnviarCalificacion">Enviar</button>
+    <div id="enviarComentario">
+      <textarea class="form-control" id="areaParaComentar" placeholder="Escribe un comentario aquí..." rows="3"></textarea>
+      <button class="snes-button" id="botonEnviarCalificacion">Enviar</button>
     </div>
   </div>
 
 
-  <div id="divCalificaciones">
-    <div id="divTituloResenias">
-      <h2>Reseñas</h2>
-    </div>
+  <div blockquote class="snes-blockquote" id="divCalificaciones">
+    <h2>Reseñas</h2>
     <div id="calificaciones">
     </div>
   </div>

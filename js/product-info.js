@@ -64,10 +64,16 @@ function cargarComentarios() {
     comentarios.forEach(comentario => {
         const divComentario = document.createElement("div");
         divComentario.classList.add("d-flex", "flex-column", "card", "mb-3");
-        divComentario.style.backgroundColor = "rgb(255, 176, 119, 0.9)";
+        divComentario.classList.add("card");
 
         const divTopComentario = document.createElement("div");
-        divTopComentario.classList.add("d-flex", "card-header", "flex-row", "flex-wrap", "align-items-center", "justify-content-between");
+        divTopComentario.id="divTopComentario";
+        divTopComentario.classList.add("d-flex","flex-row", "gap-4", "align-items-center", "justify-content-between");
+        divTopComentario.classList.add("card-header");
+        
+        const divTopLeft = document.createElement("div");
+        divTopLeft.id="divTopLeft";
+        divTopLeft.classList.add("d-flex","flex-row", "gap-4", "align-items-center");
 
         const divBottomComentario = document.createElement("div");
         divBottomComentario.style.backgroundColor = "rgb(255, 133, 58, 0.6)";
@@ -78,14 +84,14 @@ function cargarComentarios() {
 
         const nombreUsuario = document.createElement("h6");
         nombreUsuario.textContent = comentario.user;
-        nombreUsuario.classList.add("m-0");
+        nombreUsuario.classList.add("m-0", "p-0");
 
         const fechaComentario = document.createElement("p");
         fechaComentario.textContent = comentario.dateTime;
-        fechaComentario.classList.add("m-0");
+        fechaComentario.classList.add("m-0", "p-0");
 
         const calificacionProducto = document.createElement("p");
-        calificacionProducto.classList.add("m-0");
+        calificacionProducto.classList.add("m-0", "p-0");
 
         const comentarioProducto = document.createElement("p");
         comentarioProducto.textContent = comentario.description;
@@ -99,10 +105,9 @@ function cargarComentarios() {
             }
         }
 
-        nombreYFecha.appendChild(nombreUsuario);
-        nombreYFecha.appendChild(fechaComentario);
-
-        divTopComentario.appendChild(nombreYFecha);
+        divTopLeft.appendChild(nombreUsuario);
+        divTopLeft.appendChild(fechaComentario);
+        divTopComentario.appendChild(divTopLeft);
         divTopComentario.appendChild(calificacionProducto);
 
         divBottomComentario.appendChild(comentarioProducto);
