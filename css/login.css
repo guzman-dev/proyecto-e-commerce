@@ -11,13 +11,15 @@ body {
 }
 
 .login-box {
-  background-color: rgb(88, 88, 115);
+  background-color: #eb763b !important;
   border: 0.25rem solid rgb(26, 26, 66);
   border-radius: 0.9rem;
   padding: 1.9rem;
   max-width: 21.9rem;
   text-align: center;
   margin: 3.8rem auto;
+  height: fit-content;
+  margin-top: 2vh;
 }
 
 #login-form {
@@ -39,18 +41,15 @@ body {
   margin: 0.7rem 0;
   border: none;
   border-radius: 0.3rem;
+  font-size: 0.8em;
 }
 
-#login-form button {
-  background-color: white;
-  color: rgb(0, 0, 0);
-  border: none;
-  margin-top: 0.9rem;
-  padding: 0.6rem;
-  width: 50%;
-  border-radius: 1.6rem;
-  font-weight: bold;
-  cursor: pointer;
+#botonIngresar {
+  margin-top: 0.8em;
+  padding: 0.6em;
+  border-radius: 8px;
+  background-color: rgb(248, 154, 38);
+  font-size: 90% !important;
 }
 
 footer.text-muted {

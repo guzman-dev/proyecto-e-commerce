@@ -1,34 +1,34 @@
-body{
-    background-image: url(../img/pixil-frame-0.png);
-    background-size: cover !important;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    font-size: smaller !important;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+body {
+  background-color: rgb(255, 231, 184) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-size: smaller !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /*Card de información*/
 
 .card-body {
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #producto {
-    margin-top: 5em;
-    margin-left: 4em;
-    margin-right: 4em;
-    background-color: #d15e17;
-    align-items: center;
-    text-align: center;
-    border-radius: 1em;
+  margin-top: 5em;
+  margin-left: 4em;
+  margin-right: 4em;
+  background-color: #d15e17;
+  align-items: center;
+  text-align: center;
+  border-radius: 1em;
 }
 
 #productoBlock {
@@ -43,9 +43,9 @@ body{
 }
 
 #nombreYCategoriaInfo {
-    background-color: #eb763b !important;
-    width: 100%;
-    color: black;
+  background-color: #eb763b !important;
+  width: 100%;
+  color: black;
 }
 
 #productCategory {
@@ -71,29 +71,29 @@ body{
 }
 
 #descripcionInfo {
-    background-color: rgb(255, 176, 119, 0.9);
-    color: black;
-    padding-top: 1em !important;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1em;
+  background-color: rgb(255, 176, 119, 0.9);
+  color: black;
+  padding-top: 1em !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
 }
 
 #descripcionInfo p {
-    margin-top: 1em;
-    margin-bottom: 0;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 #cantidadVendidosInfo {
-   background-color: rgb(255, 176, 119, 0.9);
-   color: black;
-   padding: 0.1em;
-   width: 100%;
-   height: 50px;
-   border-radius: 1em;
-   font-weight: 500;
-   font-size: larger;
+  background-color: rgb(255, 176, 119, 0.9);
+  color: black;
+  padding: 0.1em;
+  width: 100%;
+  height: 50px;
+  border-radius: 1em;
+  font-weight: 500;
+  font-size: larger;
 }
 
 #bottomRightInfo {
@@ -112,10 +112,10 @@ body{
 }
 
 #precioInfo {
-    background-color: rgb(255, 176, 119, 0.9);
-    color: black;
-    padding: 0;
-    border-radius: 1em;
+  background-color: rgb(255, 176, 119, 0.9);
+  color: black;
+  padding: 0;
+  border-radius: 1em;
 }
 
 #comprarInfo {
@@ -138,28 +138,28 @@ body{
 /*Zona de calificar*/
 
 #calificarProducto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #eb763b;
-    color: black;
-    margin: 4em auto 2em auto;
-    max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eb763b;
+  color: black;
+  margin: 4em auto 2em auto;
+  max-width: 90vw;
 }
 
-#tituloYEstrellas{
-    display: flex;
-    gap: 3vw;
-    margin: 1.5em;
-    margin-top: 2em;
-    padding: 0.5em;
+#tituloYEstrellas {
+  display: flex;
+  gap: 3vw;
+  margin: 1.5em;
+  margin-top: 2em;
+  padding: 0.5em;
 }
 
 #estrellasParaCalificar {
-    display: flex;
-    gap: 2vw;
-    position: relative;
-    top: -8px;
+  display: flex;
+  gap: 2vw;
+  position: relative;
+  top: -8px;
 }
 
 #areaParaComentar {
@@ -170,12 +170,12 @@ body{
 }
 
 #calificarProducto button {
-      color: black;
-      width: fit-content;
-      display: block;
-      background-color: white;
-      font-size: larger;
-      margin: 1.8em auto;
+  color: black;
+  width: fit-content;
+  display: block;
+  background-color: white;
+  font-size: larger;
+  margin: 1.8em auto;
 }
 
 #enviarComentario {
@@ -185,7 +185,7 @@ body{
 /*Reseñas*/
 
 #divCalificaciones {
-  background-color:  rgb(255, 176, 119, 0.9);
+  background-color: rgb(255, 176, 119, 0.9);
   color: black;
   margin: 3em auto 4em auto;
   text-align: center;
@@ -198,7 +198,7 @@ body{
   padding-top: 0.7em;
 }
 
-#calificaciones{
+#calificaciones {
   margin-top: 1em;
   padding: 1em;
 }
@@ -214,33 +214,72 @@ body{
   background-color: #E66B2E !important;
 }
 
-.checked{
-    color: rgb(218, 218, 1);
+.checked {
+  color: rgb(218, 218, 1);
 }
 
 .star-rating {
-        direction: rtl;
-        display: inline-block;
-        cursor: pointer;
-    }
+  direction: rtl;
+  display: inline-block;
+  cursor: pointer;
+}
 
-    .star-rating input {
-        display: none;
-    }
+.star-rating input {
+  display: none;
+}
 
-    .star-rating label {
-        color: #ffffff;
-        font-size: 30px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
+.star-rating label {
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    .star-rating label:hover,
-    .star-rating label:hover~label,
-    .star-rating input:checked~label {
-        color: rgb(218, 218, 1);
-    }
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+  color: rgb(218, 218, 1);
+}
 
+
+/*Productos relacionados*/
+
+#productosRelacionados {
+  background-color: #eb763b;
+  color: black;
+  max-width: 90vw;
+  width: fit-content;
+  margin: 1em auto 4em auto;
+}
+
+#productosRelacionados h2 {
+  padding: 0.5em;
+}
+
+#productosR {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3em;
+  padding: 1.5em;
+  flex-wrap: wrap;
+}
+
+.casillaProductoR {
+  background-color: rgb(255, 176, 119) !important;
+  box-sizing: border-box;
+  width: fit-content !important;
+}
+
+.imagenP {
+  width: 60%;
+  border-radius: 20px;
+}
+
+.nombreP {
+  color: black !important;
+  margin-top: 1em;
+}
 
 /*footer*/
 
@@ -279,7 +318,6 @@ body{
 .flash-estrellas-error {
   animation: flash-estrellas 1s ease-in-out 1;
 }
-
 
 /*responsives*/
 
@@ -328,7 +366,7 @@ body{
 
 @media (max-width: 808px) {
 
-    #producto {
+  #producto {
     margin-top: 2em;
     margin-left: 1em;
     margin-right: 1em;
@@ -376,13 +414,13 @@ body{
 
   #estrellasParaCalificar {
     align-self: center;
-   }
+  }
 
   #divTopComentario {
-  display: flex;
-  flex-direction: column !important;
-  padding: 2em;
-  width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    padding: 2em;
+    width: 100%;
   }
 
   #divBottomComentario {

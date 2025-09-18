@@ -13,6 +13,12 @@ nav a {
   text-decoration: none;
 }
 
+.snes-blockquote {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  color: black !important;
+  padding: 1%;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
