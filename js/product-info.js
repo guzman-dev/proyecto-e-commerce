@@ -1,4 +1,5 @@
 const idDeProducto = localStorage.getItem('productoSeleccionado');
+
 const apiURL = "https://japceibal.github.io/emercado-api/products/" + idDeProducto + ".json";
 const apiURLComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + idDeProducto + ".json";
 const carouselInner = document.querySelector('.carousel-inner');
@@ -6,8 +7,8 @@ const productContainer = document.getElementById('producto');
 const productInfo = document.getElementById('productInfo');
 
 const botonEnviarCalificacion = document.getElementById("botonEnviarCalificacion")
-
 const calificaciones = document.getElementById("calificaciones");
+const productosRel = document.getElementById("productosR");
 
 const imagen1 = document.getElementById("imagen1");
 const imagen2 = document.getElementById("imagen2");
@@ -39,6 +40,31 @@ fetch(apiURL)
         document.getElementById('productDescription').textContent = product.description;
         document.getElementById('productSold').textContent = `${product.soldCount} vendidos`;
         document.getElementById('productPrice').textContent = `${product.currency} ${product.cost}`;
+
+        product.relatedProducts.forEach(producto => {
+            let divProductInfo = document.createElement("div");
+            divProductInfo.classList.add("casillaProductoR", "snes-blockquote");
+            divProductInfo.dataset.id = producto.id;
+
+            const imgProductInfo = document.createElement("img");
+            imgProductInfo.classList.add("imagenP");
+            imgProductInfo.src = producto.image;
+
+            const nameProductInfo = document.createElement("p");
+            nameProductInfo.classList.add("nombreP");
+            nameProductInfo.innerHTML = producto.name;
+
+            divProductInfo.appendChild(imgProductInfo);
+            divProductInfo.appendChild(nameProductInfo);
+
+            divProductInfo.addEventListener("click", () => {
+                localStorage.setItem("productoSeleccionado", producto.id);
+                window.location.reload();
+            })
+            
+            productosRel.appendChild(divProductInfo);
+        })
+
     })
     .catch(error => {
         console.error(error);
@@ -63,8 +89,7 @@ function cargarComentarios() {
 
     comentarios.forEach(comentario => {
         const divComentario = document.createElement("div");
-        divComentario.classList.add("d-flex", "flex-column", "card", "mb-3");
-        divComentario.classList.add("card");
+        divComentario.classList.add("d-flex", "flex-column", "card", "mb-3", "card");
 
         const divTopComentario = document.createElement("div");
         divTopComentario.id="divTopComentario";
@@ -80,7 +105,7 @@ function cargarComentarios() {
         divBottomComentario.classList.add("card-body");
 
         const nombreYFecha = document.createElement("div");
-        nombreYFecha.classList.add("d-flex", "gap-4", "align-items-center", "flex-wrap");
+        nombreYFecha.classList.add("d-flex", "gap-4", "align-items-center", "flex-wrap", "justify-content-center");
 
         const nombreUsuario = document.createElement("h6");
         nombreUsuario.textContent = comentario.user;
@@ -105,8 +130,9 @@ function cargarComentarios() {
             }
         }
 
-        divTopLeft.appendChild(nombreUsuario);
-        divTopLeft.appendChild(fechaComentario);
+        nombreYFecha.appendChild(nombreUsuario);
+        nombreYFecha.appendChild(fechaComentario);
+        divTopLeft.appendChild(nombreYFecha);
         divTopComentario.appendChild(divTopLeft);
         divTopComentario.appendChild(calificacionProducto);
 

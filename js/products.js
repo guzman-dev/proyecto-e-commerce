@@ -5,10 +5,11 @@
 const contenedorDeListaConProductos = document.getElementById("contenedorProductos");
 
 //Checkea si el usuario NO está logeado, y si no lo está, lo manda a la pagina de login.
-function checkLogin(){
-    if(sessionStorage.getItem("loggedIn") == null || sessionStorage.getItem("loggedIn") === "false"){
+function checkLogin() {
+    if (sessionStorage.getItem("loggedIn") == null || sessionStorage.getItem("loggedIn") === "false") {
         window.location.href = "login.html";
-    }}
+    }
+}
 
 //Se añade un eventlistener para que se ejecute la funcion que carga la lista de productos al finalizar la carga de la página
 document.addEventListener("DOMContentLoaded", cargarDatos);
@@ -39,13 +40,13 @@ botonOrdernarRelevancia.addEventListener("click", ordenarRelevancia);
 buscador.addEventListener("input", buscarProducto);
 
 
-async function cargarDatos(){
+async function cargarDatos() {
     // -----------------------------------------------------------------------------
     //PREPARACION DE DATOS
 
     // Se realiza el fetch para conseguir los datos de los productos de la categoria que se seleccionó
     response = await fetch("https://japceibal.github.io/emercado-api/cats_products/" + localStorage.getItem("catID") + ".json");
-    if(response.ok){
+    if (response.ok) {
         // Se convierte la respuesto en un objeto json
         data = await response.json();
         // Se guarda el arreglo de productos en una variable
@@ -57,7 +58,7 @@ async function cargarDatos(){
 
 
 //Función que se utilizará para cargar y agregar los productos a la página.
-async function cargarProductos(){
+async function cargarProductos() {
 
     //Se limpia el contenedor antes de cargar para no haya duplicados.
     contenedorDeListaConProductos.innerHTML = "";
@@ -103,12 +104,12 @@ async function cargarProductos(){
 
         //Div que contendrá los elementos descipción de producto y div del botón para añadir al carrito
         let divBottom = document.createElement("div");
-      
+
         //Div que contendrá los elementos nombre de producto y precio de producto
         let divLeftTop = document.createElement("div");
 
         //Div que contendrá el divTop y divBottom
-      
+
         let divGeneral = document.createElement("div");
 
         //Imagen que irá en el botón
@@ -120,7 +121,7 @@ async function cargarProductos(){
 
         //Divs
         divDeProductoActual.classList.add("casillaProducto");
-        
+
         divGeneral.classList.add("general");
         divDeProductoActual.dataset.id = productoActual.id;
         divTop.classList.add("topRow");
@@ -148,7 +149,7 @@ async function cargarProductos(){
         //ASIGNACIÓN DE VALOR A LAS VARIABLES CON LA INFO DEL PRODUCTO ACTUAL
 
         //Imagen
-        imagenDeProducto.src = productoActual.image; 
+        imagenDeProducto.src = productoActual.image;
 
         //Nombre
         nombreDeProducto.innerHTML = productoActual.name;
@@ -161,16 +162,16 @@ async function cargarProductos(){
         //Descripción
         descripcionDeProducto.innerHTML = productoActual.description;
         descripcionDeProducto.classList.add("descripcionP");
-        
+
         //Cantidad de vendidos
         cantidadVendidos.innerHTML = productoActual.soldCount + " " + "Vendidos";
-        
+
         // -----------------------------------------------------------------------------
         //PONIENDO ELEMENTOS DENTRO DE LOS DIVS PRINCIPALES
 
         botonCarrito.appendChild(imagenCarrito);
         divTop.appendChild(divLeftTop);
-      
+
         //divTop (nombre, precio, cantidad vendidos)
         divTop.appendChild(nombreDeProducto);
         divTop.appendChild(precioDeProducto);
@@ -179,7 +180,7 @@ async function cargarProductos(){
         //divBottom (descripción y div con el boton del carrito)
         divBottom.appendChild(descripcionDeProducto);
         divBottom.appendChild(divComprar);
-        
+
         //divLeftTop (nombre y precio)
         divLeftTop.appendChild(nombreDeProducto);
         divLeftTop.appendChild(precioDeProducto);
@@ -189,11 +190,11 @@ async function cargarProductos(){
 
         //se le agrega la imagen del carrito al boton, el url de la imagen es asignado en el css con su clase
         botonCarrito.appendChild(imagenCarrito);
-        
+
         //Se agregan los 2 divs con información del producto a un contenedor para facilitar la modificación en css
         divGeneral.appendChild(divTop);
         divGeneral.appendChild(divBottom);
-        
+
         //Se agregan la imagen del producto, así como el div con la info en la casilla del producto actual
 
         divDeProductoActual.appendChild(imagenDeProducto);
@@ -201,7 +202,7 @@ async function cargarProductos(){
 
         //Finalmente, se agrega la casilla al contenedor principal de la página para que sea visualizado
         contenedorDeListaConProductos.appendChild(divDeProductoActual);
-        
+
         divDeProductoActual.addEventListener('click', (event) => {
             let casillaSeleccionada = event.currentTarget;
             let id = casillaSeleccionada.dataset.id;
@@ -212,48 +213,48 @@ async function cargarProductos(){
     }
 }
 
-function filtrarPorPrecio(){ 
+function filtrarPorPrecio() {
     listaParaMostrar = listaBase.filter(producto => {
         let cumpleMin = true;
         let cumpleMax = true;
 
-        if(precioMinimo.value){
+        if (precioMinimo.value) {
             cumpleMin = producto.cost >= precioMinimo.value;
         }
-        if(precioMaximo.value){
+        if (precioMaximo.value) {
             cumpleMax = producto.cost <= precioMaximo.value;
-        } 
+        }
         return cumpleMin && cumpleMax;
     })
 
     cargarProductos();
 }
 
-function limpiarFiltro(){
+function limpiarFiltro() {
     listaParaMostrar = listaBase;
     precioMaximo.value = "";
     precioMinimo.value = "";
     cargarProductos();
 }
 
-function ordenarDescendiente(){
+function ordenarDescendiente() {
     listaParaMostrar.sort((a, b) => b.cost - a.cost);
     cargarProductos();
 }
 
-function ordenarAscendiente(){
+function ordenarAscendiente() {
     listaParaMostrar.sort((a, b) => a.cost - b.cost);
     cargarProductos();
 }
 
-function ordenarRelevancia(){
+function ordenarRelevancia() {
     listaParaMostrar.sort((a, b) => b.soldCount - a.soldCount);
     cargarProductos();
 }
 
-function buscarProducto(){
+function buscarProducto() {
     let filtro = buscador.value;
-    listaParaMostrar = listaBase.filter(producto =>{
+    listaParaMostrar = listaBase.filter(producto => {
         return producto.name.toLowerCase().includes(filtro.toLowerCase()) || producto.description.toLowerCase().includes(filtro.toLowerCase());
     })
     cargarProductos();
