@@ -120,14 +120,13 @@ async function cargarProductos() {
         //ASIGNACIÓN DE CLASES A ELEMENTOS, ESTOS SERAN UTILIZADOS EN EL CSS PARA DARLE ESTILO A LA LISTA DE PRODUCTOS
 
         //Divs
-        divDeProductoActual.classList.add("casillaProducto");
+        divDeProductoActual.classList.add("casillaProducto", "snes-blockquote");
 
         divGeneral.classList.add("general");
         divDeProductoActual.dataset.id = productoActual.id;
         divTop.classList.add("topRow");
         divBottom.classList.add("bottomRow");
         divLeftTop.classList.add("leftTop");
-        divGeneral.classList.add("general");
 
         botonCarrito.classList.add("botonCarrito");
 
