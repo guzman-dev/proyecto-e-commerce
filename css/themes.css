@@ -1,27 +1,53 @@
 #botonTheme{
-    background-color: var(--color-fondo);
+    background-color: var(--color-boton-2);
     color: var(--color-letra);
+    border-radius: 20px;
 }
 
-
 [data-theme="claro"]{
+    /*No tocar estos que estan separados del resto*/
+    --color-basico-fondo: rgb(255,255,255);
+    --color-basico-muted: rgb(196, 196, 196);
+    --productos-fondo: url(../img/pantallaproductos.jpg);
+    --index-fondo: url('../img/cover_back.png');
+
+
+
+
     --color-letra: rgb(0,0,0);
-    --color-fondo: #eb763b;
-    --color-boton: rgb(0,0,0);
-    --color-boton-2: rgb(0,0,0);
-    --color-casilla: rgb(0,0,0);
-    --color-input:rgb(0,0,0);
+    --color-fondo: rgb(255, 231, 184);
+    --color-boton: rgb(255, 141, 3);
+    --color-boton-2: rgb(253, 253, 253);
+    --color-casilla: #eb763b;
+    --color-casilla-2: rgba(179, 75, 31, 0.281);
+    --color-casilla-3: rgb(255, 176, 119, 0.9);
+    --color-input:rgb(250, 250, 250);
     --color-bordes: rgb(0,0,0);
+    --color-comentario: rgb(255, 133, 58, 0.6);
+    --color-datos-producto: rgba(205, 140, 107, 0.5);
 
 }
 
 [data-theme="oscuro"]{
-    --color-letra: rgb(255,255,255);
-    --color-fondo: #723b1f;
-    --color-boton: rgb(0,0,0);
-    --color-boton-2: rgb(0,0,0);
-    --color-casilla: rgb(0,0,0);
-    --color-input:rgb(0,0,0);
+    /*No tocar estos que estan separados del resto*/
+    --color-basico-fondo: rgb(0, 0, 0);
+    --color-basico-muted: rgb(236, 236, 236);
+    --productos-fondo: url(../img/pantallaproductos-oscuro.jpg);
+    --index-fondo: url('../img/cover_back-oscuro.png');
+
+
+
+
+    --color-letra: rgb(255, 255, 255);
+    --color-fondo: rgb(156, 142, 113);
+    --color-boton: rgb(172, 96, 3);
+    --color-boton-2: rgb(163, 163, 163);
+    --color-casilla: #723b1f;
+    --color-casilla-2: rgba(141, 60, 25, 0.281);
+    --color-casilla-3: rgba(177, 122, 83, 0.9);
+    --color-input:rgb(190, 190, 190);
     --color-bordes: rgb(0,0,0);
+    --color-comentario: rgba(129, 68, 30, 0.6);
+    --color-datos-producto: rgba(158, 108, 83, 0.5);
 
 }
