@@ -101,6 +101,7 @@ function cargarComentarios() {
         divTopLeft.classList.add("d-flex","flex-row", "gap-4", "align-items-center");
 
         const divBottomComentario = document.createElement("div");
+        divBottomComentario.classList.add("comentario");
         divBottomComentario.style.backgroundColor = "rgb(255, 133, 58, 0.6)";
         divBottomComentario.classList.add("card-body");
 

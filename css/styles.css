@@ -13,10 +13,30 @@ nav a {
   text-decoration: none;
 }
 
-.snes-blockquote {
-  background-color: rgba(255, 255, 255, 0.5) !important;
-  color: black !important;
+.bg-light{
+  background-color: var(--color-basico-fondo) !important;
+}
+
+.snes-blockquote, .btn-light, .list-group-item{  
+  background-color: var(--color-casilla-3) !important;
+  color: var(--color-letra) !important;
   padding: 1%;
+}
+
+.lead, h2, p{
+  color: var(--color-letra) !important;
+}
+
+.text-muted{
+  color: var(--color-basico-muted);
+}
+
+.fondoCategorias{
+  background-color: var(--color-fondo);
+}
+
+.footerIndex{
+  background-color: var(--color-basico-fondo);
 }
 
 .bd-placeholder-img {
@@ -39,7 +59,7 @@ nav a {
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background: var(--index-fondo);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
