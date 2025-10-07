@@ -1,0 +1,27 @@
+#botonTheme{
+    background-color: var(--color-fondo);
+    color: var(--color-letra);
+}
+
+
+[data-theme="claro"]{
+    --color-letra: rgb(0,0,0);
+    --color-fondo: #eb763b;
+    --color-boton: rgb(0,0,0);
+    --color-boton-2: rgb(0,0,0);
+    --color-casilla: rgb(0,0,0);
+    --color-input:rgb(0,0,0);
+    --color-bordes: rgb(0,0,0);
+
+}
+
+[data-theme="oscuro"]{
+    --color-letra: rgb(255,255,255);
+    --color-fondo: #723b1f;
+    --color-boton: rgb(0,0,0);
+    --color-boton-2: rgb(0,0,0);
+    --color-casilla: rgb(0,0,0);
+    --color-input:rgb(0,0,0);
+    --color-bordes: rgb(0,0,0);
+
+}

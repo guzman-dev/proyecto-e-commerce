@@ -45,7 +45,7 @@ body {
 #nombreYCategoriaInfo {
   background-color: #eb763b !important;
   width: 100%;
-  color: black;
+  color: var(--color-letra);
 }
 
 #productCategory {
@@ -72,7 +72,7 @@ body {
 
 #descripcionInfo {
   background-color: rgb(255, 176, 119, 0.9);
-  color: black;
+  color: var(--color-letra);
   padding-top: 1em !important;
   width: 100%;
   display: flex;
@@ -87,7 +87,7 @@ body {
 
 #cantidadVendidosInfo {
   background-color: rgb(255, 176, 119, 0.9);
-  color: black;
+  color: var(--color-letra);
   padding: 0.1em;
   width: 100%;
   height: 50px;
@@ -113,7 +113,7 @@ body {
 
 #precioInfo {
   background-color: rgb(255, 176, 119, 0.9);
-  color: black;
+  color: var(--color-letra);
   padding: 0;
   border-radius: 1em;
 }
@@ -131,7 +131,7 @@ body {
 
 #comprarInfo button {
   background-color: rgb(255, 141, 3);
-  color: black;
+  color: var(--color-letra);
   width: 100%;
 }
 
@@ -142,7 +142,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #eb763b;
-  color: black;
+  color: var(--color-letra);
   margin: 4em auto 2em auto;
   max-width: 90vw;
 }
@@ -170,7 +170,7 @@ body {
 }
 
 #calificarProducto button {
-  color: black;
+  color: var(--color-letra);
   width: fit-content;
   display: block;
   background-color: white;
@@ -186,7 +186,7 @@ body {
 
 #divCalificaciones {
   background-color: rgb(255, 176, 119, 0.9);
-  color: black;
+  color: var(--color-letra);
   margin: 3em auto 4em auto;
   text-align: center;
   border-radius: 1em;
@@ -246,7 +246,7 @@ body {
 
 #productosRelacionados {
   background-color: #eb763b;
-  color: black;
+  color: var(--color-letra);
   max-width: 90vw;
   width: fit-content;
   margin: 1em auto 4em auto;
@@ -277,7 +277,7 @@ body {
 }
 
 .nombreP {
-  color: black !important;
+  color: var(--color-letra) !important;
   margin-top: 1em;
 }
 
