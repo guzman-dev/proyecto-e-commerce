@@ -4,6 +4,8 @@
     border-radius: 20px;
 }
 
+
+/*COLORES DEL MODO CLARO */
 [data-theme="claro"]{
     /*No tocar estos que estan separados del resto*/
     --color-basico-fondo: rgb(255,255,255);
@@ -28,6 +30,7 @@
 
 }
 
+/*COLORES DEL MODO OSCURO */
 [data-theme="oscuro"]{
     /*No tocar estos que estan separados del resto*/
     --color-basico-fondo: rgb(0, 0, 0);
