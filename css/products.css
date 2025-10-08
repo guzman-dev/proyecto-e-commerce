@@ -42,7 +42,10 @@ label {
 
 #contenedorBuscador input {
   border-radius: 0.3em;
-  
+}
+
+input::placeholder {
+  color: var(--color-letra) !important;
 }
 
 #filtros {
@@ -153,7 +156,7 @@ label {
   flex: 1;
   font-size: 0.8em;
   font-weight: 600;
-  background-color: var(--color-datos-producto);
+  background-color: var(--color-datos-producto-2);
   margin-top: 0.75em;
   padding: 0.8em;
   border-radius: 0.5em;
@@ -172,6 +175,10 @@ label {
 
 .text-muted{
   color: var(--color-letra) !important;
+}
+
+#navbar {
+  background-color: var(--nav-color) !important;
 }
 
 

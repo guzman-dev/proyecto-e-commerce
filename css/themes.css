@@ -14,6 +14,7 @@
 
 
 
+    --nav-color: rgb(64, 64, 64);
     --color-letra: rgb(0,0,0);
     --color-fondo: rgb(255, 231, 184);
     --color-boton: rgb(255, 141, 3);
@@ -25,6 +26,7 @@
     --color-bordes: rgb(0,0,0);
     --color-comentario: rgb(255, 133, 58, 0.6);
     --color-datos-producto: rgba(205, 140, 107, 0.5);
+    --color-datos-producto-2: rgba(205, 140, 107, 0.5);
 
 }
 
@@ -38,16 +40,18 @@
 
 
 
+    --nav-color: rgb(26, 23, 21);
     --color-letra: rgb(255, 255, 255);
-    --color-fondo: rgb(156, 142, 113);
-    --color-boton: rgb(172, 96, 3);
+    --color-fondo: rgba(36, 14, 2, 0.845);
+    --color-boton: rgba(112, 54, 25);
     --color-boton-2: rgb(163, 163, 163);
     --color-casilla: #723b1f;
-    --color-casilla-2: rgba(141, 60, 25, 0.281);
+    --color-casilla-2: rgba(19, 7, 2, 0.281);
     --color-casilla-3: rgba(177, 122, 83, 0.9);
-    --color-input:rgb(190, 190, 190);
+    --color-input:rgb(152, 110, 89);
     --color-bordes: rgb(0,0,0);
-    --color-comentario: rgba(129, 68, 30, 0.6);
-    --color-datos-producto: rgba(158, 108, 83, 0.5);
+    --color-comentario: rgb(112, 54, 25);
+    --color-datos-producto: rgba(152, 110, 89);
+    --color-datos-producto-2: rgb(112, 54, 25);
 
 }
