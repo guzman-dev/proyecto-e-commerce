@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", cargarBotonTheme);
 
 function cargarBotonTheme(){
+    const html = document.documentElement;
+    html.setAttribute("data-theme", localStorage.getItem("theme"));
+
+
     let navList = document.getElementById("navList");
 
 
@@ -13,11 +17,7 @@ function cargarBotonTheme(){
     boton.classList.add("nav-link");
     boton.setAttribute("id", "botonTheme");
 
-    if(localStorage.getItem("theme") == "claro"){
-        boton.innerHTML = "Modo: Claro";
-    }else{
-        boton.innerHTML = "Modo: Claro";
-    }
+    boton.innerHTML = localStorage.getItem("theme") === "oscuro" ? "Modo: Oscuro" : "Modo: Claro";
 
     elementoDeLista.appendChild(boton);
 
@@ -29,8 +29,9 @@ function cambiarTheme(event){
     html = document.documentElement;
     const themeActual = html.getAttribute('data-theme');
     const themeNuevo = themeActual === "claro" ? "oscuro" : "claro";
-    
-    boton.innerHTML = boton.innerHTML === "Modo: Claro" ? "Modo: Oscuro" : "Modo: Claro";
+
+    localStorage.setItem("theme", themeNuevo);
+    boton.innerHTML = localStorage.getItem("theme") === "oscuro" ? "Modo: Oscuro" : "Modo: Claro";
 
 
     html.setAttribute("data-theme", themeNuevo);
