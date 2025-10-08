@@ -44,7 +44,8 @@
     --color-letra: rgb(255, 255, 255);
     --color-fondo: rgba(36, 14, 2, 0.845);
     --color-boton: rgba(112, 54, 25);
-    --color-boton-2: rgba(177, 122, 83, 0.9);
+    --color-boton-2: rgb(152, 110, 89);
+    --color-boton-3: rgba(177, 122, 83, 0.9);
     --color-casilla: #723b1f;
     --color-casilla-2: rgba(19, 7, 2, 0.281);
     --color-casilla-3: rgba(177, 122, 83, 0.9);

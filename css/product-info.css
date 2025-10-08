@@ -173,7 +173,7 @@ body {
   color: var(--color-letra);
   width: fit-content;
   display: block;
-  background-color: var(--color-boton-2) !important;
+  background-color: var(--color-boton-3) !important;
   font-size: larger;
   margin: 1.8em auto;
 }
