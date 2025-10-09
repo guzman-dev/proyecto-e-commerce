@@ -1,0 +1,45 @@
+#contenedorPerfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4em; 
+}
+
+#fotoPerfil{
+    max-width: 300px;
+    border: 3px solid orange;
+    border-radius: 3px;
+}
+
+#contenedorImagenPerfil{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    margin-top: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#contenedorBotonSubirImagen{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+}
+
+#botonCambiarFoto{
+    border: 1px solid black;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.campo{
+    margin-bottom: 2em;
+}
+
+#botonEditar{
+    padding: 0.5em;
+}

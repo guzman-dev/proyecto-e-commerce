@@ -1,5 +1,5 @@
 body {
-  background-image: url(../img/fondo1.png);
+  background-image: var(--login-fondo);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,8 +10,12 @@ body {
   padding: 0;
 }
 
+h1{
+  color: var(--color-letra);
+}
+
 .login-box {
-  background-color: #eb763b !important;
+  background-color: var(--color-casilla) !important;
   border: 0.25rem solid rgb(26, 26, 66);
   border-radius: 0.9rem;
   padding: 1.9rem;
@@ -32,7 +36,7 @@ body {
   text-align: left;
   margin-top: 0.3rem;
   font-weight: bold;
-  color: white;
+  color: var(--color-letra);
 }
 
 #login-form input {
@@ -48,7 +52,8 @@ body {
   margin-top: 0.8em;
   padding: 0.6em;
   border-radius: 8px;
-  background-color: rgb(248, 154, 38);
+  background-color: var(--color-boton) !important;
+  color: var(--color-letra) !important;
   font-size: 90% !important;
 }
 

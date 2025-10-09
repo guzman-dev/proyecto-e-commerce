@@ -22,7 +22,7 @@ function cargarUsuario() {
     nombreDelUsuarioElemento.classList.add("nav-link");
 
     nombreDelUsuarioElemento.innerHTML = sessionStorage.getItem("username");
-    nombreDelUsuarioElemento.href = "#";
+    nombreDelUsuarioElemento.href = "my-profile.html";
 
     elementoDeLista.appendChild(nombreDelUsuarioElemento);
 
