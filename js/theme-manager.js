@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", cargarBotonTheme);
 function cargarBotonTheme(){
     const html = document.documentElement;
     html.setAttribute("data-theme", localStorage.getItem("theme"));
+    const themeActual = html.getAttribute('data-theme');
 
 
     let navList = document.getElementById("navList");
@@ -17,7 +18,7 @@ function cargarBotonTheme(){
     boton.classList.add("nav-link");
     boton.setAttribute("id", "botonTheme");
 
-    boton.innerHTML = localStorage.getItem("theme") === "oscuro" ? "Modo: Oscuro" : "Modo: Claro";
+    boton.innerHTML = themeActual === "oscuro" ? "Modo: Oscuro" : "Modo: Claro";
 
     elementoDeLista.appendChild(boton);
 
