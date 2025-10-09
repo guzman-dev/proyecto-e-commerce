@@ -12,6 +12,7 @@
     --color-basico-muted: rgb(196, 196, 196);
     --productos-fondo: url(../img/pantallaproductos.jpg);
     --index-fondo: url('../img/cover_back.png');
+    --login-fondo: url(../img/fondo-perfil.png);
 
 
 
@@ -39,6 +40,7 @@
     --color-basico-muted: rgb(236, 236, 236);
     --productos-fondo: url(../img/pantallaproductos-oscuro.jpg);
     --index-fondo: url('../img/cover_back-oscuro.png');
+    --login-fondo: url(../img/fondo-perfil-oscuro.png);
 
 
 
