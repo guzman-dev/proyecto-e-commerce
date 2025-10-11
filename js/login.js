@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       form.reportValidity(); // Muestra el popup de los elementos del form
     }
     //Indica que el usuario está logeado hasta que se cierre la ventana
-    sessionStorage.setItem("loggedIn", "true");
-    sessionStorage.setItem("username", usuario.value);
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", usuario.value);
   }
   form.addEventListener('submit', validarCredenciales);
   usuario.addEventListener('input', validarUsuario);
