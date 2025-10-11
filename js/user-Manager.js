@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", checkLogin);
 
 function checkLogin() {
-    if (sessionStorage.getItem("loggedIn") == null || sessionStorage.getItem("loggedIn") === "false") {
+    if (localStorage.getItem("loggedIn") == null || localStorage.getItem("loggedIn") === "false") {
         window.location.href = "login.html";
     }
 }
 cargarUsuario();
 
 function cargarUsuario() {
-    if (sessionStorage.getItem("username") == null) {
+    if (localStorage.getItem("username") == null) {
         return;
     }
     let navList = document.getElementById("navList");
@@ -21,7 +21,7 @@ function cargarUsuario() {
     let nombreDelUsuarioElemento = document.createElement("a");
     nombreDelUsuarioElemento.classList.add("nav-link");
 
-    nombreDelUsuarioElemento.innerHTML = sessionStorage.getItem("username");
+    nombreDelUsuarioElemento.innerHTML = localStorage.getItem("username");
     nombreDelUsuarioElemento.href = "my-profile.html";
 
     elementoDeLista.appendChild(nombreDelUsuarioElemento);

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const botonEditar = document.getElementById("botonEditar");
 
     // Precargar usuario email del localStorage (si existe) sino cargar el nombre de Usuario
-    const nombreUsuario = sessionStorage.getItem("username");
+    const nombreUsuario = localStorage.getItem("username");
     const emailGuardado = localStorage.getItem("email");
     if(emailGuardado){
         inputEmail.value = emailGuardado;
