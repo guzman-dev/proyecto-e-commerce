@@ -18,7 +18,7 @@ nav a {
 }
 
 .snes-blockquote, .btn-light, .list-group-item{  
-  background-color: var(--color-casilla-3) !important;
+  background-color: var(--color-casilla) !important;
   color: var(--color-letra) !important;
   padding: 1%;
 }
