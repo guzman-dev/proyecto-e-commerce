@@ -4,6 +4,13 @@
 //Se guarda el nodo del contenedor principal para agregarle cada casilla de productos al final
 const contenedorDeListaConProductos = document.getElementById("contenedorProductos");
 
+//Checkea si el usuario NO está logeado, y si no lo está, lo manda a la pagina de login.
+function checkLogin() {
+    if (localStorage.getItem("loggedIn") == null || localStorage.getItem("loggedIn") === "false") {
+        window.location.href = "login.html";
+    }
+}
+
 //Se añade un eventlistener para que se ejecute la funcion que carga la lista de productos al finalizar la carga de la página
 document.addEventListener("DOMContentLoaded", cargarDatos);
 
