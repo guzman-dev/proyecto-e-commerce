@@ -13,6 +13,7 @@
     --productos-fondo: url(../img/pantallaproductos.jpg);
     --index-fondo: url('../img/cover_back.png');
     --login-fondo: url(../img/fondo-perfil.png);
+    --perfil-fondo: url('../img/fondo-perfil.jpg');
 
 
 
@@ -38,26 +39,27 @@
     /*No tocar estos que estan separados del resto*/
     --color-basico-fondo: rgb(0, 0, 0);
     --color-basico-muted: rgb(236, 236, 236);
-    --productos-fondo: url(../img/pantallaproductos-oscuro.jpg);
+    --productos-fondo: url(../img/fondo-prod-oscuro.jpg);
     --index-fondo: url('../img/cover_back-oscuro.png');
     --login-fondo: url(../img/fondo-perfil-oscuro.png);
+    --perfil-fondo: url('../img/fondo-perfil-oscuro.jpg');
 
 
 
 
-    --nav-color: rgb(26, 23, 21);
+    --nav-color: rgb(21, 21, 26);
     --color-letra: rgb(255, 255, 255);
-    --color-fondo: rgba(36, 14, 2, 0.845);
-    --color-boton: rgba(112, 54, 25);
-    --color-boton-2: rgb(152, 110, 89);
-    --color-boton-3: rgba(177, 122, 83, 0.9);
-    --color-casilla: #723b1f;
-    --color-casilla-2: rgba(19, 7, 2, 0.281);
-    --color-casilla-3: rgba(177, 122, 83, 0.9);
-    --color-input:rgb(152, 110, 89);
+    --color-fondo: rgba(2, 3, 36, 0.845);
+    --color-boton: rgb(82, 86, 208);
+    --color-boton-2: rgb(89, 101, 152);
+    --color-boton-3: rgb(2, 4, 62);
+    --color-casilla: #1f2072;
+    --color-casilla-2: rgba(20, 22, 57, 0.5);
+    --color-casilla-3: rgba(14, 17, 122, 0.9);
+    --color-input:rgb(89, 101, 152, 0.6);
     --color-bordes: rgb(0,0,0);
-    --color-comentario: rgb(112, 54, 25);
-    --color-datos-producto: rgba(152, 110, 89);
-    --color-datos-producto-2: rgb(112, 54, 25);
+    --color-comentario: rgb(35, 25, 112);
+    --color-datos-producto: rgba(89, 101, 152, 0.8);
+    --color-datos-producto-2: rgba(14, 17, 122, 0.9);
 
 }

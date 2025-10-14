@@ -2,7 +2,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--color-fondo);
 }
 
 h1{
@@ -16,7 +15,10 @@ body {
 
 main {
   flex: 1 0 auto;
-  background-color: var(--color-fondo);
+  background-image: var(--perfil-fondo);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 footer {
@@ -35,10 +37,8 @@ footer .container p.float-end {
   margin: 0;
 }
 
-@media (max-width: 600px) {
-  footer .container p.float-end {
-    display: none;
-  }
+#navbar {
+  background-color: var(--nav-color) !important;
 }
 
 #contenedorPerfil{
@@ -58,6 +58,7 @@ footer .container p.float-end {
 #contenedorImagenPerfil{
     display: flex;
     flex-direction: column;
+    margin-bottom: 9em;
 }
 
 h1{
@@ -97,6 +98,7 @@ h1{
     background-color: var(--color-boton);
     color: var(--color-letra);
     font-weight: bold;
+    margin-top: 1em;
 }
 
 #botonCambiarFoto {
@@ -106,4 +108,23 @@ h1{
     background-color: var(--color-boton);
     color: var(--color-letra);
     font-weight: bold;
+}
+
+@media (max-width: 1920px) {
+  #botonEditar {
+    margin-top: 2em;
+     margin-bottom: 4em;
+  }
+}
+
+@media (max-width: 600px) {
+  footer .container p.float-end {
+    display: none;
+  }
+
+  #contenedorImagenPerfil{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
 }
