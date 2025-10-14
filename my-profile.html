@@ -59,48 +59,51 @@
       <div id="contenedorPerfil">
         
         <div id="contenedorImagenPerfil">
-          <div id="contenedorImagen">
+          <div id="contenedorImagen" class="snes-panel">
             <img src="img/foto-perfil.jpg" alt="Foto de perfil" id="fotoPerfil">
           </div>
           <div id="contenedorBotonSubirImagen">
-            <label for="inputFotoPerfil" id="botonCambiarFoto">Cambiar foto</label>
+            <label for="inputFotoPerfil" id="botonCambiarFoto" class="snes-button">Cambiar foto</label>
             <input type="file" name="inputFotoPerfil" id="inputFotoPerfil" style="display: none" accept="image/*">
           </div>
         </div>
 
         <div id="contenedorCampos">
-          <form action="" method="get">
+          <form action="" method="get" class="snes-panel" id="formPerfil" style="max-width: 400px; margin: auto;">
             <div class="campo">
-              <label for="inputNombre">Nombre</label>
-              <input type="text" id="inputNombre" disabled>
+              <label for="inputNombre" class="snes-label">Nombre</label>
+              <input type="text" id="inputNombre" class="snes-input campo-input" disabled>
             </div>
 
             <div class="campo">
-              <label for="inputApellido">Apellido</label>
-              <input type="text" id="inputApellido" disabled>
+              <label for="inputApellido" class="snes-label">Apellido</label>
+              <input type="text" id="inputApellido" class="snes-input campo-input" disabled>
             </div>
 
             <div class="campo">
-              <label for="inputEmail">Email</label>
-              <input type="text" id="inputEmail" disabled>
+              <label for="inputEmail" class="snes-label">Email</label>
+              <input type="text" id="inputEmail" class="snes-input campo-input" disabled>
             </div>
 
             <div class="campo">
-              <label for="inputTelefono">Teléfono</label>
-              <input type="text" id="inputTelefono" disabled>
+              <label for="inputTelefono" class="snes-label">Teléfono</label>
+              <input type="text" id="inputTelefono" class="snes-input campo-input" disabled>
             </div>
-            <button type="submit" id="botonEditar">Editar</button>
+
+            <button type="submit" id="botonEditar" class="snes-button">Editar</button>
           </form>
         </div>
       </div>
     </div>
   </main>
-  <footer class="text-muted">
+  <footer class="bg-dark py-3">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>
+        Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
