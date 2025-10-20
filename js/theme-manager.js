@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", cargarBotonTheme);
 
 function cargarBotonTheme(){
     const html = document.documentElement;
-    html.setAttribute("data-theme", localStorage.getItem("theme"));
+    let theme = localStorage.getItem("theme") || "claro";
+    html.setAttribute("data-theme", theme);
     const themeActual = html.getAttribute('data-theme');
 
 
