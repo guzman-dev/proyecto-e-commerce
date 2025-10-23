@@ -10,6 +10,26 @@ body {
   height: 100%;
 }
 
+#carrito {
+  padding: 0 !important;
+  background-color: var(--color-casilla) !important;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+#carrito:hover {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.comprarImg {
+  width: 1em;
+  padding: 0 !important;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+  margin-bottom: 0.2em;
+}
+
 /*Card de información*/
 
 .card-body {

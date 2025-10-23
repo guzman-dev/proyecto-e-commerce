@@ -1,3 +1,22 @@
-#contenedorCart{
+#contenedorCarrito {
     height: 70vh;
+}
+
+.listadoCarrito {
+    height: 80%;
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+
+}
+
+.botonesCarrito {
+    height: 2rem;
+    margin-top: auto;
+}
+
+.totalLabel{
+    margin-top: auto;
+    width: fit-content;
+    margin-left: 60%;
 }

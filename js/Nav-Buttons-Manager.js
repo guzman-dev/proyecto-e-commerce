@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () =>{
 
     checkLogin();
-    cargarBotonCart();
     cargarUsuario();
     cargarBotonTheme();
 });
@@ -79,24 +78,4 @@ function cambiarTheme(event){
 
 
     html.setAttribute("data-theme", themeNuevo);
-}
-
-//PARA CARGAR EL BOTON DEL CARRITO
-function cargarBotonCart(){
-    let navList = document.getElementById("navList");
-
-
-    let elementoDeLista = document.createElement("li");
-    elementoDeLista.classList.add("nav-item");
-
-
-    let botonDeCarrito = document.createElement("a");
-    botonDeCarrito.classList.add("nav-link");
-
-    botonDeCarrito.innerHTML = "Carrito";
-    botonDeCarrito.href = "cart.html";
-
-    elementoDeLista.appendChild(botonDeCarrito);
-
-    navList.appendChild(elementoDeLista);
 }
