@@ -1,3 +1,10 @@
+body,footer {
+    background-image: var(--cart-fondo);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #contenedorCarrito {
     height: 70vh;
 }

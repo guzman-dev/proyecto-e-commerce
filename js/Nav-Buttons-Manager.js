@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", () =>{
+document.addEventListener("DOMContentLoaded", () => {
 
     checkLogin();
+    cargarBtnCarrito();
     cargarUsuario();
     cargarBotonTheme();
 });
@@ -40,7 +41,7 @@ function cargarUsuario() {
 }
 
 //PARA CARGAR EL BOTON DE MODO OSCURO/CLARO
-function cargarBotonTheme(){
+function cargarBotonTheme() {
     const html = document.documentElement;
     let theme = localStorage.getItem("theme") || "claro";
     html.setAttribute("data-theme", theme);
@@ -66,8 +67,31 @@ function cargarBotonTheme(){
     navList.appendChild(elementoDeLista);
 }
 
+function cargarBtnCarrito() {
+    let navList = document.getElementById("navList");
+
+
+    let elementoDeLista = document.createElement("li");
+    elementoDeLista.classList.add("nav-item");
+
+
+    elementoDeLista.innerHTML = `
+                                <a href="cart.html" class="btn btn-outline-dark position-relative nav-link" id="carrito" style="background-color:var(--color-boton-2);">
+                                    <img src="img/Carrito de compra.png" alt="Carrito" style="width:24px; height:24px; object-fit:contain;">
+                                    <span class="badge position-absolute rounded-pill bg-danger translate-middle" style="color:white; top: 100%; left: 100%;">
+                                    0
+                                    </span>
+                                </a>
+                                `;
+
+    navList.appendChild(elementoDeLista);
+}
+
+
+
+
 //FUNCIONALIDAD DEL BOTON OSCURO/CLARO
-function cambiarTheme(event){
+function cambiarTheme(event) {
     boton = event.currentTarget;
     html = document.documentElement;
     const themeActual = html.getAttribute('data-theme');

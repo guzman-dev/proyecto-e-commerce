@@ -1,0 +1,10 @@
+main,footer{
+    background-image: var(--categorias-fondo);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+footer{
+    background-color: rgba(153, 153, 153, 0.808) !important;
+}
