@@ -14,6 +14,8 @@
     --index-fondo: url('../img/cover_back.png');
     --login-fondo: url(../img/fondo-perfil.png);
     --perfil-fondo: url('../img/fondo-perfil.jpg');
+    --categorias-fondo: url(../img/categoriesFondo-claro.png);
+    --cart-fondo: url(../img/cartFondo-claro.png);
 
 
 
@@ -43,6 +45,8 @@
     --index-fondo: url('../img/cover_back-oscuro.png');
     --login-fondo: url(../img/fondo-perfil-oscuro.png);
     --perfil-fondo: url('../img/fondo-perfil-oscuro.jpg');
+    --categorias-fondo: url(../img/categoriesFondo-oscuro.png);
+    --cart-fondo: url(../img/cartFondo-oscuro.png);
 
 
 
