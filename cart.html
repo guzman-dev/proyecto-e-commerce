@@ -9,8 +9,12 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css">
 </head>
 <!--Estoy comentando-->
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
@@ -19,7 +23,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" id="navList">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -36,9 +40,19 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+    <div class="mx-auto my-3 w-75 divPrincipal">
+      <h1 class="mb-3 tituloCarrito">Carrito</h1>
+      <div class="snes-container bg-secondary mb-4" id="contenedorCarrito">
+        <div class="container listadoCarrito" id="listadoCarrito">
+        </div>
+        <div class="totalLabel">
+          <h4>Total:</h4>
+        </div>
+      </div>
+      <div class="divBotonesCarrito d-block d-md-flex flex-column justify-content-md-between justify-content-center flex-md-row mt-4">
+        <button class="snes-button botonBottom" id="btnSeguirComprando">Seguir Comprando</button>
+        <button class="snes-button botonBottom" id="btnContinuarPago">Continuar con el Pago</button>
       </div>
     </div>
   </main>
@@ -47,7 +61,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -61,7 +76,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
-  <script src="js/theme-manager.js"></script>
+  <script src="js/Nav-Buttons-Manager.js"></script>
 </body>
 
 </html>

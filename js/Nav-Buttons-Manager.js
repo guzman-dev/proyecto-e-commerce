@@ -1,5 +1,45 @@
-document.addEventListener("DOMContentLoaded", cargarBotonTheme);
+document.addEventListener("DOMContentLoaded", () =>{
 
+    checkLogin();
+    cargarUsuario();
+    cargarBotonTheme();
+});
+
+
+//COMPRUEBA SI EL USUARIO ESTA LOGEADO, SI NO LO ESTÁ, LO REDERECCIONA A LA PANTALLA DE LOGIN
+
+function checkLogin() {
+    if (localStorage.getItem("loggedIn") == null || localStorage.getItem("loggedIn") === "false") {
+        window.location.href = "login.html";
+    }
+}
+
+//PARA CARGAR EL BOTON DE USUARIO
+
+function cargarUsuario() {
+    if (localStorage.getItem("username") == null) {
+        return;
+    }
+    let navList = document.getElementById("navList");
+
+
+    let elementoDeLista = document.createElement("li");
+    elementoDeLista.classList.add("nav-item");
+
+
+    let nombreDelUsuarioElemento = document.createElement("a");
+    nombreDelUsuarioElemento.classList.add("nav-link");
+
+    nombreDelUsuarioElemento.innerHTML = localStorage.getItem("username");
+    nombreDelUsuarioElemento.href = "my-profile.html";
+
+    elementoDeLista.appendChild(nombreDelUsuarioElemento);
+
+    navList.appendChild(elementoDeLista);
+
+}
+
+//PARA CARGAR EL BOTON DE MODO OSCURO/CLARO
 function cargarBotonTheme(){
     const html = document.documentElement;
     let theme = localStorage.getItem("theme") || "claro";
@@ -26,6 +66,7 @@ function cargarBotonTheme(){
     navList.appendChild(elementoDeLista);
 }
 
+//FUNCIONALIDAD DEL BOTON OSCURO/CLARO
 function cambiarTheme(event){
     boton = event.currentTarget;
     html = document.documentElement;
