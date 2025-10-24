@@ -15,36 +15,106 @@
     margin-top: auto;
 }
 
-.totalLabel{
-    margin-top: auto;
-    width: fit-content;
-    margin-left: 75%;
-    background-color: aqua;
+.botonBottom {
+    padding: 2px !important;
+    width: fit-content !important;
 }
 
-.casillaProducto{
+.totalLabel {
+    width: auto;
+    height: fit-content;
+    margin-left: 60%;
+}
+
+.casillaProducto {
     height: 30%;
     background-color: bisque;
 }
 
-.imgProducto{
+.imgProducto {
     max-width: 200px;
     width: 100%;
 }
 
-.botonDeCantidad{
+.botonDeCantidad {
     width: 60%;
     height: 50%;
     padding: 1px !important;
     font-size: 15px !important;
+    font-size: 10px !important;
+    width: 100% !important;
+    padding: 4px 8px !important;
+    height: fit-content !important;
+    margin-top: 3px !important;
 }
 
-.controlarCantidad{
-    background-color: brown;
-}
-
-.snes-container{
+.snes-container {
     padding: 5px !important;
     margin: 5px !important;
+
+}
+
+@media screen and (width <=768px) {
+    * {
+        font-size: 13px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .botonDeCantidad {
+        font-size: 10px !important;
+        width: 100% !important;
+        padding: 4px 8px !important;
+        height: fit-content !important;
+        margin-top: 3px !important;
+    }
+
+    .controlarCantidad {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .botonesCarrito {
+        height: 3rem !important;
+
+    }
+
+    #contenedorCarrito {
+        height: 65vh;
+        width: 100%;
+    }
+
+    .imgProducto {
+        max-width: 140px;
+        width: 100%;
+    }
+
+    .totalLabel {
+        width: auto;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .listadoCarrito {
+        height: 100%;
+        flex: 1;
+        overflow-y: auto;
+        padding: 0;
+
+    }
+
+    .divPrincipal {
+        width: 100vw;
+    }
+
+    .botonBottom {
+        padding: 4px 8px !important;
+        line-height: 1 !important;
+        height: fit-content !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
 
 }

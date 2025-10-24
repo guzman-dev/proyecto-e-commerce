@@ -41,7 +41,7 @@
   </nav>
   <main>
 
-    <div class="mx-auto my-3 w-75">
+    <div class="mx-auto my-3 w-75 divPrincipal">
       <h1 class="mb-3 tituloCarrito">Carrito</h1>
       <div class="snes-container bg-secondary mb-4" id="contenedorCarrito">
         <div class="container listadoCarrito">
@@ -52,20 +52,20 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <div class="d-flex nombreYCantidad justify-content-between">
-                    <h3>Nombre</h3>
-                    <h3>Cantidad: 2</h3>
+                  <div class="d-flex nombreYCantidad justify-content-between flex-column flex-lg-row">
+                    <h5>Nombre</h5>
+                    <h5>Cantidad: 2</h5>
                   </div>
-                  <div class="precioYMoneda">
-                    <h3>$U 2000</h3>
+                  <div class="precioYMoneda my-2">
+                    <h5>$U 2000</h5>
                   </div>
-                  <div class="bottomDiv d-flex justify-content-between">
+                  <div class="bottomDiv d-flex justify-content-between mt-2 mt-md-5 flex-column flex-md-row">
                     <div class="subtotal">
-                      <h3>Total: 2000</h3>
+                      <h5>Subtotal: 2000</h5>
                     </div>
-                    <div class="controlarCantidad d-flex flex-column justify-content-between flex-md-row">
-                      <button class="snes-button botonDeCantidad mx-3">Agregar</button>
-                      <button class="snes-button botonDeCantidad mx-3">Eliminar</button>
+                    <div class="controlarCantidad d-flex flex-column justify-content-between flex-lg-row">
+                      <button class="snes-button botonDeCantidad mx-4 mx-md-2">Agregar</button>
+                      <button class="snes-button botonDeCantidad mx-4 mx-md-2">Eliminar</button>
                     </div>
                   </div>
                 </div>
@@ -73,13 +73,13 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid totalLabel">
-          Total:
+        <div class="totalLabel">
+          <h4>Total:</h4>
         </div>
       </div>
-      <div class="divBotonesCarrito d-flex flex-column justify-content-between flex-md-row mt-4">
-        <button class="snes-button">Seguir Comprando</button>
-        <button class="snes-button">Continuar con el Pago</button>
+      <div class="divBotonesCarrito d-block d-md-flex flex-column justify-content-md-between justify-content-center flex-md-row mt-4">
+        <button class="snes-button botonBottom">Seguir Comprando</button>
+        <button class="snes-button botonBottom">Continuar con el Pago</button>
       </div>
     </div>
   </main>
