@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     checkLogin();
+    cargarTheme();
     cargarBtnCarrito();
     cargarUsuario();
     cargarBotonTheme();
@@ -40,11 +41,17 @@ function cargarUsuario() {
 
 }
 
-//PARA CARGAR EL BOTON DE MODO OSCURO/CLARO
-function cargarBotonTheme() {
+//PARA CARGAR EL THEME GUARDADO EN LOCALSTORAGE AL ENTRAR A LA PÁGINA
+function cargarTheme(){
     const html = document.documentElement;
     let theme = localStorage.getItem("theme") || "claro";
     html.setAttribute("data-theme", theme);
+}
+
+
+//PARA CARGAR EL BOTON DE MODO OSCURO/CLARO
+function cargarBotonTheme() {
+    const html = document.documentElement;
     const themeActual = html.getAttribute('data-theme');
 
 
