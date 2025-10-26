@@ -66,7 +66,10 @@ function mostrarProductosEnCarrito() {
             <div class="card-body">
               <div class="d-flex nombreYCantidad justify-content-between flex-column flex-lg-row">
                 <h5>${producto.nombre}</h5>
-                <h5>Cantidad: ${producto.cantidad}</h5>
+                <div>
+                  <label>Cantidad:</label>
+                  <input type="number" name="cantidadField" id="cantidadField" value="${producto.cantidad}" style="width: 10%;">
+                </div>
               </div>
               <div class="precioYMoneda my-2">
                 <h5>${producto.moneda} ${producto.precio}</h5>
@@ -74,10 +77,6 @@ function mostrarProductosEnCarrito() {
               <div class="bottomDiv d-flex justify-content-between mt-2 mt-md-5 flex-column flex-md-row">
                 <div class="subtotal">
                   <h5>Subtotal: ${producto.precio * producto.cantidad}</h5>
-                </div>
-                <div class="controlarCantidad d-flex flex-column justify-content-between flex-lg-row">
-                  <button class="snes-button botonDeCantidad mx-4 mx-md-2">Agregar</button>
-                  <button class="snes-button botonDeCantidad mx-4 mx-md-2">Eliminar</button>
                 </div>
               </div>
             </div>
