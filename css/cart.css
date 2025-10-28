@@ -43,8 +43,9 @@ label{
 }
 
 .imgProducto {
-    max-width: 200px;
+    max-width: 300px;
     width: 100%;
+    border-radius: 15px;
 }
 
 .botonDeCantidad {
