@@ -88,6 +88,11 @@ label{
         align-items: center;
     }
 
+    #titulo {
+        margin-top: 5%;
+        margin-bottom: 3% !important;
+    }
+
     .botonDeCantidad {
         font-size: 10px !important;
         width: 100% !important;
@@ -127,8 +132,8 @@ label{
     }
 
     #quitarProd{
-    width: 3em;
-    height: 2.8em;
+        width: 3em;
+        height: 2.8em;
     }
 
     .botonBottom {
@@ -152,6 +157,11 @@ label{
 }
 
 @media screen and (max-width: 648px) {
+
+    #titulo {
+        margin-top: 8%;
+        margin-bottom: 4% !important;
+    }
     
     #botonesCarro{
         display: flex !important;
