@@ -243,16 +243,16 @@ input::placeholder {
 
 
   #botonOrdenarPrecioDesc{
-    background-image: url(../img/price_down.png);
+    background-image: var(--precio-down);
     
   }
 
   #botonOrdenarPrecioAsc{
-    background-image: url(../img/price_up.png)
+    background-image: var(--precio-up);
   }
 
   #botonOrdenarRelevancia{
-    background-image: url(../img/relevancia.png);
+    background-image: var(--tendencia);
   }
 
 }

@@ -48,6 +48,11 @@ nav a {
   user-select: none;
 }
 
+#carrito:hover {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
