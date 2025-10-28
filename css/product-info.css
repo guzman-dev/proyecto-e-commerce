@@ -10,17 +10,7 @@ body {
   height: 100%;
 }
 
-#carrito {
-  padding: 0 !important;
-  background-color: var(--color-casilla) !important;
-  margin: 0.5em;
-  cursor: pointer;
-}
 
-#carrito:hover {
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
 
 .comprarImg {
   width: 1em;

@@ -91,6 +91,7 @@ function mostrarProductosEnCarrito() {
       if (index > -1) productos.splice(index, 1);
       localStorage.setItem("productosEnCarrito", JSON.stringify(productos));
       actualizarBadgeCarrito();
+      cargarTotal();
       });
 
   });

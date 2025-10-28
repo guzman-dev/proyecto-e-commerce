@@ -16,7 +16,10 @@
     --perfil-fondo: url('../img/fondo-perfil.jpg');
     --categorias-fondo: url(../img/categoriesFondo-claro.png);
     --cart-fondo: url(../img/cartFondo-claro.png);
-
+    --precio-up: url(../img/precio-arriba-claro.png);
+    --precio-down: url(../img/precio-abajo-claro.png);
+    --cart: url(../img/cart-claro.png);
+    --tendencia: url(../img/tendencia-claro.png);
 
 
 
@@ -47,6 +50,10 @@
     --perfil-fondo: url('../img/fondo-perfil-oscuro.jpg');
     --categorias-fondo: url(../img/categoriesFondo-oscuro.png);
     --cart-fondo: url(../img/cartFondo-oscuro.png);
+    --precio-up: url(../img/precio-arriba-oscuro.png);
+    --precio-down: url(../img/precio-abajo-oscuro.png);
+    --cart: url(../img/cart-oscuro.png);
+    --tendencia: url(../img/tendencia-oscuro.png);
 
 
 
