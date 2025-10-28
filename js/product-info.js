@@ -7,6 +7,7 @@ const productContainer = document.getElementById('producto');
 const productInfo = document.getElementById('productInfo');
 
 const botonEnviarCalificacion = document.getElementById("botonEnviarCalificacion")
+const botonComprar = document.getElementById("botonComprar");
 const calificaciones = document.getElementById("calificaciones");
 const productosRel = document.getElementById("productosR");
 
@@ -65,6 +66,31 @@ fetch(apiURL)
             productosRel.appendChild(divProductInfo);
         })
 
+        botonComprar.addEventListener("click", () => {
+            const productoComprado = {
+                id: product.id,
+                nombre: product.name,
+                categoria: product.category,
+                descripcion: product.description,
+                precio: product.cost,
+                moneda: product.currency,
+                imagen: product.images[0],
+                vendidos: product.soldCount,
+                cantidad: 1
+            };
+
+            let carrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
+
+            const productoExistente = carrito.find(p => p.id === productoComprado.id);
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push(productoComprado);
+            }
+
+            localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
+            window.location.href = "cart.html";
+        });
     })
     .catch(error => {
         console.error(error);
