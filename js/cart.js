@@ -62,7 +62,7 @@ function mostrarProductosEnCarrito() {
 
 
     divProducto.innerHTML = ` <div class="row g-0">
-          <div class="col-md-4 bg-dark d-flex justify-content-center align-items-center divImagenProducto">
+          <div class="col-md-4 d-flex justify-content-center align-items-center divImagenProducto">
             <img src="${producto.imagen}" class="imgProducto img-fluid" alt="${producto.nombre}">
           </div>
           <div class="col-md-8">
