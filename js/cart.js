@@ -81,6 +81,11 @@ function mostrarProductosEnCarrito() {
                 <div class="subtotal">
                   <h5 class="subTotal" id="subTotal">Subtotal: ${producto.precio * producto.cantidad}</h5>
                 </div>
+                <div class="snes-button" id="quitarProd">
+                <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M16 2v4h6v2h-2v14H4V8H2V6h6V2h8zm-2 2h-4v2h4V4zm0 4H6v12h12V8h-4zm-5 2h2v8H9v-8zm6 0h-2v8h2v-8z" fill="currentColor"/>
+                </svg>
+              </div>
               </div>
             </div>
           </div>
@@ -107,7 +112,15 @@ function mostrarProductosEnCarrito() {
       actualizarBadgeCarrito();
     });
     
+    const quitarProducto = divProducto.querySelector("#quitarProd");
 
+      quitarProducto.addEventListener("click", () => {
+      divProducto.remove();
+      const index = productos.indexOf(producto);
+      if (index > -1) productos.splice(index, 1);
+      localStorage.setItem("productosEnCarrito", JSON.stringify(productos));
+      actualizarBadgeCarrito();
+      });
 
   });
 
