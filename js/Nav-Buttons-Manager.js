@@ -85,16 +85,37 @@ function cargarBtnCarrito() {
     elementoDeLista.innerHTML = `
                                 <a href="cart.html" class="btn btn-outline-dark position-relative nav-link" id="carrito" style="background-color:var(--color-boton-2);">
                                     <img src="img/Carrito de compra.png" alt="Carrito" style="width:24px; height:24px; object-fit:contain;">
-                                    <span class="badge position-absolute rounded-pill bg-danger translate-middle" style="color:white; top: 100%; left: 100%;">
+                                    <span class="badge position-absolute rounded-pill bg-danger translate-middle" id="badge" style="color:white; top: 100%; left: 100%;">
                                     0
                                     </span>
                                 </a>
                                 `;
 
     navList.appendChild(elementoDeLista);
+    actualizarBadgeCarrito();
 }
 
+function actualizarBadgeCarrito() {
+  const productosGuardados = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
+  let cantidadTotal = 0;
+  const botonComprar = document.getElementById("comprarInfo");
 
+  productosGuardados.forEach(producto => {
+    cantidadTotal += producto.cantidad;
+  });
+
+  const badge = document.getElementById('badge');
+  if (!badge) return;
+
+  badge.textContent = cantidadTotal;
+  badge.style.display = cantidadTotal > 0 ? 'inline-block' : 'none';
+}
+
+if (botonComprar) {
+  botonComprar.addEventListener('click', () => {
+    actualizarBadgeCarrito();
+  });
+}
 
 
 //FUNCIONALIDAD DEL BOTON OSCURO/CLARO
