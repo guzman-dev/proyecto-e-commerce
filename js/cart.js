@@ -98,13 +98,18 @@ function mostrarProductosEnCarrito() {
       subTotal.innerHTML = "Subtotal: " + producto.precio * inputCantidad.value;
 
       cargarTotal();
+      
+      //actualizar badge live
+
+      producto.cantidad = parseInt(inputCantidad.value);
+      localStorage.setItem("productosEnCarrito", JSON.stringify(productos));
+
+      actualizarBadgeCarrito();
     });
     
 
 
   });
-
-
 
 
   function cargarTotal() {
