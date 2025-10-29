@@ -9,10 +9,12 @@ body,footer {
  font-size: 2em;
  margin-top: 2%;
  margin-bottom: 0.8%;
+ color: var(--color-letra);
 }
 
 #contenedorCarrito {
     height: 70vh;
+    color: var(--color-letra);
 }
 
 .listadoCarrito {
