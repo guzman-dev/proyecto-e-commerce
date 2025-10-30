@@ -54,6 +54,7 @@ label{
     max-width: 300px;
     width: 100%;
     border-radius: 15px;
+    
 }
 
 .botonDeCantidad {
@@ -67,6 +68,10 @@ label{
     height: fit-content !important;
     margin-top: 3px !important;
 }
+
+
+
+
 
 .snes-container {
     background-color: rgba(246, 222, 212, 0.4) !important;
