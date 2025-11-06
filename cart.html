@@ -41,20 +41,50 @@
   </nav>
   <main>
 
-    <div class="mx-auto my-3 w-75 divPrincipal">
-      <h1 class="mb-3 tituloCarrito" id="titulo">Carrito</h1>
-      <div class="snes-container mb-4" id="contenedorCarrito">
-        <div class="container listadoCarrito" id="listadoCarrito">
-          
+    <div class="contenedorMain d-flex gap-3">
+      <div class="mx-1 my-3 divPrincipal">
+        <h1 class="mb-3 tituloCarrito" id="titulo">Carrito</h1>
+        <div class="snes-container mb-4" id="contenedorCarrito">
+          <div class="container listadoCarrito" id="listadoCarrito">
+      
+          </div>
+          <div class="totalLabel" id="total">
+            <h4>Total: 0</h4>
+          </div>
         </div>
-        <div class="totalLabel" id="total">
-          <h4>Total: 0</h4>
+        <div
+          class="divBotonesCarrito d-block d-md-flex flex-column justify-content-md-between justify-content-center flex-md-row mt-4" id="botonesCarro">
+          <button class="snes-button botonBottom" id="btnSeguirComprando">Seguir Comprando</button>
+          <button class="snes-button botonBottom" id="btnContinuarPago">Continuar con el Pago</button>
         </div>
       </div>
-      <div
-        class="divBotonesCarrito d-block d-md-flex flex-column justify-content-md-between justify-content-center flex-md-row mt-4" id="botonesCarro">
-        <button class="snes-button botonBottom" id="btnSeguirComprando">Seguir Comprando</button>
-        <button class="snes-button botonBottom" id="btnContinuarPago">Continuar con el Pago</button>
+      <div class= "divDeDatos mx-1 my-3" id="divDeDatos">
+        <h1 id="tituloDeDatos">Datos de compra</h1>
+        <form>
+         <div id="envío">
+         <p>Envío</p>
+          <label for="tipoEnvio">Tipo de envío</label>
+          <select form="envioform">
+           <option value="premium">Premium 2 a 5 días (15%)</option>
+           <option value="express">Express 5 a 8 días (7%)</option>
+           <option value="standard">Standard 12 a 15 días (5%)</option>
+          </select>
+          <p>Dirección de envío</p> <input type="text" id="dirEnvío">
+          </div>
+          <div id="pago">
+         <p>Pago</p>
+          <label for="formaPago">Forma de pago</label>
+          <select form="pagoform">
+           <option value="tar">Tarjeta de crédito</option>
+           <option value="trans">Transferencia bancaria</option>
+          </select>
+          </div>
+        </form>
+        <div id="Costos">
+        <p>Costos</p>
+          <p>Subtotal:</p>
+          <p>Costo de envío</p>
+          </div>
       </div>
     </div>
   </main>

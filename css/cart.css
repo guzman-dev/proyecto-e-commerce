@@ -5,9 +5,13 @@ body,footer {
     background-attachment: fixed;
 }
 
-#titulo {
+main {
+    padding: 1.5em;
+}
+
+#titulo, #tituloDeDatos {
  font-size: 2em;
- margin-top: 2%;
+ margin-top: 20px;
  margin-bottom: 0.8%;
  color: var(--color-letra);
 }
@@ -15,6 +19,21 @@ body,footer {
 #contenedorCarrito {
     height: 70vh;
     color: var(--color-letra);
+}
+
+.divPrincipal{
+    width: 60vw;
+}
+
+.divDeDatos{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+
+.divDeDatos *{
+    word-spacing: normal !important;
+    width: 40vw;
+    font-family:Arial, Helvetica, sans-serif !important;
 }
 
 .listadoCarrito {
