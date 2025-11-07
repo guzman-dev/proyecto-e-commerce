@@ -36,6 +36,8 @@
     --color-comentario: rgb(255, 133, 58, 0.6);
     --color-datos-producto: rgba(205, 140, 107, 0.5);
     --color-datos-producto-2: rgba(205, 140, 107, 0.5);
+    --color-boton-quitar: rgba(191, 64, 9, 0.836);
+    --color-boton-finalizar: rgba(255, 200, 0, 0.836);
 
 }
 
@@ -72,5 +74,7 @@
     --color-comentario: rgb(35, 25, 112);
     --color-datos-producto: rgba(73, 84, 134, 0.8);
     --color-datos-producto-2: rgba(14, 17, 122, 0.9);
+    --color-boton-quitar: rgba(53, 68, 240, 0.836);
+    --color-boton-finalizar: rgba(53, 68, 240, 0.836);
 
 }
