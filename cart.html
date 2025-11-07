@@ -41,8 +41,8 @@
   </nav>
   <main>
 
-    <div class="contenedorMain d-flex gap-3">
-      <div class="mx-1 my-3 divPrincipal">
+    <div class="contenedorMain d-flex gap-4">
+      <div class="mx-2 divPrincipal">
         <h1 class="mb-3 tituloCarrito" id="titulo">Carrito</h1>
         <div class="snes-container mb-4" id="contenedorCarrito">
           <div class="container listadoCarrito" id="listadoCarrito">
@@ -58,33 +58,51 @@
           <button class="snes-button botonBottom" id="btnContinuarPago">Continuar con el Pago</button>
         </div>
       </div>
-      <div class= "divDeDatos mx-1 my-3" id="divDeDatos">
+      <div class= "divDeDatos mx-1" id="divDeDatos">
         <h1 id="tituloDeDatos">Datos de compra</h1>
         <form>
-         <div id="envío">
-         <p>Envío</p>
-          <label for="tipoEnvio">Tipo de envío</label>
+         <div id="envio">
+         <h4>Envío</h4>
+          <div id="tipoEnvio" class="subSubtitulos">
+          <h5>Tipo de envío</h5>
           <select form="envioform">
            <option value="premium">Premium 2 a 5 días (15%)</option>
            <option value="express">Express 5 a 8 días (7%)</option>
            <option value="standard">Standard 12 a 15 días (5%)</option>
           </select>
-          <p>Dirección de envío</p> <input type="text" id="dirEnvío">
+          </div>
+          <h5>Dirección de envío</h5>
+          <div id="dept" class="subSubtitulos"><p>Departamento</p> <input type="text"></div>
+          <div id="localidad"><p>Localidad</p> <input type="text"></div>
+          <div id="calle"><p>Calle</p> <input type="text"></div>
+          <div id="numEsq">
+           <p>Número</p> <input type="number" id="numero">
+           <p>Esquina</p> <input type="text" id="esquina">
+          </div>
           </div>
           <div id="pago">
-         <p>Pago</p>
-          <label for="formaPago">Forma de pago</label>
+          <h4>Pago</h4>
+          <div id="pagoIn"  class="subSubtitulos">
+          <h5>Forma de pago</h5>
           <select form="pagoform">
            <option value="tar">Tarjeta de crédito</option>
            <option value="trans">Transferencia bancaria</option>
           </select>
           </div>
-        </form>
-        <div id="Costos">
-        <p>Costos</p>
-          <p>Subtotal:</p>
-          <p>Costo de envío</p>
           </div>
+        </form>
+        <div id="costos">
+        <h4>Costos</h4>
+         <div class="subSubtitulos">
+          <h5>Subtotal:</h5>
+          <h5>Costo de envío:</h5>
+         </div>
+        </div>
+          <div id="lineaFinal">
+          <h3>Total:</h3>
+          <button type="button" class="btn btn-warning" id="btnFinalizarC">Finalizar Compra</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>

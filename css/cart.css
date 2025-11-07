@@ -21,19 +21,14 @@ main {
     color: var(--color-letra);
 }
 
+.contenedorMain {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
 .divPrincipal{
     width: 60vw;
-}
-
-.divDeDatos{
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.671);
-}
-
-.divDeDatos *{
-    word-spacing: normal !important;
-    width: 40vw;
-    font-family:Arial, Helvetica, sans-serif !important;
 }
 
 .listadoCarrito {
@@ -88,10 +83,6 @@ label{
     margin-top: 3px !important;
 }
 
-
-
-
-
 .snes-container {
     background-color: rgba(246, 222, 212, 0.4) !important;
     padding: 5px !important;
@@ -107,11 +98,77 @@ label{
     color: black !important;
 }
 
+.divDeDatos *{
+    word-spacing: normal !important;
+    font-family:Arial, Helvetica, sans-serif !important;
+}
+
+#divDeDatos{
+    background-color: rgba(255, 255, 255, 0.671);
+    color: black;
+    border-radius: 10px;
+    width: 40vw;
+    height: fit-content;
+    margin-top: 4em;
+    padding: 2em;
+    padding-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+#tituloDeDatos {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#divDeDatos h4 {
+    font-weight: 550;
+}
+
+#tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#tipoEnvio {
+    margin-bottom: 0.5em;
+}
+
+.subSubtitulos {
+    margin-top: 0.8em;
+}
+
+#numero {
+    width: 2rem;
+}
+
+#costos, #pago, #envio, #lineaFinal {
+    margin-top: 0.7em;
+}
+
+#lineaFinal {
+   display: flex;
+   flex-direction: row;
+   justify-content: right;
+   gap: 1em;
+}
+
+#divDeDatos input, #divDeDatos select {
+  height: 1.8em;
+}
+
 @media screen and (max-width: 768px) {
     * {
         font-size: 13px;
         text-align: center;
         align-items: center;
+    }
+
+    .contenedorMain {
+    display: flex;
+    flex-direction: column;
     }
 
     #titulo {
@@ -184,6 +241,11 @@ label{
 
 @media screen and (max-width: 648px) {
 
+    .contenedorMain {
+    display: flex;
+    flex-direction: column;
+    }
+    
     #titulo {
         margin-top: 8%;
         margin-bottom: 4% !important;
