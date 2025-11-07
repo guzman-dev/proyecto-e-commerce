@@ -9,11 +9,14 @@ main {
     padding: 1.5em;
 }
 
+#titulo {
+    color: var(--color-letra);
+}
+
 #titulo, #tituloDeDatos {
  font-size: 2em;
  margin-top: 20px;
  margin-bottom: 0.8%;
- color: var(--color-letra);
 }
 
 #contenedorCarrito {
@@ -93,7 +96,7 @@ label{
 }
 
 #quitarProd{
-    background-color: rgba(191, 64, 9, 0.836) !important;
+    background-color: var(--color-boton-quitar) !important;
     padding: 0 !important;
     color: black !important;
 }
@@ -101,11 +104,11 @@ label{
 .divDeDatos *{
     word-spacing: normal !important;
     font-family:Arial, Helvetica, sans-serif !important;
+    color: black !important;
 }
 
 #divDeDatos{
     background-color: rgba(255, 255, 255, 0.671);
-    color: black;
     border-radius: 10px;
     width: 40vw;
     height: fit-content;
@@ -122,7 +125,7 @@ label{
     font-weight: 700;
 }
 
-#divDeDatos h4 {
+#divDeDatos h4, h3 {
     font-weight: 550;
 }
 
@@ -140,8 +143,14 @@ label{
     margin-top: 0.8em;
 }
 
-#numero {
+#numero input {
     width: 2rem;
+}
+
+#numero, #esquina {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
 
 #costos, #pago, #envio, #lineaFinal {
@@ -152,6 +161,7 @@ label{
    display: flex;
    flex-direction: row;
    justify-content: right;
+   align-items: center;
    gap: 1em;
 }
 
@@ -159,20 +169,33 @@ label{
   height: 1.8em;
 }
 
+#btnFinalizarC {
+    font-size: x-large;
+    background-color: var(--color-boton-finalizar);
+    color: var(--color-letra) !important;
+}
+
 @media screen and (max-width: 768px) {
     * {
-        font-size: 13px;
-        text-align: center;
-        align-items: center;
+         font-size: 13px;
+         text-align: center;
+         align-items: center;
     }
 
     .contenedorMain {
-    display: flex;
-    flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #divDeDatos {
+        width: 60vw;
+        margin-top: 1em;
+        justify-content: center;
     }
 
     #titulo {
-        margin-top: 5%;
+        margin-top: 3%;
         margin-bottom: 3% !important;
     }
 
@@ -211,7 +234,7 @@ label{
     }
 
     .divPrincipal {
-        width: 100vw;
+        width: 90vw;
     }
 
     #quitarProd{
@@ -227,6 +250,7 @@ label{
         align-items: center !important;
         justify-content: center !important;
         gap: 1% !important;
+
     }
 
     #botonesCarro{
@@ -237,6 +261,38 @@ label{
         display: flex !important;
         flex-direction: column !important;
     }
+
+     #tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
+       justify-content: center;
+       align-items: center;
+    }
+
+    #numEsq {
+        display: flex;
+        flex-direction: row !important;
+    }
+
+    #envio, #pago, #costos {
+        margin-bottom: 1.2em;
+    }
+
+    #envio {
+        margin-top: 1.2em;
+    }
+
+    #envio .subSubtitulos {
+     margin-top: 1em;
+    }
+
+    #lineaFinal {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7em;
+    }
+
+    #btnFinalizarC {
+    font-size: large;
+    }
 }
 
 @media screen and (max-width: 648px) {
@@ -244,8 +300,9 @@ label{
     .contenedorMain {
     display: flex;
     flex-direction: column;
+    align-items: center;
     }
-    
+
     #titulo {
         margin-top: 8%;
         margin-bottom: 4% !important;
@@ -269,5 +326,53 @@ label{
     margin-top: 5%;
     width: 3em;
     height: 2.6em;
+    }
+
+    #divDeDatos {
+    width: 90vw;
+    margin-top: 0.5em;
+    }
+
+    #tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
+    display: flex;
+    flex-direction: column !important;
+    gap: 0;
+    }
+
+    #localidad, #calle, #numEsq, #esquina{
+        margin-top: 1em;
+    }
+
+    #numero, #esquina {
+    flex-direction: column;
+    gap: 0;
+    }
+
+    #tipoEnvio{
+        gap: 0.3em;
+        margin-top: 1em;
+        margin-bottom: 1.3em;
+    }
+
+    .subSubtitulos {
+    margin-top: 0.8em;
+    }
+
+    #pago, #envio {
+    margin-top: 1.7em;
+    }
+    
+    #costos, #lineaFinal {
+        margin-top: 0.5em;
+    }
+
+    #lineaFinal {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+    }
+
+    #btnFinalizarC {
+    font-size: large;
     }
 }
