@@ -140,7 +140,7 @@ function mostrarProductosEnCarrito() {
     })
 
     total.innerHTML = "Total: " + totalNumero;
-    compraSubTotal.innerHTML = "Subtotal: USD " + totalNumero;
+    compraSubTotal.innerHTML = "Subtotal: " + totalNumero;
 
     let envioSeleccionado = inputEnvio.value;
     let costoDeEnvio = 0;
@@ -159,9 +159,9 @@ function mostrarProductosEnCarrito() {
       costoDeEnvio = parseInt(totalNumero) * 0.15;
     }
 
-    compraCostoEnvio.innerHTML = "Costo de envío: USD " + costoDeEnvio.toFixed(2);
+    compraCostoEnvio.innerHTML = "Costo de envío: " + costoDeEnvio.toFixed(2);
 
-    compraTotal.innerHTML = "USD " + (parseInt(totalNumero) + (costoDeEnvio));
+    compraTotal.innerHTML = (parseInt(totalNumero) + (costoDeEnvio));
 
   }
 
