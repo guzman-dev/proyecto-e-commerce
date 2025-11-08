@@ -168,39 +168,43 @@ function recargarTotales() {
 
 inputEnvio.addEventListener("change", recargarTotales);
 
-// VALIDAR LOS CAMPOS OBLIGATORIOS DEL FORMULARIO
+//VALIDAR LOS CAMPOS OBLIGATORIOS DEL FORMULARIO
 const form = document.querySelector("form");
 
-btnFinalizarCompra.addEventListener("click", () => {
+btnFinalizarCompra.addEventListener("click", (e) => {
+  e.preventDefault();
+
   form.querySelectorAll("input, select").forEach((campo) => {
     campo.classList.remove("campo-error");
+    campo.setCustomValidity("");
   });
 
   const camposObligatorios = form.querySelectorAll(
     "input[required], select[required]"
   );
-  let estaVacio = false;
+  let hayErrores = false;
 
   camposObligatorios.forEach((campo) => {
-    if (!campo.value.trim()) {
-      estaVacio = true;
+    if (!campo.checkValidity() || !campo.value.trim()) {
       campo.classList.add("campo-error");
+      campo.setCustomValidity("Este campo es obligatorio");
+      hayErrores = true;
+    } else {
+      campo.setCustomValidity("");
     }
 
     campo.addEventListener("input", () => {
-      if (campo.value.trim()) {
-        campo.classList.remove("campo-error");
-      }
+      campo.setCustomValidity("");
+      campo.classList.remove("campo-error");
     });
-
     campo.addEventListener("change", () => {
-      if (campo.value.trim()) {
-        campo.classList.remove("campo-error");
-      }
+      campo.setCustomValidity("");
+      campo.classList.remove("campo-error");
     });
   });
 
-  if (estaVacio) {
+  if (hayErrores) {
+    form.reportValidity();
     return;
   }
 

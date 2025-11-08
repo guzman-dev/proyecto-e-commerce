@@ -408,4 +408,5 @@ h3 {
 .campo-error {
   border: 2px solid red !important;
   border-radius: 4px;
+  background-color: rgb(245, 172, 172);
 }
