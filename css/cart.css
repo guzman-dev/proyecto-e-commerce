@@ -1,378 +1,411 @@
-body,footer {
-    background-image: var(--cart-fondo);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body,
+footer {
+  background-image: var(--cart-fondo);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 main {
-    padding: 1.5em;
+  padding: 1.5em;
 }
 
 #titulo {
-    color: var(--color-letra);
+  color: var(--color-letra);
 }
 
-#titulo, #tituloDeDatos {
- font-size: 2em;
- margin-top: 20px;
- margin-bottom: 0.8%;
+#titulo,
+#tituloDeDatos {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 0.8%;
 }
 
 #contenedorCarrito {
-    height: 70vh;
-    color: var(--color-letra);
+  height: 70vh;
+  color: var(--color-letra);
 }
 
 .contenedorMain {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-.divPrincipal{
-    width: 60vw;
+.divPrincipal {
+  width: 60vw;
 }
 
 .listadoCarrito {
-    height: 90%;
-    flex: 1;
-    overflow-y: auto;
-    padding: 0;
+  height: 90%;
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
 }
 
-label{
-    font-size: 1.25em;
+label {
+  font-size: 1.25em;
 }
 
 .botonesCarrito {
-    height: 2rem;
-    margin-top: auto;
+  height: 2rem;
+  margin-top: auto;
 }
 
 .botonBottom {
-    padding: 2px !important;
-    width: fit-content !important;
-    background-color: antiquewhite !important;
+  padding: 2px !important;
+  width: fit-content !important;
+  background-color: antiquewhite !important;
 }
 
 .totalLabel {
-    width: auto;
-    height: fit-content;
-    justify-self: right;
+  width: auto;
+  height: fit-content;
+  justify-self: right;
 }
 
 .casillaProducto {
-    height: 30%;
-    background-color: bisque;
+  height: 30%;
+  background-color: bisque;
 }
 
 .imgProducto {
-    max-width: 300px;
-    width: 100%;
-    border-radius: 15px;
-    
+  max-width: 300px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .botonDeCantidad {
-    width: 60%;
-    height: 50%;
-    padding: 1px !important;
-    font-size: 15px !important;
+  width: 60%;
+  height: 50%;
+  padding: 1px !important;
+  font-size: 15px !important;
+  font-size: 10px !important;
+  width: 100% !important;
+  padding: 4px 8px !important;
+  height: fit-content !important;
+  margin-top: 3px !important;
+}
+
+.snes-container {
+  background-color: rgba(246, 222, 212, 0.4) !important;
+  padding: 5px !important;
+  margin: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#quitarProd {
+  background-color: var(--color-boton-quitar) !important;
+  padding: 0 !important;
+  color: black !important;
+}
+
+.divDeDatos * {
+  word-spacing: normal !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: black !important;
+}
+
+#divDeDatos {
+  background-color: rgba(255, 255, 255, 0.671);
+  border-radius: 10px;
+  width: 40vw;
+  height: fit-content;
+  margin-top: 4.5em;
+  padding: 2em;
+  padding-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+#tituloDeDatos {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#divDeDatos h4,
+h3 {
+  font-weight: 550;
+}
+
+#tipoEnvio,
+#dept,
+#localidad,
+#calle,
+#numEsq,
+#pagoIn {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+#tipoEnvio {
+  margin-bottom: 0.5em;
+}
+
+.subSubtitulos {
+  margin-top: 0.8em;
+}
+
+#numero input {
+  width: 4rem;
+}
+
+#numero,
+#esquina {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+#costos,
+#pago,
+#envio,
+#lineaFinal {
+  margin-top: 0.7em;
+}
+
+#lineaFinal {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  gap: 1em;
+}
+
+#divDeDatos input,
+#divDeDatos select {
+  height: 1.8em;
+}
+
+#btnFinalizarC {
+  font-size: x-large;
+  background-color: var(--color-boton-finalizar);
+  color: var(--color-letra) !important;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 13px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contenedorMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #divDeDatos {
+    width: 60vw;
+    margin-top: 1em;
+    justify-content: center;
+  }
+
+  #titulo {
+    margin-top: 3%;
+    margin-bottom: 3% !important;
+  }
+
+  .botonDeCantidad {
     font-size: 10px !important;
     width: 100% !important;
     padding: 4px 8px !important;
     height: fit-content !important;
     margin-top: 3px !important;
-}
+  }
 
-.snes-container {
-    background-color: rgba(246, 222, 212, 0.4) !important;
-    padding: 5px !important;
-    margin: 5px !important;
+  .controlarCantidad {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .botonesCarrito {
+    height: 3rem !important;
+  }
+
+  #contenedorCarrito {
+    height: 65vh;
+    width: 100%;
+  }
+
+  .imgProducto {
+    max-width: 140px;
+    width: 100%;
+  }
+
+  .listadoCarrito {
+    height: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .divPrincipal {
+    width: 90vw;
+  }
+
+  #quitarProd {
+    width: 3em;
+    height: 2.8em;
+  }
+
+  .botonBottom {
+    padding: 4px 8px !important;
+    line-height: 1 !important;
+    height: fit-content !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1% !important;
+  }
+
+  #botonesCarro {
+    gap: 10% !important;
+  }
+
+  #footer .container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #tipoEnvio,
+  #dept,
+  #localidad,
+  #calle,
+  #numEsq,
+  #pagoIn {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #numEsq {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
+    flex-direction: row !important;
+  }
 
-#quitarProd{
-    background-color: var(--color-boton-quitar) !important;
-    padding: 0 !important;
-    color: black !important;
-}
+  #envio,
+  #pago,
+  #costos {
+    margin-bottom: 1.2em;
+  }
 
-.divDeDatos *{
-    word-spacing: normal !important;
-    font-family:Arial, Helvetica, sans-serif !important;
-    color: black !important;
-}
+  #envio {
+    margin-top: 1.2em;
+  }
 
-#divDeDatos{
-    background-color: rgba(255, 255, 255, 0.671);
-    border-radius: 10px;
-    width: 40vw;
-    height: fit-content;
-    margin-top: 4.5em;
-    padding: 2em;
-    padding-top: 0.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
+  #envio .subSubtitulos {
+    margin-top: 1em;
+  }
 
-#tituloDeDatos {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-#divDeDatos h4, h3 {
-    font-weight: 550;
-}
-
-#tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-}
-
-#tipoEnvio {
-    margin-bottom: 0.5em;
-}
-
-.subSubtitulos {
-    margin-top: 0.8em;
-}
-
-#numero input {
-    width: 4rem;
-}
-
-#numero, #esquina {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-}
-
-#costos, #pago, #envio, #lineaFinal {
-    margin-top: 0.7em;
-}
-
-#lineaFinal {
-   display: flex;
-   flex-direction: row;
-   justify-content: right;
-   align-items: center;
-   gap: 1em;
-}
-
-#divDeDatos input, #divDeDatos select {
-  height: 1.8em;
-}
-
-#btnFinalizarC {
-    font-size: x-large;
-    background-color: var(--color-boton-finalizar);
-    color: var(--color-letra) !important;
-}
-
-@media screen and (max-width: 768px) {
-    * {
-         font-size: 13px;
-         text-align: center;
-         align-items: center;
-    }
-
-    .contenedorMain {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #divDeDatos {
-        width: 60vw;
-        margin-top: 1em;
-        justify-content: center;
-    }
-
-    #titulo {
-        margin-top: 3%;
-        margin-bottom: 3% !important;
-    }
-
-    .botonDeCantidad {
-        font-size: 10px !important;
-        width: 100% !important;
-        padding: 4px 8px !important;
-        height: fit-content !important;
-        margin-top: 3px !important;
-    }
-
-    .controlarCantidad {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .botonesCarrito {
-        height: 3rem !important;
-    }
-
-    #contenedorCarrito {
-        height: 65vh;
-        width: 100%;
-    }
-
-    .imgProducto {
-        max-width: 140px;
-        width: 100%;
-    }
-
-    .listadoCarrito {
-        height: 100%;
-        flex: 1;
-        overflow-y: auto;
-        padding: 0;
-    }
-
-    .divPrincipal {
-        width: 90vw;
-    }
-
-    #quitarProd{
-        width: 3em;
-        height: 2.8em;
-    }
-
-    .botonBottom {
-        padding: 4px 8px !important;
-        line-height: 1 !important;
-        height: fit-content !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 1% !important;
-
-    }
-
-    #botonesCarro{
-        gap: 10% !important;
-    }
-
-    #footer .container {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-     #tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
-       justify-content: center;
-       align-items: center;
-    }
-
-    #numEsq {
-        display: flex;
-        flex-direction: row !important;
-    }
-
-    #envio, #pago, #costos {
-        margin-bottom: 1.2em;
-    }
-
-    #envio {
-        margin-top: 1.2em;
-    }
-
-    #envio .subSubtitulos {
-     margin-top: 1em;
-    }
-
-    #lineaFinal {
+  #lineaFinal {
     flex-direction: column;
     justify-content: center;
     gap: 0.7em;
-    }
+  }
 
-    #btnFinalizarC {
+  #btnFinalizarC {
     font-size: large;
-    }
+  }
 }
 
 @media screen and (max-width: 648px) {
-
-    .contenedorMain {
+  .contenedorMain {
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
+  }
 
-    #titulo {
-        margin-top: 7%;
-        margin-bottom: 8% !important;
-    }
-    
-    #botonesCarro{
-        display: flex !important;
-        gap: 0 !important;
-    }
+  #titulo {
+    margin-top: 7%;
+    margin-bottom: 8% !important;
+  }
 
-    .botonBottom {
-        margin-bottom: 6% !important;
-        gap: 0 !important;
-    }
+  #botonesCarro {
+    display: flex !important;
+    gap: 0 !important;
+  }
 
-    .snes-container {
+  .botonBottom {
+    margin-bottom: 6% !important;
+    gap: 0 !important;
+  }
+
+  .snes-container {
     align-items: center;
-    }
+  }
 
-    #quitarProd{
+  #quitarProd {
     margin-top: 5%;
     width: 3em;
     height: 2.6em;
-    }
+  }
 
-    #divDeDatos {
+  #divDeDatos {
     width: 90vw;
     margin-top: 0.5em;
-    }
+  }
 
-    #tipoEnvio, #dept, #localidad, #calle, #numEsq, #pagoIn {
+  #tipoEnvio,
+  #dept,
+  #localidad,
+  #calle,
+  #numEsq,
+  #pagoIn {
     display: flex;
     flex-direction: column !important;
     gap: 0;
-    }
+  }
 
-    #localidad, #calle, #numEsq, #esquina{
-        margin-top: 1em;
-    }
+  #localidad,
+  #calle,
+  #numEsq,
+  #esquina {
+    margin-top: 1em;
+  }
 
-    #numero, #esquina {
+  #numero,
+  #esquina {
     flex-direction: column;
     gap: 0;
-    }
+  }
 
-    #tipoEnvio{
-        gap: 0.3em;
-        margin-top: 1em;
-        margin-bottom: 1.3em;
-    }
+  #tipoEnvio {
+    gap: 0.3em;
+    margin-top: 1em;
+    margin-bottom: 1.3em;
+  }
 
-    .subSubtitulos {
+  .subSubtitulos {
     margin-top: 0.8em;
-    }
+  }
 
-    #pago, #envio {
+  #pago,
+  #envio {
     margin-top: 1.7em;
-    }
-    
-    #costos, #lineaFinal {
-        margin-top: 0.5em;
-    }
+  }
 
-    #lineaFinal {
+  #costos,
+  #lineaFinal {
+    margin-top: 0.5em;
+  }
+
+  #lineaFinal {
     flex-direction: column;
     justify-content: center;
     gap: 0.5em;
-    }
+  }
 
-    #btnFinalizarC {
+  #btnFinalizarC {
     font-size: large;
-    }
+  }
+}
+
+.campo-error {
+  border: 2px solid red !important;
+  border-radius: 4px;
 }
