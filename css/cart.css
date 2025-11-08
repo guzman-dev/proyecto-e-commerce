@@ -410,3 +410,16 @@ h3 {
   border-radius: 4px;
   background-color: rgb(245, 172, 172);
 }
+
+.mensaje-error {
+  color: red !important; 
+  font-size: 0.8rem;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.divPrincipal {
+  flex: 1;
+}

@@ -23,10 +23,18 @@ const compraTotal = document.getElementById("compraTotal");
 const btnFinalizarCompra = document.getElementById("btnFinalizarC");
 
 function comprobarJsonCarritos() {
+  const divDeDatos = document.getElementById("divDeDatos");
+
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
     mostrarCarritoVacio();
+    divDeDatos.classList.add("oculto"); //Oculta el apartado 'Datos de compra'
+    btnContinuarPago.classList.add("oculto"); //Oculta el botón 'Continuar con el pago'
+    total.classList.add("oculto"); //Oculta el texto 'Total'
   } else {
     mostrarProductosEnCarrito();
+    divDeDatos.classList.remove("oculto");
+    btnContinuarPago.classList.remove("oculto");
+    total.classList.remove("oculto");
   }
 }
 
@@ -168,45 +176,59 @@ function recargarTotales() {
 
 inputEnvio.addEventListener("change", recargarTotales);
 
-//VALIDAR LOS CAMPOS OBLIGATORIOS DEL FORMULARIO
+//Seleciona el formulario del DOM para manipularlo
 const form = document.querySelector("form");
 
-btnFinalizarCompra.addEventListener("click", (e) => {
-  e.preventDefault();
+//FUNCIÓN PARA VALIDAR LOS CAMPOS DEL FORMULARIO
 
+function validarCampos() {
+  //Elimina mensajes de error
+  form.querySelectorAll(".mensaje-error").forEach((msj) => msj.remove());
   form.querySelectorAll("input, select").forEach((campo) => {
     campo.classList.remove("campo-error");
-    campo.setCustomValidity("");
   });
 
+  //Selecciona todos los campos obligatorios del formulario
   const camposObligatorios = form.querySelectorAll(
     "input[required], select[required]"
   );
-  let hayErrores = false;
 
+  //Variable para saber si hay algún campo vacío
+  let estaVacio = false;
+
+  //Recorre todos los campos obligatorios
   camposObligatorios.forEach((campo) => {
-    if (!campo.checkValidity() || !campo.value.trim()) {
-      campo.classList.add("campo-error");
-      campo.setCustomValidity("Este campo es obligatorio");
-      hayErrores = true;
-    } else {
-      campo.setCustomValidity("");
+    if (!campo.value.trim()) { //Si el campo está vacío...
+      estaVacio = true; //Marca que hay al menos un campo vacío
+      campo.classList.add("campo-error"); //Aplica estilo al campo vacío con la clase 'campo-error'
+
+      const mensaje = document.createElement("p"); //Crea un párrafo para el mensaje de error
+      mensaje.textContent = "Este campo es obligatorio"; //Texto del mensaje
+      mensaje.classList.add("mensaje-error"); //Aplica la clase 'mensaje-error' al mensaje
+      campo.insertAdjacentElement("afterend", mensaje); //Inserta el mensaje a continuación del campo
     }
 
+    //Escucha el evento 'input' en los campos
     campo.addEventListener("input", () => {
-      campo.setCustomValidity("");
-      campo.classList.remove("campo-error");
-    });
-    campo.addEventListener("change", () => {
-      campo.setCustomValidity("");
-      campo.classList.remove("campo-error");
+      if (campo.value.trim()) { //Si el campo NO está vacío
+        campo.classList.remove("campo-error"); //Quita el estilo de error
+        campo.nextElementSibling?.classList?.contains("mensaje-error") && //Si tiene un mensaje de error...
+          campo.nextElementSibling.remove(); //Lo elimina
+      }
     });
   });
 
-  if (hayErrores) {
-    form.reportValidity();
-    return;
-  }
+  // Si hay campos vacíos, devuelve false
+  return !estaVacio;
+}
 
+// Escucha el evento 'click' en el botón de finalizar compra
+btnFinalizarCompra.addEventListener("click", (e) => {
+  e.preventDefault(); // Evita que se envíe el formulario
+
+  // Si hay campos vacíos, se interrumpe el flujo y no se finaliza la compra
+  if (!validarCampos()) return;
+
+  // Si todo está correcto se muestra una alerta con el mensaje de éxito
   alert("Compra finalizada con éxito");
 });
