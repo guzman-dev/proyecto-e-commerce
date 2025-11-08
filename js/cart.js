@@ -167,3 +167,42 @@ function recargarTotales() {
 //FUNCIONALIDAD DE LA FACTURACIÖN
 
 inputEnvio.addEventListener("change", recargarTotales);
+
+// VALIDAR LOS CAMPOS OBLIGATORIOS DEL FORMULARIO
+const form = document.querySelector("form");
+
+btnFinalizarCompra.addEventListener("click", () => {
+  form.querySelectorAll("input, select").forEach((campo) => {
+    campo.classList.remove("campo-error");
+  });
+
+  const camposObligatorios = form.querySelectorAll(
+    "input[required], select[required]"
+  );
+  let estaVacio = false;
+
+  camposObligatorios.forEach((campo) => {
+    if (!campo.value.trim()) {
+      estaVacio = true;
+      campo.classList.add("campo-error");
+    }
+
+    campo.addEventListener("input", () => {
+      if (campo.value.trim()) {
+        campo.classList.remove("campo-error");
+      }
+    });
+
+    campo.addEventListener("change", () => {
+      if (campo.value.trim()) {
+        campo.classList.remove("campo-error");
+      }
+    });
+  });
+
+  if (estaVacio) {
+    return;
+  }
+
+  alert("Compra finalizada con éxito");
+});
