@@ -1,11 +1,9 @@
-
 //ELEMENTOS DEL CARRITO
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
 const btnContinuarPago = document.getElementById("btnContinuarPago");
 const total = document.getElementById("total");
 const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
-
 
 //ELEMENTOS DE LA FACTURACIÓN
 //Inputs
@@ -24,7 +22,6 @@ const compraTotal = document.getElementById("compraTotal");
 
 const btnFinalizarCompra = document.getElementById("btnFinalizarC");
 
-
 function comprobarJsonCarritos() {
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
     mostrarCarritoVacio();
@@ -37,10 +34,14 @@ comprobarJsonCarritos();
 
 btnSeguirComprando.addEventListener("click", () => {
   window.location = "products.html";
-})
+});
 
 function mostrarCarritoVacio() {
-  contenedorProductos.classList.add("d-flex", "justify-content-center", "align-items-center");
+  contenedorProductos.classList.add(
+    "d-flex",
+    "justify-content-center",
+    "align-items-center"
+  );
   contenedorProductos.style.minHeight = "60vh";
 
   const mensaje = document.createElement("p");
@@ -53,15 +54,16 @@ function mostrarCarritoVacio() {
 function mostrarProductosEnCarrito() {
   contenedorProductos.innerHTML = "";
   const productos = JSON.parse(productosGuardadosJSON);
-  productos.forEach(producto => {
+  productos.forEach((producto) => {
     let divProducto = document.createElement("div");
-    divProducto.className = "card mb-3 divDeProducto snes-container my-3"
+    divProducto.className = "card mb-3 divDeProducto snes-container my-3";
     divProducto.style.maxWidth = "100%";
-
 
     divProducto.innerHTML = ` <div class="row g-0 container">
           <div class="col-md-4 d-flex justify-content-center align-items-center divImagenProducto">
-            <img src="${producto.imagen}" class="imgProducto img-fluid" alt="${producto.nombre}">
+            <img src="${producto.imagen}" class="imgProducto img-fluid" alt="${
+      producto.nombre
+    }">
           </div>
           <div class="col-md-8 contenedorInfoProducto">
             <div class="card-body">
@@ -69,7 +71,9 @@ function mostrarProductosEnCarrito() {
                 <h5>${producto.nombre}</h5>
                 <div style="padding: 0">
                   <label>Cantidad:</label>
-                  <input type="number" name="cantidadField" class="cantidadField" value="${producto.cantidad}" style="width: 5vw;">
+                  <input type="number" name="cantidadField" class="cantidadField" value="${
+                    producto.cantidad
+                  }" style="width: 5vw;">
                 </div>
               </div>
               <div class="precioYMoneda my-2">
@@ -77,7 +81,9 @@ function mostrarProductosEnCarrito() {
               </div>
               <div class="bottomDiv d-flex justify-content-between mt-2 mt-md-5 flex-column flex-md-row ">
                 <div class="subtotal">
-                  <h5 class="subTotal" id="subTotal">Subtotal: ${producto.precio * producto.cantidad}</h5>
+                  <h5 class="subTotal" id="subTotal">Subtotal: ${
+                    producto.precio * producto.cantidad
+                  }</h5>
                 </div>
                 <div class="snes-button " id="quitarProd">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -120,50 +126,43 @@ function mostrarProductosEnCarrito() {
       actualizarBadgeCarrito();
       window.location = "cart.html";
     });
-
   });
-
-
-  
-
-  
 }
 
 //FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
-  
-  function recargarTotales() {
-    let subTotales = document.querySelectorAll(".subTotal");
-    total.innerHTML = "Total: 0";
-    let totalNumero = 0;
-    subTotales.forEach(subT => {
-      totalNumero += parseInt(subT.textContent.split(" ")[1]);
-    })
 
-    total.innerHTML = "Total: " + totalNumero;
-    compraSubTotal.innerHTML = "Subtotal: " + totalNumero;
+function recargarTotales() {
+  let subTotales = document.querySelectorAll(".subTotal");
+  total.innerHTML = "Total: 0";
+  let totalNumero = 0;
+  subTotales.forEach((subT) => {
+    totalNumero += parseInt(subT.textContent.split(" ")[1]);
+  });
 
-    let envioSeleccionado = inputEnvio.value;
-    let costoDeEnvio = 0;
+  total.innerHTML = "Total: " + totalNumero;
+  compraSubTotal.innerHTML = "Subtotal: " + totalNumero;
 
+  let envioSeleccionado = inputEnvio.value;
+  let costoDeEnvio = 0;
 
-    //Tecnicamente se podria hacer todo en la misma linea donde inicializa costoDeEnvio, pero no queda lindo.
-    if(envioSeleccionado === "standard"){
-      costoDeEnvio = parseInt(totalNumero) * 0.05;
-    }
-
-    if(envioSeleccionado === "express"){
-      costoDeEnvio = parseInt(totalNumero) * 0.07;
-    }
-
-    if(envioSeleccionado === "premium"){
-      costoDeEnvio = parseInt(totalNumero) * 0.15;
-    }
-
-    compraCostoEnvio.innerHTML = "Costo de envío: " + costoDeEnvio.toFixed(2);
-
-    compraTotal.innerHTML = (parseInt(totalNumero) + (costoDeEnvio));
-
+  //Tecnicamente se podria hacer todo en la misma linea donde inicializa costoDeEnvio, pero no queda lindo.
+  if (envioSeleccionado === "standard") {
+    costoDeEnvio = parseInt(totalNumero) * 0.05;
   }
+
+  if (envioSeleccionado === "express") {
+    costoDeEnvio = parseInt(totalNumero) * 0.07;
+  }
+
+  if (envioSeleccionado === "premium") {
+    costoDeEnvio = parseInt(totalNumero) * 0.15;
+  }
+
+  compraCostoEnvio.innerHTML = "Costo de envío: " + costoDeEnvio.toFixed(2);
+
+  compraTotal.innerHTML =
+    "Total a pagar: " + (parseInt(totalNumero) + costoDeEnvio);
+}
 
 //FUNCIONALIDAD DE LA FACTURACIÖN
 
