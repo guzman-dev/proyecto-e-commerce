@@ -1,11 +1,29 @@
 
-//Lo único que falta es que el Total no desaparezca cuando la pantilla es mediana o pequeña, y el mensaje cuando no hay productos en el carrito.
-
+//ELEMENTOS DEL CARRITO
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
 const btnContinuarPago = document.getElementById("btnContinuarPago");
 const total = document.getElementById("total");
 const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
+
+
+//ELEMENTOS DE LA FACTURACIÓN
+//Inputs
+const inputEnvio = document.getElementById("inputEnvio");
+const inputDepartamento = document.getElementById("inputDepartamento");
+const inputLocalidad = document.getElementById("inputLocalidad");
+const inputCalle = document.getElementById("inputCalle");
+const inputNumero = document.getElementById("numero");
+const inputEsquina = document.getElementById("esquina");
+const inputFormaPago = document.getElementById("inputFormaPago");
+
+//Subtotal, Costo de envio, y Total de la compra
+const compraSubTotal = document.getElementById("compraSubTotal");
+const compraCostoEnvio = document.getElementById("compraCostoEnvio");
+const compraTotal = document.getElementById("compraTotal");
+
+const btnFinalizarCompra = document.getElementById("btnFinalizarC");
+
 
 function comprobarJsonCarritos() {
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
@@ -17,6 +35,9 @@ function comprobarJsonCarritos() {
 
 comprobarJsonCarritos();
 
+btnSeguirComprando.addEventListener("click", () => {
+  window.location = "products.html";
+})
 
 function mostrarCarritoVacio() {
   contenedorProductos.classList.add("d-flex", "justify-content-center", "align-items-center");
@@ -69,7 +90,7 @@ function mostrarProductosEnCarrito() {
         </div>`;
 
     contenedorProductos.append(divProducto);
-    cargarTotal();
+    recargarTotales();
 
     let inputCantidad = divProducto.querySelector(".cantidadField");
     let subTotal = divProducto.querySelector(".subTotal");
@@ -79,7 +100,7 @@ function mostrarProductosEnCarrito() {
       }
       subTotal.innerHTML = "Subtotal: " + producto.precio * inputCantidad.value;
 
-      cargarTotal();
+      recargarTotales();
 
       //actualizar badge live
 
@@ -103,7 +124,14 @@ function mostrarProductosEnCarrito() {
   });
 
 
-  function cargarTotal() {
+  
+
+  
+}
+
+//FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
+  
+  function recargarTotales() {
     let subTotales = document.querySelectorAll(".subTotal");
     total.innerHTML = "Total: 0";
     let totalNumero = 0;
@@ -112,9 +140,31 @@ function mostrarProductosEnCarrito() {
     })
 
     total.innerHTML = "Total: " + totalNumero;
-  }
-}
+    compraSubTotal.innerHTML = "Subtotal: USD " + totalNumero;
 
-btnSeguirComprando.addEventListener("click", () => {
-  window.location = "products.html";
-})
+    let envioSeleccionado = inputEnvio.value;
+    let costoDeEnvio = 0;
+
+
+    //Tecnicamente se podria hacer todo en la misma linea donde inicializa costoDeEnvio, pero no queda lindo.
+    if(envioSeleccionado === "standard"){
+      costoDeEnvio = parseInt(totalNumero) * 0.05;
+    }
+
+    if(envioSeleccionado === "express"){
+      costoDeEnvio = parseInt(totalNumero) * 0.07;
+    }
+
+    if(envioSeleccionado === "premium"){
+      costoDeEnvio = parseInt(totalNumero) * 0.15;
+    }
+
+    compraCostoEnvio.innerHTML = "Costo de envío: USD " + costoDeEnvio.toFixed(2);
+
+    compraTotal.innerHTML = "USD " + (parseInt(totalNumero) + (costoDeEnvio));
+
+  }
+
+//FUNCIONALIDAD DE LA FACTURACIÖN
+
+inputEnvio.addEventListener("change", recargarTotales);

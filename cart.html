@@ -65,16 +65,16 @@
          <h4>Envío</h4>
           <div id="tipoEnvio" class="subSubtitulos">
           <h5>Tipo de envío</h5>
-          <select form="envioform">
+          <select form="envioform" id="inputEnvio">
            <option value="premium">Premium 2 a 5 días (15%)</option>
            <option value="express">Express 5 a 8 días (7%)</option>
            <option value="standard">Standard 12 a 15 días (5%)</option>
           </select>
           </div>
           <h5>Dirección de envío</h5>
-          <div id="dept" class="subSubtitulos"><p>Departamento</p> <input type="text"></div>
-          <div id="localidad"><p>Localidad</p> <input type="text"></div>
-          <div id="calle"><p>Calle</p> <input type="text"></div>
+          <div id="dept" class="subSubtitulos"><p>Departamento</p> <input type="text" id="inputDepartamento"></div>
+          <div id="localidad"><p>Localidad</p> <input type="text" id="inputLocalidad"></div>
+          <div id="calle"><p>Calle</p> <input type="text" id="inputCalle"></div>
           <div id="numEsq">
            <p>Número</p> <input type="number" id="numero">
            <p>Esquina</p> <input type="text" id="esquina">
@@ -84,7 +84,7 @@
           <h4>Pago</h4>
           <div id="pagoIn"  class="subSubtitulos">
           <h5>Forma de pago</h5>
-          <select form="pagoform">
+          <select form="pagoform" id="inputFormaPago">
            <option value="tar">Tarjeta de crédito</option>
            <option value="trans">Transferencia bancaria</option>
           </select>
@@ -94,12 +94,12 @@
         <div id="costos">
         <h4>Costos</h4>
          <div class="subSubtitulos">
-          <h5>Subtotal:</h5>
-          <h5>Costo de envío:</h5>
+          <h5 id="compraSubTotal">Subtotal:</h5>
+          <h5 id="compraCostoEnvio">Costo de envío:</h5>
          </div>
         </div>
           <div id="lineaFinal">
-          <h3>Total:</h3>
+          <h3 id="compraTotal">Total:</h3>
           <button type="button" class="btn btn-warning" id="btnFinalizarC">Finalizar Compra</button>
           </div>
         </div>
