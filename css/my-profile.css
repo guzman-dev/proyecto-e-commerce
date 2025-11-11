@@ -1,0 +1,130 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+    color: var(--color-letra);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+  background-image: var(--perfil-fondo);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+footer {
+  padding: 1em 0;
+}
+
+footer p, footer a {
+  color: var(--color-basico-muted) !important;
+}
+footer a:hover {
+    color: var(--color-fondo) !important;
+}
+
+footer .container p.float-end {
+  white-space: nowrap;
+  margin: 0;
+}
+
+#navbar {
+  background-color: var(--nav-color) !important;
+}
+
+#contenedorPerfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4em; 
+}
+
+#fotoPerfil{
+    max-width: 300px;
+    border-radius: 3px;
+}
+
+#contenedorImagenPerfil{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 9em;
+}
+
+h1{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+#contenedorBotonSubirImagen{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+}
+
+.campo {
+    margin-bottom: 1.5em;
+}
+
+.snes-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--color-letra);
+}
+
+.campo-input {
+    width: 100%;
+    background-color: var(--color-input) !important;
+    color: var(--color-letra) !important;
+    padding: 0.25em 0.6em;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+#botonEditar {
+    padding: 0.25em 0.8em;
+    font-size: 0.9em;
+    background-color: var(--color-boton);
+    color: var(--color-letra);
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+#botonCambiarFoto {
+    margin-top: 0.5em;
+    padding: 0.25em 0.8em;
+    font-size: 0.8em;
+    background-color: var(--color-boton);
+    color: var(--color-letra);
+    font-weight: bold;
+}
+
+@media (max-width: 1920px) {
+  #botonEditar {
+    margin-top: 2em;
+     margin-bottom: 4em;
+  }
+}
+
+@media (max-width: 600px) {
+  footer .container p.float-end {
+    display: none;
+  }
+
+  #contenedorImagenPerfil{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+}

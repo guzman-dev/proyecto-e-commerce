@@ -13,6 +13,32 @@ nav a {
   text-decoration: none;
 }
 
+.bg-light{
+  background-color: var(--color-basico-fondo) !important;
+}
+
+.snes-blockquote, .btn-light, .list-group-item{  
+  background-color: var(--color-casilla) !important;
+  color: var(--color-letra) !important;
+  padding: 1%;
+}
+
+.lead, h2, p, h1, h3, h4{
+  color: var(--color-letra) !important;
+}
+
+.text-muted{
+  color: var(--color-basico-muted);
+}
+
+.fondoCategorias{
+  background-color: var(--color-fondo);
+}
+
+.footerIndex{
+  background-color: var(--color-basico-fondo);
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -20,6 +46,11 @@ nav a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#carrito:hover {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
 @media (min-width: 768px) {
@@ -33,7 +64,7 @@ nav a {
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background: var(--index-fondo);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

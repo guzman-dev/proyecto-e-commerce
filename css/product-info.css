@@ -1,90 +1,117 @@
-body{
-    background-image: url(../img/productinfo1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+body {
+  background-color: var(--color-fondo) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-size: smaller !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+
+
+.comprarImg {
+  width: 1em;
+  padding: 0 !important;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+  margin-bottom: 0.2em;
+}
+
+/*Card de información*/
 
 .card-body {
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
-
 #producto {
-    margin-top: 4em;
-    margin-left: 7em;
-    margin-right: 7em;
-    margin-bottom: 5em;
-    background-color: rgb(226, 139, 53, 0.7);
-    align-items: center;
-    text-align: center;
-    border-radius: 1em;
+  margin-top: 5em;
+  margin-left: 4em;
+  margin-right: 4em;
+  background-color: var(--color-casilla) !important;
+  align-items: center;
+  text-align: center;
+  border-radius: 1em;
+}
+
+#productoBlock {
+  background-color: var(--color-casilla-2) !important;
+}
+
+.snes-blockquote {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 #nombreYCategoriaInfo {
-    background-color: rgb(255, 133, 58, 0.6);
-    width: 100%;
+  background-color: var(--color-casilla) !important;
+  width: 100%;
+  color: var(--color-letra);
 }
 
 #productCategory {
-    font-weight: 500;
-    margin-top: 0.2em;
+  font-weight: 500;
+  margin-top: 0.2em;
 }
 
 #productInfo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 3em;
-    gap: 1em;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3em;
+  gap: 1em;
+  flex: 1;
 }
 
 #carouselExampleControls {
-    margin-top: 1em;
-    margin-left: 2em;
-    display: flex;
-    align-items: center;
-    flex: 1;
+  margin-top: 1em;
+  margin-left: 2em;
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
-
-
 #descripcionInfo {
-    background-color: rgb(255, 176, 119, 0.9);
-    padding: 1em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 180px;
-    border-radius: 1em;
+  background-color: var(--color-casilla-3);
+  color: var(--color-letra);
+  padding-top: 1em !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
 }
 
 #descripcionInfo p {
-    margin-top: 2.2em;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 #cantidadVendidosInfo {
-   background-color: rgb(255, 176, 119, 0.9);
-   padding: 0.5em;
-   width: 100%;
-   height: 50px;
-   border-radius: 1em;
-   font-weight: 500;
-   font-size: larger;
+  background-color: var(--color-casilla-3);
+  color: var(--color-letra);
+  padding: 0.1em;
+  width: 100%;
+  height: 50px;
+  border-radius: 1em;
+  font-weight: 500;
+  font-size: larger;
 }
 
 #bottomRightInfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4em;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4em;
+  width: 100%;
 }
 
 #precioInfo,
@@ -95,14 +122,13 @@ body{
 }
 
 #precioInfo {
-    background-color: rgb(255, 176, 119, 0.9);
-    padding: 0.5em;
-    border-radius: 1em;
+  background-color: var(--color-casilla-3);
+  color: var(--color-letra);
+  padding: 0;
+  border-radius: 1em;
 }
 
-.custom-hover-btn {
-  background-color: #E66B2E;
-  transition: background-color 0.3s ease;
+#comprarInfo {
   font-size: larger;
   font-weight: 500;
   width: 100%;
@@ -113,25 +139,212 @@ body{
   justify-content: center;
 }
 
-.custom-hover-btn:hover {
-  background-color: #ff6417;
+#comprarInfo button {
+  background-color: var(--color-boton);
+  color: var(--color-letra);
+  width: 100%;
 }
 
-@media screen and (max-width: 1024px){
+/*Zona de calificar*/
 
-    body {
-        margin-top: auto;
-    }
-    
-    #producto {
+#calificarProducto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-casilla);
+  color: var(--color-letra);
+  margin: 4em auto 2em auto;
+  max-width: 90vw;
+}
+
+#tituloYEstrellas {
+  display: flex;
+  gap: 3vw;
+  margin: 1.5em;
+  margin-top: 2em;
+  padding: 0.5em;
+}
+
+#estrellasParaCalificar {
+  display: flex;
+  gap: 2vw;
+  position: relative;
+  top: -8px;
+}
+
+#areaParaComentar {
+  display: block;
+  margin: auto;
+  width: 92%;
+  align-items: center;
+}
+
+#calificarProducto button {
+  color: var(--color-letra);
+  width: fit-content;
+  display: block;
+  background-color: var(--color-boton-2) !important;
+  font-size: larger;
+  margin: 1.8em auto;
+}
+
+#enviarComentario {
+  width: 100%;
+}
+
+/*Reseñas*/
+
+#divCalificaciones {
+  background-color: var(--color-casilla-3);
+  color: var(--color-letra);
+  margin: 3em auto 4em auto;
+  text-align: center;
+  border-radius: 1em;
+  max-width: 90vw;
+  box-sizing: border-box;
+}
+
+#divCalificaciones h2 {
+  padding-top: 0.7em;
+}
+
+#calificaciones {
+  margin-top: 1em;
+  padding: 1em;
+}
+
+#divTopComentario {
+  background-color: var(--color-casilla) !important;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.comentario{
+  background-color: var(--color-comentario) !important;
+}
+
+.checked {
+  color: rgb(218, 218, 1);
+}
+
+.star-rating {
+  direction: rtl;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+  color: rgb(218, 218, 1);
+}
+
+
+/*Productos relacionados*/
+
+#productosRelacionados {
+  background-color: var(--color-casilla);
+  color: var(--color-letra);
+  max-width: 90vw;
+  width: fit-content;
+  margin: 1em auto 4em auto;
+}
+
+#productosRelacionados h2 {
+  padding: 0.5em;
+}
+
+#productosR {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3em;
+  padding: 1.5em;
+  flex-wrap: wrap;
+}
+
+.casillaProductoR {
+  background-color: var(--color-casilla-3) !important;
+  box-sizing: border-box;
+  width: fit-content !important;
+}
+
+.imagenP {
+  width: 60%;
+  border-radius: 20px;
+}
+
+.nombreP {
+  color: var(--color-letra) !important;
+  margin-top: 1em;
+}
+
+/*footer*/
+
+.text-muted {
+  background-color: var(--color-casilla) !important;
+  color: var(--color-letra) !important;
+  padding-top: 1em;
+  margin-top: auto !important;
+}
+
+#navbar {
+  background-color: var(--nav-color) !important;
+}
+
+/* Esto siguiente es solo para animar el error al calificar sin comentar o seleccionar score, no es necesario cambiarlo con los cambios de resolucion */
+@keyframes flash-area {
+  0% {
+    background-color: rgb(252, 177, 177);
+  }
+
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes flash-estrellas {
+  0% {
+    color: rgb(255, 0, 0);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.flash-error {
+  animation: flash-area 1s ease-in-out 1;
+}
+
+.flash-estrellas-error {
+  animation: flash-estrellas 1s ease-in-out 1;
+}
+
+/*responsives*/
+
+@media screen and (max-width: 1024px) {
+
+  #producto {
     margin-top: 3em;
     margin-left: 3em;
     margin-right: 3em;
-    margin-bottom: 10em;
   }
 
   .card-body {
-   flex-direction: row;
+    flex-direction: row;
   }
 
   #carouselExampleControls {
@@ -162,19 +375,26 @@ body{
   #bottomRightInfo {
     gap: 1em;
   }
+
+  #tituloYEstrellas {
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 2vw;
+  }
 }
 
-@media (max-width: 808px){
+@media (max-width: 808px) {
 
-    #producto {
-    margin-top: 1em;
+  #producto {
+    margin-top: 2em;
     margin-left: 1em;
     margin-right: 1em;
     margin-bottom: 4em;
   }
 
   .card-body {
-   flex-direction: column;
+    flex-direction: column;
   }
 
   #carouselExampleControls {
@@ -184,7 +404,7 @@ body{
 
   #productInfo {
     padding: 1em;
-    }
+  }
 
   #descripcionInfo {
     min-height: 100px;
@@ -195,12 +415,35 @@ body{
     margin-top: 1em;
   }
 
-   #precioInfo {
-    padding: 0.7em 1em 0em; 
-   }
+  #precioInfo {
+    padding: 0.7em 0.7em 0em !important;
+  }
 
   #bottomRightInfo {
     gap: 1em;
     flex-direction: column;
+  }
+
+  #calificarProducto {
+    margin-top: 0;
+  }
+
+  #tituloYEstrellas {
+    flex-direction: column;
+  }
+
+  #estrellasParaCalificar {
+    align-self: center;
+  }
+
+  #divTopComentario {
+    display: flex;
+    flex-direction: column !important;
+    padding: 2em;
+    width: 100%;
+  }
+
+  #divBottomComentario {
+    padding: 2em;
   }
 }

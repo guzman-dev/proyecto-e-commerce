@@ -1,5 +1,5 @@
 body {
-  background-image: url(../img/pantallaproductos.jpg);
+  background-image: var(--productos-fondo);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -11,12 +11,24 @@ label {
   margin-bottom: 0.5em;
 }
 
+.snes-blockquote {
+  padding: 0 !important;
+}
+
 #contenedorFiltroYProductos {
   display: flex;
 }
 
+.tituloFiltros {
+  margin-top: 0.3em;
+  font-weight: 300;
+  font-size: 1.8em;
+}
+
 #tituloOrdenar {
-  margin-top: 0.5em;
+  margin-top: 1em;
+  font-weight: 300;
+  font-size: 1.7em;
 }
 
 #contenedorProductos {
@@ -25,47 +37,62 @@ label {
 
 #contenedorBuscador {
   margin-top: 1em;
+  background-color: var(--color-input);
 }
 
 #contenedorBuscador input {
-  padding: 0.5em;
-  margin-bottom: 1em;
   border-radius: 0.3em;
-  border: 2px solid orange;
+}
+
+input::placeholder {
+  color: var(--color-letra) !important;
 }
 
 #filtros {
   flex: 0 0 250px;
-  background-color: rgba(179, 75, 31, 0.5);
   padding: 1em;
   border-radius: 0.5em;
   height: fit-content;
-  margin-top: 2vh;
+  margin-top: 1em;
+  color: var(--color-letra) !important;
+  background-color: var(--color-casilla-2) !important;
+}
+
+#precioMinimo, #precioMaximo{
+  background-color: var(--color-input);
+}
+
+.snes-button{
+  background-color: var(--color-boton) !important;
 }
 
 .titulo {
-  font-size: 2.5em;
-  font-weight: 600;
+  color: var(--color-letra);
+  font-size: 2.2em;
+  font-weight: 300;
   margin-left: 8%;
-  margin-top: 0.5em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
 }
 
 .botonesFiltro {
-  margin-top: 0.8em;
-  padding: 0.6em;
+  margin-top: 1.5em !important;
   border-radius: 8px;
-  background-color: rgb(217, 109, 51);
-  border: 0;
+  background-color: var(--color-boton);
+  color: var(--color-letra) !important;
+  font-size: 90% !important;
 }
 
 .casillaProducto {
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(179, 75, 31, 0.5);
+  display: flex !important;
+  flex-direction: row !important;
+  background-color: var(--color-casilla-2) !important;
   align-items: flex-start;
   padding-left: 1em;
   border-radius: 0.3em;
   margin-top: 2%;
+  margin-left: 0.5em;
+  color: var(--color-letra) !important;
 }
 
 .imagenP {
@@ -73,13 +100,14 @@ label {
   object-fit: cover;
   border-radius: 0.5em;
   margin-right: 1em;
-  margin-top: 0.7em;
+  align-self: center;
 }
 
 .general {
   display: flex;
   flex-direction: column;
   flex-grow: 0.95;
+  color: var(--color-letra) !important;
 }
 
 .topRow {
@@ -103,7 +131,7 @@ label {
 .precioP {
   font-size: 0.8em;
   font-weight: 600;
-  background-color: rgba(205, 140, 107, 0.5);
+  background-color: var(--color-datos-producto);
   padding: 0.8em;
   border-radius: 0.5em;
   margin-top: auto;
@@ -114,7 +142,7 @@ label {
 .cantidadVendidosP {
   font-size: 0.8em;
   font-weight: 600;
-  background-color: rgba(205, 140, 107, 0.5);
+  background-color: var(--color-datos-producto);
   padding: 0.8em;
   margin: 0.8em;
   border-radius: 0.5em;
@@ -128,7 +156,7 @@ label {
   flex: 1;
   font-size: 0.8em;
   font-weight: 600;
-  background-color: rgba(205, 140, 107, 0.5);
+  background-color: var(--color-datos-producto-2);
   margin-top: 0.75em;
   padding: 0.8em;
   border-radius: 0.5em;
@@ -142,16 +170,26 @@ label {
 }
 
 .carroImg {
-  width: 1.3em;
+  width: 1.7em;
 }
+
+.text-muted{
+  color: var(--color-letra) !important;
+}
+
+#navbar {
+  background-color: var(--nav-color) !important;
+}
+
 
 @media (max-width: 600px) {
   .casillaProducto {
-    flex-direction: column;
+    flex-direction: column !important;
     padding: 0.5em;
     gap: 0.1em;
     align-items: center;
     text-align: center;
+    margin-bottom: 1.5em;
   }
 
   .cantidadVendidosP {
@@ -176,12 +214,56 @@ label {
   }
 
   .titulo {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-left: 7%;
   }
+
+  .botonesFiltro{
+    font-size: 10px;
+    height: 5vh;
+  }
+
+  .botonesOrdenadores{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .btn-text{
+    display: none;
+  }
+
+  #filtros {
+    margin-top: 1.5em !important;
+  }
+
+  #botonFiltrarPrecio, #botonLimpiarFiltro{
+    line-height: 1.5;
+  }
+
+
+  #botonOrdenarPrecioDesc{
+    background-image: var(--precio-down);
+    
+  }
+
+  #botonOrdenarPrecioAsc{
+    background-image: var(--precio-up);
+  }
+
+  #botonOrdenarRelevancia{
+    background-image: var(--tendencia);
+  }
+
 }
 
 @media (max-width: 1024px) {
+
+  .casillaProducto{
+    margin-left: 0em;
+    margin-top: 1em;
+  }
+
   #contenedorFiltroYProductos {
     display: flex;
     flex-direction: column;
@@ -191,19 +273,14 @@ label {
   #filtros {
     width: 100%;
     box-sizing: border-box;
-    margin-top: 1rem;
+    margin-top: 2em;
     padding: 1.3rem 1rem 0.6rem;
     border-radius: 0.5em;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
     row-gap: 0;
-    background-color: rgba(179, 75, 31, 0.6);
     align-items: start;
-  }
-
-  .tituloFiltros {
-    font-weight: 700;
   }
 
   #tituloFiltro,
@@ -244,16 +321,19 @@ label {
     width: 100%;
     box-sizing: border-box;
     margin-top: 0;
+    padding: 1px;
   }
 
-  #botonesFiltro .botonesFiltro {
-    padding: 0.85rem 1rem;
+   .botonesFiltro {
+    padding: 1.5rem 1.5rem;
     font-size: 1rem;
     border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
     min-width: 0;
     margin: 0;
+    font-size: 0.8em !important;
+    padding: 0 !important; 
   }
 
   #ordenadores {

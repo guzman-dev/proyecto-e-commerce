@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="claro">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,11 +10,13 @@
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" id="navbar">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,18 +33,20 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item"></li>
+          <li class="nav-item">
+
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <header class="titulo">Productos</header>
   <main class="pb-5 container" id="main">
-    <div id="contenedorBuscador">
+    <div id="contenedorBuscador" class="snes-input">
       <input type="search" id="buscador" class="form-control w-100" placeholder="Escriba aquí para buscar" />
     </div>
     <div id="contenedorFiltroYProductos">
-      <div id="filtros">
+      <div id="filtros" class="snes-blockquote">
         <div>
           <h2 class="tituloFiltros" id="tituloFiltro">
             <strong>Filtrar</strong>
@@ -58,10 +62,10 @@
         </div>
         <div id="accionesPrecio">
           <div id="botonesFiltro">
-            <button class="botonesFiltro w-100" type="button" id="botonFiltrarPrecio">
+            <button class="botonesFiltro w-100 snes-button" type="button" id="botonFiltrarPrecio">
               Filtrar por precio
             </button>
-            <button class="botonesFiltro w-100" type="button" id="botonLimpiarFiltro">
+            <button class="botonesFiltro w-100 snes-button" type="button" id="botonLimpiarFiltro">
               Limpiar filtro
             </button>
           </div>
@@ -72,14 +76,15 @@
           </h2>
         </div>
         <div id="ordenadores">
-          <button class="botonesFiltro w-100" type="button" id="botonOrdenarPrecioDesc">
-            Precio descendente
+          <button class="botonesFiltro w-100 snes-button botonesOrdenadores" type="button" id="botonOrdenarPrecioDesc">
+            <span class="btn-text">Precio descendente</span>
           </button>
-          <button class="botonesFiltro w-100" type="button" id="botonOrdenarPrecioAsc">
-            Precio ascendente
+          <button class="botonesFiltro w-100 snes-button botonesOrdenadores" type="button" id="botonOrdenarPrecioAsc">
+            <span class="btn-text">Precio ascendente</span>
+            
           </button>
-          <button class="botonesFiltro w-100" type="button" id="botonOrdenarRelevancia">
-            Relevancia
+          <button class="botonesFiltro w-100 snes-button botonesOrdenadores" type="button" id="botonOrdenarRelevancia">
+            <span class="btn-text">Relevancia</span>     
           </button>
         </div>
       </div>
@@ -108,7 +113,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
-  <script src="js/user-Manager.js"></script>
+  <script src="js/Nav-Buttons-Manager.js"></script>
 </body>
 
 </html>
