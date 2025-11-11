@@ -1,7 +1,6 @@
 //ELEMENTOS DEL CARRITO
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
-const btnContinuarPago = document.getElementById("btnContinuarPago");
 const total = document.getElementById("total");
 const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
 
@@ -28,12 +27,10 @@ function comprobarJsonCarritos() {
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
     mostrarCarritoVacio();
     divDeDatos.classList.add("oculto"); //Oculta el apartado 'Datos de compra'
-    btnContinuarPago.classList.add("oculto"); //Oculta el botón 'Continuar con el pago'
     total.classList.add("oculto"); //Oculta el texto 'Total'
   } else {
     mostrarProductosEnCarrito();
     divDeDatos.classList.remove("oculto");
-    btnContinuarPago.classList.remove("oculto");
     total.classList.remove("oculto");
   }
 }
