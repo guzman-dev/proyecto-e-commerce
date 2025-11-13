@@ -1,127 +1,95 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="claro">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>eMercado - Todo lo que busques está aquí</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/cart.css" />
-    <link rel="stylesheet" href="css/themes.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css"
-    />
-  </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between" id="navList">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item"></li>
-          </ul>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="https://unpkg.com/snes.css@1.0.1/dist/snes.min.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between" id="navList">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="contenedorMain d-flex gap-4">
+      <div class="mx-2 divPrincipal">
+        <h1 class="mb-3 tituloCarrito" id="titulo">Carrito</h1>
+        <div class="snes-container mb-4" id="contenedorCarrito">
+          <div class="container listadoCarrito" id="listadoCarrito"></div>
+          <div class="totalLabel" id="total">
+            <h4>Total: 0</h4>
+          </div>
+        </div>
+        <div
+          class="divBotonesCarrito d-block d-md-flex flex-column justify-content-center flex-md-row mt-4"
+          id="botonesCarro">
+          <button class="snes-button botonBottom" id="btnSeguirComprando">
+            Seguir Comprando
+          </button>
         </div>
       </div>
-    </nav>
-    <main>
-      <div class="contenedorMain d-flex gap-4">
-        <div class="mx-2 divPrincipal">
-          <h1 class="mb-3 tituloCarrito" id="titulo">Carrito</h1>
-          <div class="snes-container mb-4" id="contenedorCarrito">
-            <div class="container listadoCarrito" id="listadoCarrito"></div>
-            <div class="totalLabel" id="total">
-              <h4>Total: 0</h4>
+      <div class="divDeDatos mx-1" id="divDeDatos">
+        <h1 id="tituloDeDatos">Datos de compra</h1>
+        <form novalidate>
+          <div id="envio">
+            <h4>Envío</h4>
+            <div id="tipoEnvio" class="subSubtitulos">
+              <h5>Tipo de envío</h5>
+              <select form="envioform" id="inputEnvio" required>
+                <option value="" disabled selected>-- Seleccione un tipo de envío --</option>
+                <option value="premium">Premium 2 a 5 días (15%)</option>
+                <option value="express">Express 5 a 8 días (7%)</option>
+                <option value="standard">Standard 12 a 15 días (5%)</option>
+              </select>
             </div>
-          </div>
-          <div
-            class="divBotonesCarrito d-block d-md-flex flex-column justify-content-md-between justify-content-center flex-md-row mt-4"
-            id="botonesCarro"
-          >
-            <button class="snes-button botonBottom" id="btnSeguirComprando">
-              Seguir Comprando
-            </button>
-            <button class="snes-button botonBottom" id="btnContinuarPago">
-              Continuar con el Pago
-            </button>
-          </div>
-        </div>
-        <div class="divDeDatos mx-1" id="divDeDatos">
-          <h1 id="tituloDeDatos">Datos de compra</h1>
-          <form novalidate>
-            <div id="envio">
-              <h4>Envío</h4>
-              <div id="tipoEnvio" class="subSubtitulos">
-                <h5>Tipo de envío</h5>
-                <select form="envioform" id="inputEnvio" required>
-                  <option value="" disabled selected>-- Seleccione un tipo de envío --</option>
-                  <option value="premium">Premium 2 a 5 días (15%)</option>
-                  <option value="express">Express 5 a 8 días (7%)</option>
-                  <option value="standard">Standard 12 a 15 días (5%)</option>
-                </select>
-              </div>
-              <h5>Dirección de envío</h5>
-              <div id="dept" class="subSubtitulos">
-                <p>Departamento</p>
-                <input type="text" id="inputDepartamento" required />
-              </div>
-              <div id="localidad">
-                <p>Localidad</p>
-                <input type="text" id="inputLocalidad" required />
-              </div>
-              <div id="calle">
-                <p>Calle</p>
-                <input type="text" id="inputCalle" required />
-              </div>
-              <div id="numEsq">
-                <div id="numero">
-                  <p>Número</p>
-                  <input type="number" required />
-                </div>
-                <div id="esquina">
-                  <p>Esquina</p>
-                  <input type="text" />
-                </div>
-              </div>
+            <h5>Dirección de envío</h5>
+            <div id="dept" class="subSubtitulos">
+              <p>Departamento</p>
+              <input type="text" id="inputDepartamento" required />
             </div>
-            <hr>
-            <div id="pago">
-              <h4>Pago</h4>
-              <div id="pagoIn" class="subSubtitulos">
-                <h5>Forma de pago</h5>
-                <select form="pagoform" id="inputFormaPago" required>
-                  <option value="" disabled selected>-- Seleccione una forma de pago --</option>
-                  <option value="tar">Tarjeta de crédito</option>
-                  <option value="trans">Transferencia bancaria</option>
-                </select>
+            <div id="localidad">
+              <p>Localidad</p>
+              <input type="text" id="inputLocalidad" required />
+            </div>
+            <div id="calle">
+              <p>Calle</p>
+              <input type="text" id="inputCalle" required />
+            </div>
+            <div id="numEsq">
+              <div id="numero">
+                <p>Número</p>
+                <input type="number" required />
+              </div>
+              <div id="esquina">
+                <p>Esquina</p>
+                <input type="text" />
               </div>
             </div>
             <hr id="separadorTarjeta" class="oculto">
@@ -150,44 +118,32 @@
             </div>
           </form>
           <hr>
-          <div id="costos">
-            <h4>Costos</h4>
-            <div class="subSubtitulos">
-              <h5 id="compraSubTotal">Subtotal:</h5>
-              <h5 id="compraCostoEnvio">Costo de envío:</h5>
+          <div id="pago">
+            <h4>Pago</h4>
+            <div id="pagoIn" class="subSubtitulos">
+              <h5>Forma de pago</h5>
+              <select form="pagoform" id="inputFormaPago" required>
+                <option value="" disabled selected>-- Seleccione una forma de pago --</option>
+                <option value="tar">Tarjeta de crédito</option>
+                <option value="trans">Transferencia bancaria</option>
+              </select>
             </div>
           </div>
-          <div
-            id="lineaFinal"
-            class="d-flex justify-content-between align-items-center"
-          >
-            <h3 id="compraTotal"></h3>
-            <button type="button" class="btn btn-warning" id="btnFinalizarC">
-              Finalizar Compra
-            </button>
+        </form>
+        <hr>
+        <div id="costos">
+          <h4>Costos</h4>
+          <div class="subSubtitulos">
+            <h5 id="compraSubTotal">Subtotal:</h5>
+            <h5 id="compraCostoEnvio">Costo de envío:</h5>
           </div>
         </div>
-      </div>
-    </main>
-    <footer class="text-muted" id="footer">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-      </div>
-    </footer>
-    <div id="spinner-wrapper">
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div id="lineaFinal" class="d-flex justify-content-between align-items-center">
+          <h3 id="compraTotal"></h3>
+          <button type="button" class="btn btn-warning" id="btnFinalizarC">
+            Finalizar Compra
+          </button>
+        </div>
       </div>
     </div>
 
