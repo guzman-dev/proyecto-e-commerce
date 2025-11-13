@@ -137,27 +137,29 @@ function mostrarProductosEnCarrito() {
 }
 
 //FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
-
 function recargarTotales() {
   const subTotales = document.querySelectorAll(".subTotal");
-  let totalNumero = 0;
+  let subTotalNumero = 0;
 
   subTotales.forEach((subT) => {
     const limpio = subT.textContent.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", ".");
     const num = parseFloat(limpio);
-    totalNumero += isNaN(num) ? 0 : num;
+    subTotalNumero += isNaN(num) ? 0 : num;
   });
 
   const envioSeleccionado = inputEnvio?.value;
   let costoDeEnvio = 0;
-  if (envioSeleccionado === "standard") costoDeEnvio = totalNumero * 0.05;
-  if (envioSeleccionado === "express") costoDeEnvio = totalNumero * 0.07;
-  if (envioSeleccionado === "premium") costoDeEnvio = totalNumero * 0.15;
+  if (envioSeleccionado === "standard") costoDeEnvio = subTotalNumero * 0.05;
+  if (envioSeleccionado === "express") costoDeEnvio = subTotalNumero * 0.07;
+  if (envioSeleccionado === "premium") costoDeEnvio = subTotalNumero * 0.15;
 
-  const totalConEnvio = totalNumero + costoDeEnvio;
+  const totalConEnvio = subTotalNumero + costoDeEnvio;
 
-  total.innerHTML = `Total: ${formatearNumero(totalNumero)}`;
-  compraSubTotal.innerHTML = `Subtotal: ${formatearNumero(totalNumero)}`;
+  //Carrito
+  total.innerHTML = `Total: ${formatearNumero(subTotalNumero)}`;
+
+  //Facturación
+  compraSubTotal.innerHTML = `Subtotal: ${formatearNumero(subTotalNumero)}`;
   compraCostoEnvio.innerHTML = `Costo de envío: ${formatearNumero(costoDeEnvio)}`;
   compraTotal.innerHTML = `Total a pagar: ${formatearNumero(totalConEnvio)}`;
 }
