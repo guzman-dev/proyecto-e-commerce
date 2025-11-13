@@ -102,6 +102,28 @@ label {
   color: black !important;
 }
 
+.divDeToast {
+  pointer-events: none;
+}
+.divDeToast .toast.show,
+.divDeToast .toast.show * {
+  pointer-events: auto;
+}
+
+.toast:not(.show) {
+  opacity: 0;
+  transform: translateY(150%); /* move it completely off screen */
+  pointer-events: none;
+}
+
+/* Show normally when Bootstrap adds .show */
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease-in-out;
+}
+
+
 .divDeDatos * {
   word-spacing: normal !important;
   font-family: Arial, Helvetica, sans-serif !important;
