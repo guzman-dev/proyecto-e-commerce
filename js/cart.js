@@ -1,6 +1,7 @@
 //ELEMENTOS DEL CARRITO
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
+const btnContinuarPago = document.getElementById("btnContinuarPago");
 const total = document.getElementById("total");
 const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
 
@@ -35,10 +36,12 @@ function comprobarJsonCarritos() {
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
     mostrarCarritoVacio();
     divDeDatos.classList.add("oculto"); //Oculta el apartado 'Datos de compra'
+    btnContinuarPago.classList.add("oculto"); //Oculta el botón 'Continuar con el pago'
     total.classList.add("oculto"); //Oculta el texto 'Total'
   } else {
     mostrarProductosEnCarrito();
     divDeDatos.classList.remove("oculto");
+    btnContinuarPago.classList.remove("oculto");
     total.classList.remove("oculto");
   }
 }
@@ -69,6 +72,14 @@ function mostrarProductosEnCarrito() {
   const productos = JSON.parse(productosGuardadosJSON);
 
   productos.forEach((producto) => {
+    let precioLimpio = String(producto.precio)
+    .replace(/[^0-9.,-]/g, "")
+    .replace(/\./g, "") // eliminamos puntos de miles
+    .replace(/,/g, "."); // convertimos coma a punto
+
+    const precioNum = parseFloat(precioLimpio);
+    producto.precio = isNaN(precioNum) ? 0 : precioNum; // guardamos como número limpio
+
     let divProducto = document.createElement("div");
     divProducto.className = "card mb-3 divDeProducto snes-container my-3";
     divProducto.style.maxWidth = "100%";
@@ -137,38 +148,6 @@ function mostrarProductosEnCarrito() {
 }
 
 //FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
-
-function recargarTotales() {
-  const subTotales = document.querySelectorAll(".subTotal");
-  let totalNumero = 0;
-
-  subTotales.forEach(subT => {
-      totalNumero += parseInt(subT.textContent.split(" ")[1]);
-    })
-
-  const envioSeleccionado = inputEnvio?.value;
-  let costoDeEnvio = 0;
-  if (envioSeleccionado === "standard") costoDeEnvio = totalNumero * 0.05;
-  if (envioSeleccionado === "express") costoDeEnvio = totalNumero * 0.07;
-  if (envioSeleccionado === "premium") costoDeEnvio = totalNumero * 0.15;
-
-  const totalConEnvio = totalNumero + costoDeEnvio;
-
-  total.innerHTML = `Total: ${totalNumero}`;
-  compraSubTotal.innerHTML = `Subtotal: ${totalNumero}`;
-  compraCostoEnvio.innerHTML = `Costo de envío: ${costoDeEnvio}`;
-  compraTotal.innerHTML = `Total a pagar: ${totalConEnvio}`;
-}
-
-//FUNCIONALIDAD DE LA FACTURACIÖN
-
-inputEnvio.addEventListener("change", recargarTotales);
-
-//Seleciona el formulario del DOM para manipularlo
-const form = document.querySelector("form");
-
-//FUNCIÓN PARA VALIDAR LOS CAMPOS DEL FORMULARIO
-
 function recargarTotales() {
   const subTotales = document.querySelectorAll(".subTotal");
   let totalNumero = 0;
@@ -182,6 +161,36 @@ function recargarTotales() {
         .replace(/[^0-9.-]/g, ""); // limpiar cualquier otra cosa
     const num = parseFloat(limpio);
     if (!isNaN(num)) totalNumero += num;
+  });
+
+  const envioSeleccionado = inputEnvio?.value;
+  let costoDeEnvio = (
+    envioSeleccionado == "standard" ? 
+    totalNumero * 0.05 : envioSeleccionado == "express" ? 
+    totalNumero * 0.07 : envioSeleccionado == "premium" ? 
+    totalNumero * 0.15 : 0
+  );
+  const totalConEnvio = totalNumero + costoDeEnvio;
+
+  total.innerHTML = `Total: ${totalNumero}`;
+  compraSubTotal.innerHTML = `Subtotal: ${totalNumero}`;
+  compraCostoEnvio.innerHTML = `Costo de envío: ${costoDeEnvio}`;
+  compraTotal.innerHTML = `Total a pagar: ${totalConEnvio}`;
+}
+//FUNCIONALIDAD DE LA FACTURACIÖN
+
+inputEnvio.addEventListener("change", recargarTotales);
+
+//Seleciona el formulario del DOM para manipularlo
+const form = document.querySelector("form");
+
+//FUNCIÓN PARA VALIDAR LOS CAMPOS DEL FORMULARIO
+function validarCampos() {
+
+  //Elimina mensajes de error
+  form.querySelectorAll(".mensaje-error").forEach((msj) => msj.remove());
+  form.querySelectorAll("input, select").forEach((campo) => {
+    campo.classList.remove("campo-error");
   });
 
   const envioSeleccionado = inputEnvio?.value;
