@@ -1,6 +1,7 @@
 //ELEMENTOS DEL CARRITO
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
+const btnContinuarPago = document.getElementById("btnContinuarPago");
 const total = document.getElementById("total");
 const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
 
@@ -35,10 +36,12 @@ function comprobarJsonCarritos() {
   if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
     mostrarCarritoVacio();
     divDeDatos.classList.add("oculto"); //Oculta el apartado 'Datos de compra'
+    btnContinuarPago.classList.add("oculto"); //Oculta el botón 'Continuar con el pago'
     total.classList.add("oculto"); //Oculta el texto 'Total'
   } else {
     mostrarProductosEnCarrito();
     divDeDatos.classList.remove("oculto");
+    btnContinuarPago.classList.remove("oculto");
     total.classList.remove("oculto");
   }
 }
@@ -69,6 +72,14 @@ function mostrarProductosEnCarrito() {
   const productos = JSON.parse(productosGuardadosJSON);
 
   productos.forEach((producto) => {
+    let precioLimpio = String(producto.precio)
+    .replace(/[^0-9.,-]/g, "")
+    .replace(/\./g, "") // eliminamos puntos de miles
+    .replace(/,/g, "."); // convertimos coma a punto
+
+    const precioNum = parseFloat(precioLimpio);
+    producto.precio = isNaN(precioNum) ? 0 : precioNum; // guardamos como número limpio
+
     let divProducto = document.createElement("div");
     divProducto.className = "card mb-3 divDeProducto snes-container my-3";
     divProducto.style.maxWidth = "100%";
@@ -137,23 +148,28 @@ function mostrarProductosEnCarrito() {
 }
 
 //FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
-
 function recargarTotales() {
   const subTotales = document.querySelectorAll(".subTotal");
   let totalNumero = 0;
 
   subTotales.forEach((subT) => {
-    const limpio = subT.textContent.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", ".");
+    const match = subT.textContent.match(/[\d.,-]+/);
+    if (!match) return;
+      let limpio = match[0]
+        .replace(/\./g, "") // eliminar puntos de miles
+        .replace(/,/g, ".") // cambiar coma por punto decimal
+        .replace(/[^0-9.-]/g, ""); // limpiar cualquier otra cosa
     const num = parseFloat(limpio);
-    totalNumero += isNaN(num) ? 0 : num;
+    if (!isNaN(num)) totalNumero += num;
   });
 
   const envioSeleccionado = inputEnvio?.value;
-  let costoDeEnvio = 0;
-  if (envioSeleccionado === "standard") costoDeEnvio = totalNumero * 0.05;
-  if (envioSeleccionado === "express") costoDeEnvio = totalNumero * 0.07;
-  if (envioSeleccionado === "premium") costoDeEnvio = totalNumero * 0.15;
-
+  let costoDeEnvio = (
+    envioSeleccionado == "standard" ? 
+    totalNumero * 0.05 : envioSeleccionado == "express" ? 
+    totalNumero * 0.07 : envioSeleccionado == "premium" ? 
+    totalNumero * 0.15 : 0
+  );
   const totalConEnvio = totalNumero + costoDeEnvio;
 
   total.innerHTML = `Total: ${formatearNumero(totalNumero)}`;
@@ -161,7 +177,6 @@ function recargarTotales() {
   compraCostoEnvio.innerHTML = `Costo de envío: ${formatearNumero(costoDeEnvio)}`;
   compraTotal.innerHTML = `Total a pagar: ${formatearNumero(totalConEnvio)}`;
 }
-
 //FUNCIONALIDAD DE LA FACTURACIÖN
 
 inputEnvio.addEventListener("change", recargarTotales);
@@ -170,8 +185,8 @@ inputEnvio.addEventListener("change", recargarTotales);
 const form = document.querySelector("form");
 
 //FUNCIÓN PARA VALIDAR LOS CAMPOS DEL FORMULARIO
-
 function validarCampos() {
+
   //Elimina mensajes de error
   form.querySelectorAll(".mensaje-error").forEach((msj) => msj.remove());
   form.querySelectorAll("input, select").forEach((campo) => {
@@ -239,11 +254,17 @@ inputFormaPago.addEventListener("change", () => {
 function formatearNumero(num, esUSD = false) {
   if (num === null || num === undefined) return "";
 
-  const limpio = String(num)
-    .replace(/[^0-9,.-]/g, "")
-    .replace(/\./g, "")
-    .replace(",", ".");
-  
+  // Limpia todo excepto dígitos, punto o coma
+  let limpio = String(num).replace(/[^0-9.,-]/g, "");
+
+  // Si el número tiene coma y punto, asumimos que la coma es miles y el punto es decimal
+  if (/,/.test(limpio) && /\./.test(limpio)) {
+    limpio = limpio.replace(/,/g, "");
+  } else {
+    // Si solo tiene coma, tratala como punto decimal
+    limpio = limpio.replace(/,/g, ".");
+  }
+
   const n = parseFloat(limpio);
   if (isNaN(n)) return num;
 
@@ -253,7 +274,8 @@ function formatearNumero(num, esUSD = false) {
     useGrouping: true,
   });
 
-  return texto.replace(/([.,]00)$/, ""); // elimina ",00" o ".00" si son ceros exactos
+  // Elimina decimales si son exactos 00
+  return texto.replace(/([.,]00)$/, "");
 }
 
 function formatearPreciosDinamicos() {
@@ -263,13 +285,21 @@ function formatearPreciosDinamicos() {
 
   precios.forEach((p) => {
     let texto = p.textContent.trim();
-
-    // Detecta si el texto tiene "USD"
     const esUSD = texto.includes("USD");
 
-    // Formatea todos los números dentro del texto
+    // Limpia y convierte solo los números dentro del texto
     texto = texto.replace(/(\d[\d.,]*)/g, (coincidencia) => {
-      return formatearNumero(coincidencia, esUSD);
+
+      // limpiamos antes de formatear
+      let limpio = coincidencia.replace(/[^0-9.,-]/g, "");
+      if (/,/.test(limpio) && /\./.test(limpio)) {
+        limpio = limpio.replace(/,/g, "");
+      } else {
+        limpio = limpio.replace(/,/g, ".");
+      }
+      const n = parseFloat(limpio);
+      if (isNaN(n)) return coincidencia;
+      return formatearNumero(n, esUSD);
     });
 
     p.textContent = texto;
