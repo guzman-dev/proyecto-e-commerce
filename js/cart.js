@@ -13,13 +13,21 @@ const inputCalle = document.getElementById("inputCalle");
 const inputNumero = document.getElementById("numero");
 const inputEsquina = document.getElementById("esquina");
 const inputFormaPago = document.getElementById("inputFormaPago");
+const datosTarjeta = document.getElementById("datosTarjeta");
+const separadorTarjeta = document.getElementById("separadorTarjeta");
+const camposTarjeta = datosTarjeta.querySelectorAll("input");
+datosTarjeta.classList.add("oculto");
+separadorTarjeta.classList.add("oculto");
 
 //Subtotal, Costo de envio, y Total de la compra
 const compraSubTotal = document.getElementById("compraSubTotal");
 const compraCostoEnvio = document.getElementById("compraCostoEnvio");
 const compraTotal = document.getElementById("compraTotal");
-
 const btnFinalizarCompra = document.getElementById("btnFinalizarC");
+
+//Toast
+const toastElem = document.getElementById("toastCompraExitosa");
+const toast = new bootstrap.Toast(toastElem, {autohide: true, delay: 4000});
 
 function comprobarJsonCarritos() {
   const divDeDatos = document.getElementById("divDeDatos");
@@ -59,70 +67,61 @@ function mostrarCarritoVacio() {
 function mostrarProductosEnCarrito() {
   contenedorProductos.innerHTML = "";
   const productos = JSON.parse(productosGuardadosJSON);
+
   productos.forEach((producto) => {
     let divProducto = document.createElement("div");
     divProducto.className = "card mb-3 divDeProducto snes-container my-3";
     divProducto.style.maxWidth = "100%";
 
-    divProducto.innerHTML = ` <div class="row g-0 container">
-          <div class="col-md-4 d-flex justify-content-center align-items-center divImagenProducto">
-            <img src="${producto.imagen}" class="imgProducto img-fluid" alt="${
-      producto.nombre
-    }">
-          </div>
-          <div class="col-md-8 contenedorInfoProducto">
-            <div class="card-body">
-              <div class="d-flex nombreYCantidad justify-content-between flex-column flex-lg-row">
-                <h5>${producto.nombre}</h5>
-                <div style="padding: 0">
-                  <label>Cantidad:</label>
-                  <input type="number" name="cantidadField" class="cantidadField" value="${
-                    producto.cantidad
-                  }" style="width: 5vw;">
-                </div>
+    divProducto.innerHTML = `
+      <div class="row g-0 container">
+        <div class="col-md-4 d-flex justify-content-center align-items-center divImagenProducto">
+          <img src="${producto.imagen}" class="imgProducto img-fluid" alt="${producto.nombre}">
+        </div>
+        <div class="col-md-8 contenedorInfoProducto">
+          <div class="card-body">
+            <div class="d-flex nombreYCantidad justify-content-between flex-column flex-lg-row">
+              <h5>${producto.nombre}</h5>
+              <div style="padding: 0">
+                <label>Cantidad:</label>
+                <input type="number" name="cantidadField" class="cantidadField" value="${producto.cantidad}" style="width: 5vw;">
               </div>
-              <div class="precioYMoneda my-2">
-                <h5>${producto.moneda} ${producto.precio}</h5>
+            </div>
+            <div class="precioYMoneda my-2">
+              <h5 class="productoPrecio">${producto.moneda} ${producto.precio}</h5>
+            </div>
+            <div class="bottomDiv d-flex justify-content-between mt-2 mt-md-5 flex-column flex-md-row ">
+              <div class="subtotal">
+                <h5 class="subTotal" id="subTotal">Subtotal: ${producto.precio * producto.cantidad}</h5>
               </div>
-              <div class="bottomDiv d-flex justify-content-between mt-2 mt-md-5 flex-column flex-md-row ">
-                <div class="subtotal">
-                  <h5 class="subTotal" id="subTotal">Subtotal: ${
-                    producto.precio * producto.cantidad
-                  }</h5>
-                </div>
-                <div class="snes-button " id="quitarProd">
+              <div class="snes-button" id="quitarProd">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path d="M16 2v4h6v2h-2v14H4V8H2V6h6V2h8zm-2 2h-4v2h4V4zm0 4H6v12h12V8h-4zm-5 2h2v8H9v-8zm6 0h-2v8h2v-8z" fill="currentColor"/>
+                  <path d="M16 2v4h6v2h-2v14H4V8H2V6h6V2h8zm-2 2h-4v2h4V4zm0 4H6v12h12V8h-4zm-5 2h2v8H9v-8zm6 0h-2v8h2v-8z" fill="currentColor"/>
                 </svg>
-                </div>
               </div>
             </div>
           </div>
-        </div>`;
+        </div>
+      </div>`;
 
     contenedorProductos.append(divProducto);
-    recargarTotales();
-
+    
     let inputCantidad = divProducto.querySelector(".cantidadField");
     let subTotal = divProducto.querySelector(".subTotal");
+
     inputCantidad.addEventListener("input", () => {
-      if (inputCantidad.value < 1) {
-        inputCantidad.value = 1;
-      }
-      subTotal.innerHTML = "Subtotal: " + producto.precio * inputCantidad.value;
+      if (inputCantidad.value < 1) inputCantidad.value = 1;
+
+      const subtotalNum = producto.precio * inputCantidad.value;
+      subTotal.innerHTML = `Subtotal: ${formatearNumero(subtotalNum)}`;
 
       recargarTotales();
-
-      //actualizar badge live
-
       producto.cantidad = parseInt(inputCantidad.value);
       localStorage.setItem("productosEnCarrito", JSON.stringify(productos));
-
       actualizarBadgeCarrito();
     });
-
+    
     const quitarProducto = divProducto.querySelector("#quitarProd");
-
     quitarProducto.addEventListener("click", () => {
       divProducto.remove();
       const index = productos.indexOf(producto);
@@ -132,41 +131,35 @@ function mostrarProductosEnCarrito() {
       window.location = "cart.html";
     });
   });
+  
+  formatearPreciosDinamicos();
+  recargarTotales();
 }
 
 //FUNCIÓN PARA REFRESCAR LOS COSTOS Y TOTALES EN EL CARRITO Y LA FACTURACIÓN
 
 function recargarTotales() {
-  let subTotales = document.querySelectorAll(".subTotal");
-  total.innerHTML = "Total: 0";
+  const subTotales = document.querySelectorAll(".subTotal");
   let totalNumero = 0;
+
   subTotales.forEach((subT) => {
-    totalNumero += parseInt(subT.textContent.split(" ")[1]);
+    const limpio = subT.textContent.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", ".");
+    const num = parseFloat(limpio);
+    totalNumero += isNaN(num) ? 0 : num;
   });
 
-  total.innerHTML = "Total: " + totalNumero;
-  compraSubTotal.innerHTML = "Subtotal: " + totalNumero;
-
-  let envioSeleccionado = inputEnvio.value;
+  const envioSeleccionado = inputEnvio?.value;
   let costoDeEnvio = 0;
+  if (envioSeleccionado === "standard") costoDeEnvio = totalNumero * 0.05;
+  if (envioSeleccionado === "express") costoDeEnvio = totalNumero * 0.07;
+  if (envioSeleccionado === "premium") costoDeEnvio = totalNumero * 0.15;
 
-  //Tecnicamente se podria hacer todo en la misma linea donde inicializa costoDeEnvio, pero no queda lindo.
-  if (envioSeleccionado === "standard") {
-    costoDeEnvio = parseInt(totalNumero) * 0.05;
-  }
+  const totalConEnvio = totalNumero + costoDeEnvio;
 
-  if (envioSeleccionado === "express") {
-    costoDeEnvio = parseInt(totalNumero) * 0.07;
-  }
-
-  if (envioSeleccionado === "premium") {
-    costoDeEnvio = parseInt(totalNumero) * 0.15;
-  }
-
-  compraCostoEnvio.innerHTML = "Costo de envío: " + costoDeEnvio.toFixed(2);
-
-  compraTotal.innerHTML =
-    "Total a pagar: " + (parseInt(totalNumero) + costoDeEnvio);
+  total.innerHTML = `Total: ${formatearNumero(totalNumero)}`;
+  compraSubTotal.innerHTML = `Subtotal: ${formatearNumero(totalNumero)}`;
+  compraCostoEnvio.innerHTML = `Costo de envío: ${formatearNumero(costoDeEnvio)}`;
+  compraTotal.innerHTML = `Total a pagar: ${formatearNumero(totalConEnvio)}`;
 }
 
 //FUNCIONALIDAD DE LA FACTURACIÖN
@@ -226,6 +219,59 @@ btnFinalizarCompra.addEventListener("click", (e) => {
   // Si hay campos vacíos, se interrumpe el flujo y no se finaliza la compra
   if (!validarCampos()) return;
 
-  // Si todo está correcto se muestra una alerta con el mensaje de éxito
-  alert("Compra finalizada con éxito");
+  // Si todo está correcto se muestra una notificacion con el mensaje de éxito
+  toast.show();
 });
+
+// Mostrar u ocultar datos de tarjeta según forma de pago
+inputFormaPago.addEventListener("change", () => {
+  if (inputFormaPago.value === "tar") {
+    datosTarjeta.classList.remove("oculto");
+    separadorTarjeta.classList.remove("oculto");
+    camposTarjeta.forEach(c => c.setAttribute("required", "true"));
+  } else {
+    datosTarjeta.classList.add("oculto");
+    separadorTarjeta.classList.add("oculto");
+    camposTarjeta.forEach(c => c.removeAttribute("required"));
+  }
+});
+
+function formatearNumero(num, esUSD = false) {
+  if (num === null || num === undefined) return "";
+
+  const limpio = String(num)
+    .replace(/[^0-9,.-]/g, "")
+    .replace(/\./g, "")
+    .replace(",", ".");
+  
+  const n = parseFloat(limpio);
+  if (isNaN(n)) return num;
+
+  const texto = n.toLocaleString(esUSD ? "en-US" : "es-ES", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    useGrouping: true,
+  });
+
+  return texto.replace(/([.,]00)$/, ""); // elimina ",00" o ".00" si son ceros exactos
+}
+
+function formatearPreciosDinamicos() {
+  const precios = document.querySelectorAll(
+    ".precio, .subTotal, .totalLabel, #total, .productoPrecio, #compraSubTotal, #compraCostoEnvio, #compraTotal"
+  );
+
+  precios.forEach((p) => {
+    let texto = p.textContent.trim();
+
+    // Detecta si el texto tiene "USD"
+    const esUSD = texto.includes("USD");
+
+    // Formatea todos los números dentro del texto
+    texto = texto.replace(/(\d[\d.,]*)/g, (coincidencia) => {
+      return formatearNumero(coincidencia, esUSD);
+    });
+
+    p.textContent = texto;
+  });
+}

@@ -92,7 +92,31 @@
                 <input type="text" />
               </div>
             </div>
-          </div>
+            <hr id="separadorTarjeta" class="oculto">
+            <div id="datosTarjeta" class="oculto">
+              <h4>Datos de la tarjeta</h4>
+              <div id="tarjetaCampos">
+                <div class="campoTarjeta">
+                  <p>Nombre del titular</p>
+                  <input type="text" id="nombreTitular" placeholder="Ej: Juan Pérez" required />
+                </div>
+                <div class="campoTarjeta">
+                  <p>Número de tarjeta</p>
+                  <input type="text" id="numeroTarjeta" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required />
+                </div>
+                <div id="vencYcvv">
+                  <div class="campoTarjeta">
+                    <p>Vencimiento</p>
+                    <input type="month" id="vencimientoTarjeta" required />
+                  </div>
+                  <div class="campoTarjeta">
+                    <p>CVV</p>
+                    <input type="password" id="cvvTarjeta" maxlength="3" placeholder="***" required />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
           <hr>
           <div id="pago">
             <h4>Pago</h4>
@@ -122,30 +146,22 @@
         </div>
       </div>
     </div>
-  </main>
-  <footer class="text-muted" id="footer">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>
-        Este sitio forma parte de
-        <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/Nav-Buttons-Manager.js"></script>
-</body>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+      <div id="toastCompraExitosa" class="toast border-0 fade toast-anim" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
+        <div class="d-flex align-items-center p-2 rounded">
+          <div class="toast-body fw-semibold">
+            ¡Compra finalizada con éxito!
+          </div>
+          <button type="button" class="btn-close visually-hidden" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+          <button type="button" id="toastBtnCerrar" class="toast-close-text me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar">x</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/Nav-Buttons-Manager.js"></script>
+  </body>
 </html>
