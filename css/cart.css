@@ -1,3 +1,8 @@
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
 body,
 footer {
   background-image: var(--cart-fondo);
@@ -47,11 +52,6 @@ label {
   font-size: 1.25em;
 }
 
-.botonesCarrito {
-  height: 2rem;
-  margin-top: auto;
-}
-
 .botonBottom {
   padding: 2px !important;
   width: fit-content !important;
@@ -94,6 +94,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  box-sizing: border-box;
 }
 
 #quitarProd {
@@ -105,6 +106,7 @@ label {
 .divDeToast {
   pointer-events: none;
 }
+
 .divDeToast .toast.show,
 .divDeToast .toast.show * {
   pointer-events: auto;
@@ -112,17 +114,15 @@ label {
 
 .toast:not(.show) {
   opacity: 0;
-  transform: translateY(150%); /* move it completely off screen */
+  transform: translateY(150%);
   pointer-events: none;
 }
 
-/* Show normally when Bootstrap adds .show */
 .toast.show {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.4s ease-in-out;
 }
-
 
 .divDeDatos * {
   word-spacing: normal !important;
@@ -209,6 +209,39 @@ h3 {
   color: var(--color-letra) !important;
 }
 
+.campo-error {
+  border: 2px solid red !important;
+  border-radius: 4px;
+  background-color: rgb(245, 172, 172);
+}
+
+.mensaje-error {
+  color: red !important; 
+  font-size: 0.8rem;
+}
+
+.oculto {
+  display: none !important;
+}
+
+
+#tarjetaCampos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.campoTarjeta input {
+  width: 100%;
+  max-width: 250px;
+}
+
+#vencYcvv {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
 @media screen and (max-width: 768px) {
   * {
     font-size: 13px;
@@ -216,10 +249,16 @@ h3 {
     align-items: center;
   }
 
+  .mx-2 {
+    margin-left: 0 !important;
+    margin-right: 0.73rem !important;
+  }
+
   .contenedorMain {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
 
   #divDeDatos {
@@ -244,10 +283,6 @@ h3 {
   .controlarCantidad {
     margin-left: auto !important;
     margin-right: auto !important;
-  }
-
-  .botonesCarrito {
-    height: 3rem !important;
   }
 
   #contenedorCarrito {
@@ -283,11 +318,7 @@ h3 {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 1% !important;
-  }
-
-  #botonesCarro {
-    gap: 10% !important;
+    margin-left: 0.5em;
   }
 
   #footer .container {
@@ -336,6 +367,7 @@ h3 {
 }
 
 @media screen and (max-width: 648px) {
+
   .contenedorMain {
     display: flex;
     flex-direction: column;
@@ -345,11 +377,6 @@ h3 {
   #titulo {
     margin-top: 7%;
     margin-bottom: 8% !important;
-  }
-
-  #botonesCarro {
-    display: flex !important;
-    gap: 0 !important;
   }
 
   .botonBottom {
@@ -413,7 +440,7 @@ h3 {
 
   #costos,
   #lineaFinal {
-    margin-top: 0.5em;
+    margin-top: 1.5em !important;
   }
 
   #lineaFinal {
@@ -425,46 +452,22 @@ h3 {
   #btnFinalizarC {
     font-size: large;
   }
-}
 
-.campo-error {
-  border: 2px solid red !important;
-  border-radius: 4px;
-  background-color: rgb(245, 172, 172);
-}
+  .divDeToast .toast {
+    width: 93vw;
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+  }
 
-.mensaje-error {
-  color: red !important; 
-  font-size: 0.8rem;
-}
+  .divDeToast .toast-body {
+    padding: 0.5em;
+  }
 
-.oculto {
-  display: none !important;
-}
+  .divDeToast .toast-close-text {
+    font-size: 0.8rem;
+  }
 
-.divPrincipal {
-  flex: 1;
-}
-
-#tarjetaCampos {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em;
-}
-
-#vencYcvv {
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-}
-
-.campoTarjeta input {
-  width: 100%;
-  max-width: 250px;
-}
-
-@media screen and (max-width: 648px) {
-  #vencYcvv {
+    #vencYcvv {
     flex-direction: column;
     gap: 0.3em;
   }
