@@ -423,3 +423,27 @@ h3 {
 .divPrincipal {
   flex: 1;
 }
+
+#tarjetaCampos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+#vencYcvv {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.campoTarjeta input {
+  width: 100%;
+  max-width: 250px;
+}
+
+@media screen and (max-width: 648px) {
+  #vencYcvv {
+    flex-direction: column;
+    gap: 0.3em;
+  }
+}
