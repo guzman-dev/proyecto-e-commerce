@@ -132,7 +132,7 @@ function mostrarProductosEnCarrito() {
     });
   });
   
-  formatearPreciosDinamicos();
+  
   recargarTotales();
 }
 
@@ -142,11 +142,9 @@ function recargarTotales() {
   const subTotales = document.querySelectorAll(".subTotal");
   let totalNumero = 0;
 
-  subTotales.forEach((subT) => {
-    const limpio = subT.textContent.replace(/[^\d,.-]/g, "").replace(/\./g, "").replace(",", ".");
-    const num = parseFloat(limpio);
-    totalNumero += isNaN(num) ? 0 : num;
-  });
+  subTotales.forEach(subT => {
+      totalNumero += parseInt(subT.textContent.split(" ")[1]);
+    })
 
   const envioSeleccionado = inputEnvio?.value;
   let costoDeEnvio = 0;
@@ -156,10 +154,10 @@ function recargarTotales() {
 
   const totalConEnvio = totalNumero + costoDeEnvio;
 
-  total.innerHTML = `Total: ${formatearNumero(totalNumero)}`;
-  compraSubTotal.innerHTML = `Subtotal: ${formatearNumero(totalNumero)}`;
-  compraCostoEnvio.innerHTML = `Costo de envío: ${formatearNumero(costoDeEnvio)}`;
-  compraTotal.innerHTML = `Total a pagar: ${formatearNumero(totalConEnvio)}`;
+  total.innerHTML = `Total: ${totalNumero}`;
+  compraSubTotal.innerHTML = `Subtotal: ${totalNumero}`;
+  compraCostoEnvio.innerHTML = `Costo de envío: ${costoDeEnvio}`;
+  compraTotal.innerHTML = `Total a pagar: ${totalConEnvio}`;
 }
 
 //FUNCIONALIDAD DE LA FACTURACIÖN
@@ -171,45 +169,34 @@ const form = document.querySelector("form");
 
 //FUNCIÓN PARA VALIDAR LOS CAMPOS DEL FORMULARIO
 
-function validarCampos() {
-  //Elimina mensajes de error
-  form.querySelectorAll(".mensaje-error").forEach((msj) => msj.remove());
-  form.querySelectorAll("input, select").forEach((campo) => {
-    campo.classList.remove("campo-error");
+function recargarTotales() {
+  const subTotales = document.querySelectorAll(".subTotal");
+  let totalNumero = 0;
+
+  subTotales.forEach((subT) => {
+    const match = subT.textContent.match(/[\d.,-]+/);
+    if (!match) return;
+      let limpio = match[0]
+        .replace(/\./g, "") // eliminar puntos de miles
+        .replace(/,/g, ".") // cambiar coma por punto decimal
+        .replace(/[^0-9.-]/g, ""); // limpiar cualquier otra cosa
+    const num = parseFloat(limpio);
+    if (!isNaN(num)) totalNumero += num;
   });
 
-  //Selecciona todos los campos obligatorios del formulario
-  const camposObligatorios = form.querySelectorAll(
-    "input[required], select[required]"
+  const envioSeleccionado = inputEnvio?.value;
+  let costoDeEnvio = (
+    envioSeleccionado == "standard" ? 
+    totalNumero * 0.05 : envioSeleccionado == "express" ? 
+    totalNumero * 0.07 : envioSeleccionado == "premium" ? 
+    totalNumero * 0.15 : 0
   );
+  const totalConEnvio = totalNumero + costoDeEnvio;
 
-  //Variable para saber si hay algún campo vacío
-  let estaVacio = false;
-
-  //Recorre todos los campos obligatorios
-  camposObligatorios.forEach((campo) => {
-    if (!campo.value.trim()) { //Si el campo está vacío...
-      estaVacio = true; //Marca que hay al menos un campo vacío
-      campo.classList.add("campo-error"); //Aplica estilo al campo vacío con la clase 'campo-error'
-
-      const mensaje = document.createElement("p"); //Crea un párrafo para el mensaje de error
-      mensaje.textContent = "Este campo es obligatorio"; //Texto del mensaje
-      mensaje.classList.add("mensaje-error"); //Aplica la clase 'mensaje-error' al mensaje
-      campo.insertAdjacentElement("afterend", mensaje); //Inserta el mensaje a continuación del campo
-    }
-
-    //Escucha el evento 'input' en los campos
-    campo.addEventListener("input", () => {
-      if (campo.value.trim()) { //Si el campo NO está vacío
-        campo.classList.remove("campo-error"); //Quita el estilo de error
-        campo.nextElementSibling?.classList?.contains("mensaje-error") && //Si tiene un mensaje de error...
-          campo.nextElementSibling.remove(); //Lo elimina
-      }
-    });
-  });
-
-  // Si hay campos vacíos, devuelve false
-  return !estaVacio;
+  total.innerHTML = `Total: ${formatearNumero(totalNumero)}`;
+  compraSubTotal.innerHTML = `Subtotal: ${formatearNumero(totalNumero)}`;
+  compraCostoEnvio.innerHTML = `Costo de envío: ${formatearNumero(costoDeEnvio)}`;
+  compraTotal.innerHTML = `Total a pagar: ${formatearNumero(totalConEnvio)}`;
 }
 
 // Escucha el evento 'click' en el botón de finalizar compra
@@ -239,11 +226,17 @@ inputFormaPago.addEventListener("change", () => {
 function formatearNumero(num, esUSD = false) {
   if (num === null || num === undefined) return "";
 
-  const limpio = String(num)
-    .replace(/[^0-9,.-]/g, "")
-    .replace(/\./g, "")
-    .replace(",", ".");
-  
+  // Limpia todo excepto dígitos, punto o coma
+  let limpio = String(num).replace(/[^0-9.,-]/g, "");
+
+  // Si el número tiene coma y punto, asumimos que la coma es miles y el punto es decimal
+  if (/,/.test(limpio) && /\./.test(limpio)) {
+    limpio = limpio.replace(/,/g, "");
+  } else {
+    // Si solo tiene coma, tratala como punto decimal
+    limpio = limpio.replace(/,/g, ".");
+  }
+
   const n = parseFloat(limpio);
   if (isNaN(n)) return num;
 
@@ -253,7 +246,8 @@ function formatearNumero(num, esUSD = false) {
     useGrouping: true,
   });
 
-  return texto.replace(/([.,]00)$/, ""); // elimina ",00" o ".00" si son ceros exactos
+  // Elimina decimales si son exactos 00
+  return texto.replace(/([.,]00)$/, "");
 }
 
 function formatearPreciosDinamicos() {
@@ -263,13 +257,21 @@ function formatearPreciosDinamicos() {
 
   precios.forEach((p) => {
     let texto = p.textContent.trim();
-
-    // Detecta si el texto tiene "USD"
     const esUSD = texto.includes("USD");
 
-    // Formatea todos los números dentro del texto
+    // Limpia y convierte solo los números dentro del texto
     texto = texto.replace(/(\d[\d.,]*)/g, (coincidencia) => {
-      return formatearNumero(coincidencia, esUSD);
+
+      // limpiamos antes de formatear
+      let limpio = coincidencia.replace(/[^0-9.,-]/g, "");
+      if (/,/.test(limpio) && /\./.test(limpio)) {
+        limpio = limpio.replace(/,/g, "");
+      } else {
+        limpio = limpio.replace(/,/g, ".");
+      }
+      const n = parseFloat(limpio);
+      if (isNaN(n)) return coincidencia;
+      return formatearNumero(n, esUSD);
     });
 
     p.textContent = texto;
