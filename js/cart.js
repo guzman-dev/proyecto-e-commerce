@@ -243,7 +243,7 @@ function formatearNumero(num, esUSD = false) {
 
   const limpio = String(num)
     .replace(/[^0-9,.-]/g, "")
-    .replace(/\./g, "")
+    .replace(/\.(?=.*\.)/g, "")
     .replace(",", ".");
   
   const n = parseFloat(limpio);
