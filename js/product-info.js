@@ -62,10 +62,10 @@ fetch(apiURL)
                 localStorage.setItem("productoSeleccionado", producto.id);
                 window.location.reload();
             })
-            
+
             productosRel.appendChild(divProductInfo);
         })
-
+        console.log(product);
         botonComprar.addEventListener("click", () => {
             const productoComprado = {
                 id: product.id,
@@ -87,8 +87,9 @@ fetch(apiURL)
             } else {
                 carrito.push(productoComprado);
             }
-
+            subirABaseDeDatos(product);
             localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
+
             window.location.href = "cart.html";
         });
     })
@@ -118,13 +119,13 @@ function cargarComentarios() {
         divComentario.classList.add("d-flex", "flex-column", "card", "mb-3", "card");
 
         const divTopComentario = document.createElement("div");
-        divTopComentario.id="divTopComentario";
-        divTopComentario.classList.add("d-flex","flex-row", "gap-4", "align-items-center", "justify-content-between");
+        divTopComentario.id = "divTopComentario";
+        divTopComentario.classList.add("d-flex", "flex-row", "gap-4", "align-items-center", "justify-content-between");
         divTopComentario.classList.add("card-header");
-        
+
         const divTopLeft = document.createElement("div");
-        divTopLeft.id="divTopLeft";
-        divTopLeft.classList.add("d-flex","flex-row", "gap-4", "align-items-center");
+        divTopLeft.id = "divTopLeft";
+        divTopLeft.classList.add("d-flex", "flex-row", "gap-4", "align-items-center");
 
         const divBottomComentario = document.createElement("div");
         divBottomComentario.classList.add("comentario");
@@ -228,4 +229,23 @@ function getFechaFormateada() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
 
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+
+async function subirABaseDeDatos(producto) {
+    let productoSubido = await fetch("http://localhost:3000/userCart", {
+        method: "POST",
+        body: JSON.stringify({
+            id: producto.id,
+            name: producto.name,
+            count: 1,
+            unitCost: producto.cost,
+            currency: producto.currency,
+            image: producto.images[0]
+        }),
+        headers: {
+            "access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzY0MDc0NzQ2fQ.RxwShsGiAetJNVBQBlrA0TJe1wewKT0tRbxPYXShDfo",
+            "Content-Type": "application/json"
+        }
+    });
 }

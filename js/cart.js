@@ -2,7 +2,7 @@
 const contenedorProductos = document.getElementById("listadoCarrito");
 const btnSeguirComprando = document.getElementById("btnSeguirComprando");
 const total = document.getElementById("total");
-const productosGuardadosJSON = localStorage.getItem("productosEnCarrito");
+let productosGuardadosJSON = JSON.parse(localStorage.getItem("productosEnCarrito"));
 
 //ELEMENTOS DE LA FACTURACIÓN
 //Inputs
@@ -29,10 +29,11 @@ const btnFinalizarCompra = document.getElementById("btnFinalizarC");
 const toastElem = document.getElementById("toastCompraExitosa");
 const toast = new bootstrap.Toast(toastElem, {autohide: true, delay: 4000});
 
+
 function comprobarJsonCarritos() {
   const divDeDatos = document.getElementById("divDeDatos");
 
-  if (!productosGuardadosJSON || productosGuardadosJSON === "[]") {
+  if (!productosGuardadosJSON || productosGuardadosJSON.length === 0) {
     mostrarCarritoVacio();
     divDeDatos.classList.add("oculto"); //Oculta el apartado 'Datos de compra'
     total.classList.add("oculto"); //Oculta el texto 'Total'
@@ -42,8 +43,6 @@ function comprobarJsonCarritos() {
     total.classList.remove("oculto");
   }
 }
-
-comprobarJsonCarritos();
 
 btnSeguirComprando.addEventListener("click", () => {
   window.location = "products.html";
@@ -64,9 +63,11 @@ function mostrarCarritoVacio() {
   contenedorProductos.appendChild(mensaje);
 }
 
+comprobarJsonCarritos();
+
 function mostrarProductosEnCarrito() {
   contenedorProductos.innerHTML = "";
-  const productos = JSON.parse(productosGuardadosJSON);
+  const productos = productosGuardadosJSON;
 
   productos.forEach((producto) => {
     let divProducto = document.createElement("div");
@@ -119,6 +120,9 @@ function mostrarProductosEnCarrito() {
       producto.cantidad = parseInt(inputCantidad.value);
       localStorage.setItem("productosEnCarrito", JSON.stringify(productos));
       actualizarBadgeCarrito();
+      subirABaseDeDatos(producto);
+
+
     });
     
     const quitarProducto = divProducto.querySelector("#quitarProd");
@@ -276,4 +280,22 @@ function formatearPreciosDinamicos() {
 
     p.textContent = texto;
   });
+}
+
+async function subirABaseDeDatos(producto) {
+  let productoSubido = await fetch("http://localhost:3000/userCart", {
+        method: "POST",
+        body: JSON.stringify({
+            id: producto.id,
+            name: producto.nombre,
+            count: producto.cantidad,
+            unitCost: producto.precio,
+            currency: producto.moneda,
+            image: producto.imagen,
+        }),
+        headers: {
+            "access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzY0MDc0NzQ2fQ.RxwShsGiAetJNVBQBlrA0TJe1wewKT0tRbxPYXShDfo",
+            "Content-Type": "application/json"
+        }
+    });
 }
